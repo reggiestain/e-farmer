@@ -65,20 +65,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
-                                    <div class="col-md-6 checkbox">
-                                        @foreach($roles as $role)
-                                        <input type="checkbox" name='roles[]' value="{{ $role->id}}">
-                                        <label>{{$role->name}}</label>
-                                        @endforeach    
-                                        @error('roles')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
+
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

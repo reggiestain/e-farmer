@@ -4,10 +4,22 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        return view('admin.users.index')->with('users',$users);
     }
 
     /**
@@ -26,7 +39,12 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        $roles = Role::all();
+        
+        return view('admin.users.edit')->with([
+            'user'=>$user,
+            'roles'=>$roles
+        ]);
     }
 
     /**
@@ -38,7 +56,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->roles()->sync($request->roles);
+        
+        return redirect()->route('admin.users.index');
     }
 
     /**

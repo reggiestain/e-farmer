@@ -1,0 +1,25 @@
+<?php
+
+use App\Role;
+use Illuminate\Database\Seeder;
+
+class RolesTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Role::truncate();
+        Role::create(['name'=>'admin',
+            'description'=>'Administrator']);
+        Role::create(['name'=>'official',
+            'description'=>'Official']);
+        Role::create(['name'=>'farmer',
+            'description'=>'Farmer']);
+        Role::create(['name'=>'super',
+            'description'=>'Super User']);
+    }
+}

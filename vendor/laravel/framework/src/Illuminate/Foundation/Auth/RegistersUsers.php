@@ -5,9 +5,10 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Role;
 
-trait RegistersUsers
-{
+trait RegistersUsers {
+
     use RedirectsUsers;
 
     /**
@@ -15,9 +16,9 @@ trait RegistersUsers
      *
      * @return \Illuminate\Http\Response
      */
-    public function showRegistrationForm()
-    {
-        return view('auth.register');
+    public function showRegistrationForm() {
+        $roles = Role::all();
+        return view('auth.register')->with('roles',$roles);
     }
 
     /**
@@ -26,16 +27,14 @@ trait RegistersUsers
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request)
-    {
+    public function register(Request $request) {
         $this->validator($request->all())->validate();
 
         event(new Registered($user = $this->create($request->all())));
 
         $this->guard()->login($user);
 
-        return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+        return $this->registered($request, $user) ?: redirect($this->redirectPath());
     }
 
     /**
@@ -43,8 +42,7 @@ trait RegistersUsers
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
-    protected function guard()
-    {
+    protected function guard() {
         return Auth::guard();
     }
 
@@ -55,8 +53,8 @@ trait RegistersUsers
      * @param  mixed  $user
      * @return mixed
      */
-    protected function registered(Request $request, $user)
-    {
+    protected function registered(Request $request, $user) {
         //
     }
+
 }
