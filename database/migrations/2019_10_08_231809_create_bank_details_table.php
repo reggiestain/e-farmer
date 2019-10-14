@@ -15,11 +15,12 @@ class CreateBankDetailsTable extends Migration
     {
         Schema::create('bank_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('bank_name');
-            $table->string('branch_name');
-            $table->string('account_no');
-            $table->string('branch_code');
-            $table->string('mobile');
+            $table->integer('farmer_id');
+            $table->string('bank_name',30)->nullable();
+            $table->string('branch_name',30)->nullable();
+            $table->string('account_no',30)->nullable();
+            $table->string('branch_code',20)->nullable();
+            $table->string('mobile',12)->nullable();
             $table->timestamps();
         });
     }

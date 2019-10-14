@@ -15,22 +15,21 @@ class CreateFarmersTable extends Migration
     {
         Schema::create('farmers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('firstname');
-            $table->string('othernames');
-            $table->string('surname');
-            $table->string('mobile');     
-            $table->string('mobile2');
-            $table->string('email')->unique();
-            $table->string('email2')->unique();
+            $table->string('firstname',30);
+            $table->string('othernames',30);
+            $table->string('surname',30);
+            $table->string('mobile',12)->nullable();     
+            $table->string('mobile2',12)->nullable();
+            $table->string('email')->nullable()->unique();
             $table->enum('gender', ['Male','Female']);
-            $table->string('age');
-            $table->string('birth_date');
-            $table->string('birth_place');
-            $table->string('marital_status');
+            $table->string('age',10);
+            $table->string('birth_date',10);
+            $table->string('birth_place',100);
+            $table->string('marital_status',20);
             $table->integer('number_of_children');
-            $table->integer('number_of_dependencies');
-            $table->integer('address_id');
-            $table->text('postal_address');            
+            $table->integer('number_of_dependencies')->nullable();
+            $table->text('address');
+            $table->text('postal_address')->nullable();            
             $table->timestamps();
         });
     }

@@ -15,10 +15,11 @@ class CreateSpousalDetailsTable extends Migration
     {
         Schema::create('spousal_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('firstname');
-            $table->string('surname');
-            $table->string('birth_date');
-            $table->string('mobile');
+            $table->integer('farmer_id');
+            $table->string('s_firstname',30)->nullable();
+            $table->string('s_surname',30)->nullable();
+            $table->string('s_birth_date',20)->nullable();
+            $table->string('s_mobile',12)->nullable();
             $table->timestamps();
         });
     }

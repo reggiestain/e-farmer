@@ -15,13 +15,13 @@ class CreateFarmDetailsTable extends Migration
     {
         Schema::create('farm_details', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('crop_type_id');
-            $table->string('seedlings');
-            $table->string('size_of_land');
-            $table->string('year_exstablished');     
-            $table->string('district');
-            $table->string('longitude');
-            $table->string('latitude');
+            $table->string('crop_type',50)->nullable();
+            $table->string('seedlings',50)->nullable();
+            $table->string('size_of_land',50)->nullable();
+            $table->string('year_exstablished',20)->nullable();     
+            $table->string('district',100)->nullable();
+            $table->string('longitude',30)->nullable();
+            $table->string('latitude',30)->nullable();
             $table->timestamps();
         });
     }
