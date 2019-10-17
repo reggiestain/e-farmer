@@ -114,7 +114,8 @@ class FarmerController extends Controller {
             return back()->withError($exception->getMessage())->withInput();
         }
         
-        return view('farmer.index')->with('message','Farmer information has been save successfully.');
+        Redirect::to('/farmer')->with('message', 'success|Record updated.');
+        
     }
 
     /**
