@@ -9,6 +9,7 @@ use App\SpousalDetail;
 use App\BankDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class FarmerController extends Controller {
 
@@ -60,6 +61,7 @@ class FarmerController extends Controller {
             ]);
 
             $farmer = Farmer::create([
+                        'user_id' => Auth::user()->id,
                         'firstname' => $request->input('firstname'),
                         'surname' => $request->input('surname'),
                         'email' => $request->input('email'),
