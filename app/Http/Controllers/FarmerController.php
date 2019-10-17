@@ -22,7 +22,9 @@ class FarmerController extends Controller {
         
          $farmers = Farmer::all();
         
-        return view('farmer.index', compact('farmers'));
+        return view('farmer.index')->with([
+            'farmers'=>$farmers
+        ]);
     }
 
     /**
