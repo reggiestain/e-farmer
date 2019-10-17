@@ -42,45 +42,32 @@
                                                     <th>Name</th>
                                                     <th>Surname</th>
                                                     <th>Gender</th>
+                                                    <th>Birth Date</th>
                                                     <th>Age</th>
+                                                    <th>Birth Place</th>
                                                     <th>Marital Status</th>
-                                                    <th>Dependencies</th>
-                                                    <th>Region</th>
                                                     <th>Created</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach($farmers as $farmer)
                                                 <tr>
-                                                    <td>001</td>
-                                                    <td>Kofi</td>
-                                                    <td>Yeboah</td>
-                                                    <td>Male</td>
-                                                    <td>45</td>
-                                                    <td>Married</td>
-                                                    <td>4</td>
-                                                    <td>Ashanti Region</td>
-                                                    <td>2011/04/25</td>
+                                                    <td>00{{$farmer->id}}</td>
+                                                    <td>{{$farmer->firstname}}</td>
+                                                    <td>{{$farmer->surname}}</td>
+                                                    <td>{{$farmer->gender}}</td>
+                                                    <td>{{$farmer->birth_date}}</td>
+                                                    <td>{{$farmer->age}}</td>
+                                                    <td>{{$farmer->birth_place}}</td>
+                                                    <td>{{$farmer->marital_status}}</td>
+                                                    <td>{{$farmer->created_at}}</td>
                                                     <td>
-                                                        <button class="btn btn-success btn-sm">View</button> 
-                                                        <button class="btn btn-primary btn-sm">Edit</button>   
+                                                        <button class="btn btn-success btn-xs">View</button> 
+                                                        <button class="btn btn-primary btn-xs">Edit</button>   
                                                     </td>
-                                                </tr>  
-                                                <tr>
-                                                    <td>002</td>
-                                                    <td>Matthew</td>
-                                                    <td>Amoah</td>
-                                                    <td>Male</td>
-                                                    <td>55</td>
-                                                    <td>Married</td>
-                                                    <td>7</td>
-                                                    <td>Ahafo Region</td>
-                                                    <td>2011/04/25</td>
-                                                    <td>
-                                                        <button class="btn btn-success btn-sm">View</button> 
-                                                        <button class="btn btn-primary btn-sm">Edit</button>   
-                                                    </td>
-                                                </tr>   
+                                                </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
                                     </div>

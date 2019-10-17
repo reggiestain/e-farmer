@@ -5,9 +5,7 @@
 
     <!-- Main Content -->
     <div id="content">
-
         <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 

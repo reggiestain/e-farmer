@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Farmer;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::all();
+        $farmers = Farmer::all();
+        
+        $femaleCount = Farmer::where('gender','Female')->count();
+        $farmersCount = Farmer::count();
+        
+        return view('home')->with([
+            'users'=>$users,
+            'farmers'=>$farmers,
+            'femaleCount'=>$femaleCount,
+            'farmersCount'=>$farmersCount
+        ]);
     }
 }
