@@ -114,7 +114,7 @@ class FarmerController extends Controller {
             return back()->withError($exception->getMessage())->withInput();
         }
         
-        Redirect::to('/farmer')->with('message', 'success|Record updated.');
+       return redirect('/farmer')->with('success', 'success|Record updated.');
         
     }
 

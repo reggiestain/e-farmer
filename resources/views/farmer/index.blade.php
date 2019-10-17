@@ -31,53 +31,66 @@
                             </div>
                         </div>
                         <!-- Card Body -->
-                       
-                            <p class="mb-4"></p>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>#ID</th>
-                                                    <th>Name</th>
-                                                    <th>Surname</th>
-                                                    <th>Gender</th>
-                                                    <th>Birth Date</th>
-                                                    <th>Age</th>
-                                                    <th>Birth Place</th>
-                                                    <th>Marital Status</th>
-                                                    <th>Created</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($farmers as $farmer)
-                                                <tr>
-                                                    <td>00{{$farmer->id}}</td>
-                                                    <td>{{$farmer->firstname}}</td>
-                                                    <td>{{$farmer->surname}}</td>
-                                                    <td>{{$farmer->gender}}</td>
-                                                    <td>{{$farmer->birth_date}}</td>
-                                                    <td>{{$farmer->age}}</td>
-                                                    <td>{{$farmer->birth_place}}</td>
-                                                    <td>{{$farmer->marital_status}}</td>
-                                                    <td>{{$farmer->created_at}}</td>
-                                                    <td>
-                                                        <button class="btn btn-success btn-xs">View</button> 
-                                                        <button class="btn btn-primary btn-xs">Edit</button>   
-                                                    </td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
+
+                        <p class="mb-4"></p>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                @if ($message = Session::get('success'))
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>    
+                                    <strong>{{ $message }}</strong>
                                 </div>
+                                @endif
+
+                                @if ($message = Session::get('error'))
+                                <div class="alert alert-danger alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>    
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @endif
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#ID</th>
+                                            <th>Name</th>
+                                            <th>Surname</th>
+                                            <th>Gender</th>
+                                            <th>Birth Date</th>
+                                            <th>Age</th>
+                                            <th>Birth Place</th>
+                                            <th>Marital Status</th>
+                                            <th>Created</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($farmers as $farmer)
+                                        <tr>
+                                            <td>00{{$farmer->id}}</td>
+                                            <td>{{$farmer->firstname}}</td>
+                                            <td>{{$farmer->surname}}</td>
+                                            <td>{{$farmer->gender}}</td>
+                                            <td>{{$farmer->birth_date}}</td>
+                                            <td>{{$farmer->age}}</td>
+                                            <td>{{$farmer->birth_place}}</td>
+                                            <td>{{$farmer->marital_status}}</td>
+                                            <td>{{$farmer->created_at}}</td>
+                                            <td>
+                                                <button class="btn btn-success btn-xs">View</button> 
+                                                <button class="btn btn-primary btn-xs">Edit</button>   
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
             </div>
-            @endsection     
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    @endsection     
 
 
