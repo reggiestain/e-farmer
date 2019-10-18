@@ -59,6 +59,7 @@
                                             <th>Age</th>
                                             <th>Birth Place</th>
                                             <th>Marital Status</th>
+                                            <th>Official</th>
                                             <th>Created</th>
                                             <th>Action</th>
                                         </tr>
@@ -74,6 +75,7 @@
                                             <td>{{$farmer->age}}</td>
                                             <td>{{$farmer->birth_place}}</td>
                                             <td>{{$farmer->marital_status}}</td>
+                                            <td>{{$farmer->user->name}}</td>
                                             <td>{{$farmer->created_at}}</td>
                                             <td>
                                                 <button class="btn btn-success btn-xs">View</button> 

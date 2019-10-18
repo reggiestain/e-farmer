@@ -20,11 +20,9 @@ class FarmerController extends Controller {
      */
     public function index() {
         
-         $farmers = Farmer::all();
+         $farmers = Farmer::with('user')->get();
         
-        return view('farmer.index')->with([
-            'farmers'=>$farmers
-        ]);
+        return view('farmer.index', compact('farmers'));
     }
 
     /**
