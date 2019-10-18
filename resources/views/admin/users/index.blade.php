@@ -26,7 +26,11 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
                                     <div class="dropdown-header">Dropdown Header:</div>
-                                    <a class="dropdown-item" href="{{route('register')}}">Add user</a>                                    
+                                    @if(Auth::user()->roles()->get()->pluck('name')->first() !=='official')
+                                    <a class="dropdown-item" href="{{route('register')}}">Add user</a>   
+                                    @else
+                                    
+                                    @endif
                                 </div>
                             </div>
                         </div>
