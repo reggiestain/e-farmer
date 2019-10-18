@@ -267,15 +267,22 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group">
+                                                <div class='form-group'>
                                                     <label class="control-label">Birth Date</label>
-                                                    <input type="text" name="s_birth_date" class="form-control @error('s_birth_date') is-invalid @enderror" placeholder="Enter Birth Date" />
+                                                    <div class="form-group">
+                                                        <div class='input-group date' id='datetimepicker2'>
+                                                            <input type='text' name="s_birth_date" class="form-control @error('s_birth_date') is-invalid @enderror" value="{{ old('s_birth_date') }}" autocomplete="s_birth_date"/>
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
                                                      @error('s_birth_date')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
-                                                </div>
+                                                </div>     
                                                 <div class="form-group">
                                                     <label class="control-label">Contact Number</label>
                                                     <input maxlength="200" type="text"  name="s_mobile" class="form-control @error('s_mobile') is-invalid @enderror" placeholder="Enter Contact Number" />

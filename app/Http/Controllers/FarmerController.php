@@ -114,7 +114,7 @@ class FarmerController extends Controller {
             return back()->withError($exception->getMessage())->withInput();
         }
         
-       return redirect('/farmer')->with('success', '<strong>Success:</strong> Record saved successfully.');
+       return redirect('/farmer')->with('success', 'Success | Record saved successfully.');
         
     }
 
