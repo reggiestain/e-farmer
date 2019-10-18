@@ -52,11 +52,15 @@
                                                     <td>{{$user->id}}</td>
                                                     <td>{{$user->name}}</td>
                                                     <td>{{$user->email}}</td>
-                                                    <td>{{implode(',',$user->roles()->get()->pluck('name')->toArray())}}</td>
+                                                    <td>{{$role = implode(',',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                                     <td>{{$user->created_at}}</td>
-                                                    <td>
+                                                    <td>                                                   
                                                         <a class="btn btn-success">View</a> 
+                                                        @if(Auth::user()->roles()->get()->pluck('name')->first() !=='official')
                                                         <a class="btn btn-primary" href="{{route('admin.users.edit',$user->id)}}">Edit</a>   
+                                                        @else
+                                                        
+                                                        @endif
                                                     </td>
                                                 </tr> 
                                                 @endforeach
