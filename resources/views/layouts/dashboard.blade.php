@@ -163,6 +163,13 @@
                                            todayHighlight: true
                                        });
                                        
+                                       $('#datetimepicker2').datepicker({
+                                           format: "dd/mm/yyyy",
+                                           language: "es",
+                                           autoclose: true,
+                                           todayHighlight: true
+                                       });
+                                       
                                        var navListItems = $('div.setup-panel div a'),
                                                allWells = $('.setup-content'),
                                                allNextBtn = $('.nextBtn');
