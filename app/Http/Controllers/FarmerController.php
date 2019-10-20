@@ -143,7 +143,10 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Farmer $farmer) {
-        //
+        
+        $farmer->region()->sync($request->region_id);
+        
+        return redirect()->route('farmer.index')->with('success', 'Success | Record updated successfully.');
     }
 
     /**
