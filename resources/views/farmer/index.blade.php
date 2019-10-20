@@ -48,6 +48,7 @@
                                     <strong>{{ $message }}</strong>
                                 </div>
                                 @endif
+                                <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
@@ -79,12 +80,13 @@
                                             <td>{{$farmer->created_at}}</td>
                                             <td>
                                                 <button class="btn btn-success btn-xs">View</button> 
-                                                <button class="btn btn-primary btn-xs">Edit</button>   
+                                                <a href="{{route('farmer.edit',$farmer->id)}}" class="btn btn-primary btn-xs">Edit</a>   
                                             </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+                                </div>    
                             </div>
                         </div>
                     </div>
