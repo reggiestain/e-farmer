@@ -123,7 +123,16 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Farmer $farmer) {
-        //
+        
+        //$farmer = Farmer::with(['farmDetail'])->get();       
+        $genders = ['Male', 'Female'];
+        $regions = Region::all();
+        
+        return view('farmer.edit')->with([
+            'farmer'=>$farmer,
+            'genders'=>$genders,
+            'regions'=>$regions
+        ]);
     }
 
     /**

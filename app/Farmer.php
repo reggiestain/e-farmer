@@ -24,15 +24,15 @@ class Farmer extends Model {
     }
 
     public function farmDetail() {
-        return $this->belongsTo(FarmDetail::class);
+        return $this->hasOne(FarmDetail::class);
     }
 
     public function spousalDetail() {
-        return $this->belongsTo(SpousalDetail::class);
+        return $this->hasOne(SpousalDetail::class);
     }
 
     public function bankDetail() {
-        return $this->belongsTo(BankDetail::class);
+        return $this->hasOne(BankDetail::class);
     }
 
 }
