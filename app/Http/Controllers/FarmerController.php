@@ -19,9 +19,9 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        
-         $farmers = Farmer::with('user')->get();
-        
+
+        $farmers = Farmer::with('user')->get();
+
         return view('farmer.index', compact('farmers'));
     }
 
@@ -77,7 +77,7 @@ class FarmerController extends Controller {
                         'address' => $request->input('address'),
                         'postal_address' => $request->input('postal_address'),
             ]);
-            
+
 
             $spouse = SpousalDetail::create([
                         'farmer_id' => $farmer->id,
@@ -107,13 +107,11 @@ class FarmerController extends Controller {
                         'branch_code' => $request->input('branch_code'),
                         'mobile_money' => $request->input('mobile_money'),
             ]);
-            
         } catch (ModelNotFoundException $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        
-       return redirect('/farmer')->with('success', 'Success | Record saved successfully.');
-        
+
+        return redirect('/farmer')->with('success', 'Success | Record saved successfully.');
     }
 
     /**
@@ -123,15 +121,15 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit(Farmer $farmer) {
-        
+
         //$farmer = Farmer::with(['farmDetail'])->get();       
         $genders = ['Male', 'Female'];
         $regions = Region::all();
-        
+
         return view('farmer.edit')->with([
-            'farmer'=>$farmer,
-            'genders'=>$genders,
-            'regions'=>$regions
+                    'farmer' => $farmer,
+                    'genders' => $genders,
+                    'regions' => $regions
         ]);
     }
 
@@ -143,9 +141,26 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Farmer $farmer) {
+
+        $farmer->spousalDetail->s_firstname = $request->input('s_firstname');
+        $farmer->spousalDetail->s_surname = $request->input('s_surname');
+        $farmer->spousalDetail->s_birth_date = $request->input('s_birth_date');
+        $farmer->spousalDetail->s_mobile = $request->input('s_mobile');
         
-        $farmer->region()->sync($request->region_id);
+        $farmer->farmDetail->crop_type = $request->input('crop_type');
+        $farmer->farmDetail->seedlings = $request->input('seedlings');
+        $farmer->farmDetail->district = $request->input('district');
+        $farmer->farmDetail->longitude = $request->input('longitude');
+        $farmer->farmDetail->latitude = $request->input('latitude');
+        $farmer->farmDetail->region_id = $request->input('region_id') ?? 0;
         
+        $farmer->bankDetail->bank_name = $request->input('bank_name');
+        $farmer->bankDetail->account_no = $request->input('account_no');
+        $farmer->bankDetail->branch_code = $request->input('branch_code');
+        $farmer->bankDetail->mobile_money = $request->input('mobile_money');
+        
+        $farmer->push();
+
         return redirect()->route('farmer.index')->with('success', 'Success | Record updated successfully.');
     }
 
