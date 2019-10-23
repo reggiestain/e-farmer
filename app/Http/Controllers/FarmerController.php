@@ -7,6 +7,7 @@ use App\Region;
 use App\FarmDetail;
 use App\SpousalDetail;
 use App\BankDetail;
+use App\Crop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -31,11 +32,15 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
+       
         $regions = Region::all();
+        $cropType = Crop::all();       
         $genders = ['Male', 'Female'];
+        
         return view('farmer.add')->with([
                     'regions' => $regions,
                     'genders' => $genders,
+                    'cropTypes' => $cropType
         ]);
     }
 
@@ -89,7 +94,7 @@ class FarmerController extends Controller {
 
             $farm = FarmDetail::create([
                         'farmer_id' => $farmer->id,
-                        'crop_type' => $request->input('crop_type'),
+                        'crop_id' => $request->input('crop_id'),
                         'seedlings' => $request->input('seedlings'),
                         'size_of_land' => $request->input('size_of_land'),
                         'year_established' => $request->input('year_established'),
@@ -125,11 +130,14 @@ class FarmerController extends Controller {
         //$farmer = Farmer::with(['farmDetail'])->get();       
         $genders = ['Male', 'Female'];
         $regions = Region::all();
+        $cropType = Crop::all();     
 
         return view('farmer.edit')->with([
-                    'farmer' => $farmer,
                     'genders' => $genders,
-                    'regions' => $regions
+                    'regions' => $regions,
+                    'farmer' =>$farmer,
+                    'cropTypes' =>$cropType
+                    
         ]);
     }
 
@@ -147,7 +155,7 @@ class FarmerController extends Controller {
         $farmer->spousalDetail->s_birth_date = $request->input('s_birth_date');
         $farmer->spousalDetail->s_mobile = $request->input('s_mobile');
         
-        $farmer->farmDetail->crop_type = $request->input('crop_type');
+        $farmer->farmDetail->crop_id = $request->input('crop_id');
         $farmer->farmDetail->seedlings = $request->input('seedlings');
         $farmer->farmDetail->district = $request->input('district');
         $farmer->farmDetail->longitude = $request->input('longitude');

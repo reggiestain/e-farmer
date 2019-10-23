@@ -301,10 +301,15 @@
                                                 <h3 class="panel-title">Farm</h3>
                                             </div>
                                             <div class="panel-body">
-                                                <div class="form-group">
+                                                <div class="form-group">    
                                                     <label class="control-label">Crop Type</label>
-                                                    <input maxlength="200" type="text" name="crop_type" class="form-control @error('crop_type') is-invalid @enderror" placeholder="Enter Crop Type" />
-                                                     @error('crop_type')
+                                                    <select class="form-control" id="selectUser" name="crop_id" class="form-control @error('crop_type_id') is-invalid @enderror" >
+                                                        <option value="" disabled selected>Please select crop type</option>        
+                                                        @foreach($cropTypes as $cropType)
+                                                        <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                     @error('region_id')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
