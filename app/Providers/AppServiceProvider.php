@@ -3,7 +3,7 @@
 namespace App\Providers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
-
+use App\Crop;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,8 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('layouts.partial.topbar', function($view){
-            $view->with('user', Auth::user());
+       
+        
+         view()->composer(['layouts.dashboard','layouts.partial.topbar'], function($view){
+            $view->with([
+                'user'=> Auth::user(),
+                'cropTypes'=> Crop::all(),  
+                'regions'=> \App\Region::all()          
+            ]);
         } );
     }
 }
