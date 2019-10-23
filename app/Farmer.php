@@ -18,16 +18,19 @@ class Farmer extends Model {
 
         return $this->belongsTo(User::class,'user_id','id');
     }
+     
     public function region() {
 
         return $this->belongsTo(Region::class, 'region_id', 'id');
     }
-
+    
     public function farmDetail() {
-        return $this->hasOne(FarmDetail::class);
+        
+        return $this->hasMany(FarmDetail::class);
     }
 
     public function spousalDetail() {
+        
         return $this->hasOne(SpousalDetail::class);
     }
 

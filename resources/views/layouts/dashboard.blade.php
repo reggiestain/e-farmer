@@ -122,16 +122,124 @@
                                         </a>
 
                                     </form>
-
                                 </div>                                          
                             </div>
                         </div>
+                        <div class="modal-footer">
 
+                        </div>
                     </div>   
                 </div>
-                <div class="modal-footer">
+                
+            </div>
+            <!--Add Modal-->
+            <div class="modal fade" id="addFarmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Farm Info</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">                                              
+                            <div class="col-lg-10">
+                                <div class="p-5">                 
+                                    <form>
+                                     <div class="form-group">    
+                                                    <label class="control-label">Crop Type</label>
+                                                    <select class="form-control" id="selectUser" name="crop_id" class="form-control @error('crop_type_id') is-invalid @enderror" >
+                                                        <option value="" disabled selected>Please select crop type</option>        
+                                                        @foreach($cropTypes as $cropType)
+                                                        <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                     @error('region_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Seedlings</label>
+                                                    <input maxlength="200" type="text" name="seedlings" class="form-control @error('seedlings') is-invalid @enderror" placeholder="Enter Seedlings" />
+                                                     @error('seedlings')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Size Of Land</label>
+                                                    <input maxlength="200" type="text" name="size_of_land" class="form-control @error('size_of_land') is-invalid @enderror" placeholder="Enter Size of Land" />
+                                                     @error('size_of_land')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Established Year</label>
+                                                    <input maxlength="200" type="text" name="year_established" class="form-control @error('year_established') is-invalid @enderror" placeholder="Enter Establish Year" />
+                                                     @error('year_established')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">District</label>
+                                                    <input maxlength="200" type="text" name="district" class="form-control @error('district') is-invalid @enderror" placeholder="Enter District" />
+                                                     @error('district')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Longitude</label>
+                                                    <input maxlength="200" type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror" placeholder="Enter Longitude" />
+                                                     @error('longitude')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Latitude</label>
+                                                    <input maxlength="200" type="text" name="latitude" class="form-control @error('latitude') is-invalid @enderror" placeholder="Enter Longitude" />
+                                                     @error('latitude')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">    
+                                                    <label class="control-label">Region</label>
+                                                    <select class="form-control" id="selectUser" name="region_id" class="form-control @error('region_id') is-invalid @enderror" >
+                                                        <option value="" disabled selected>Please select region</option>        
+                                                        @foreach($regions as $region)
+                                                        <option value="{{$region->id}}">{{ $region->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                     @error('region_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <button class="btn btn-primary nextBtn pull-right" type="button">Submit</button>  
 
+                                    </form>
+                                </div>                                          
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>   
                 </div>
+
             </div>
         </div>
     </div>
@@ -154,11 +262,12 @@
     <script src="{{ URL::asset('js/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('js/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
     <!-- Page level custom scripts -->
-   <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
+    <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
     <script>
                                    $(document).ready(function () {
-                                       $(document).on('click', '.add-u', function () {
 
+                                       $(document).on('click', '.add-farm', function () {
+                                           $("#addFarmModal").modal();
                                        });
 
                                        $('#datetimepicker1').datepicker({
@@ -167,14 +276,14 @@
                                            autoclose: true,
                                            todayHighlight: true
                                        });
-                                       
+
                                        $('#datetimepicker2').datepicker({
                                            format: "dd/mm/yyyy",
                                            language: "es",
                                            autoclose: true,
                                            todayHighlight: true
                                        });
-                                       
+
                                        var navListItems = $('div.setup-panel div a'),
                                                allWells = $('.setup-content'),
                                                allNextBtn = $('.nextBtn');
@@ -204,10 +313,10 @@
 
                                            $(".form-group").removeClass("has-error");
                                            //for (var i = 0; i < curInputs.length; i++) {
-                                               //if (!curInputs[i].validity.valid) {
-                                                   //isValid = false;
-                                                   //$(curInputs[i]).closest(".form-group").addClass("has-error");
-                                              // }
+                                           //if (!curInputs[i].validity.valid) {
+                                           //isValid = false;
+                                           //$(curInputs[i]).closest(".form-group").addClass("has-error");
+                                           // }
                                            //}
 
                                            if (isValid)

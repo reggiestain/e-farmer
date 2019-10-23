@@ -11,10 +11,15 @@ class FarmDetail extends Model
      *
      * @var array
      */
-    protected $fillable = ['farmer_id','crop_type','seedlings','size_of_land','year_extablished','district','longitude','latitude'];
+    protected $fillable = ['farmer_id','crop_id','seedlings','size_of_land','year_extablished','district','longitude','latitude'];
     
     public function region() {
 
         return $this->belongsTo(Region::class, 'region_id', 'id');
+    }
+    
+    public function crop() {
+
+        return $this->belongsTo(Crop::class, 'crop_id', 'id');
     }
 }
