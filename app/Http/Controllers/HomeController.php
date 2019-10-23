@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Farmer;
 use App\User;
-
+use App\Crop;
 class HomeController extends Controller
 {
     /**
@@ -30,12 +30,12 @@ class HomeController extends Controller
         
         $femaleCount = Farmer::where('gender','Female')->count();
         $farmersCount = Farmer::count();
-        
+        $cropType = Crop::all();
         return view('home')->with([
             'users'=>$users,
             'farmers'=>$farmers,
             'femaleCount'=>$femaleCount,
-            'farmersCount'=>$farmersCount
+            'farmersCount'=>$farmersCount,            
         ]);
     }
 }
