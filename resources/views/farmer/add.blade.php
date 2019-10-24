@@ -142,11 +142,11 @@
                                                 <p><small>Spousal Details</small></p>
                                             </div>                                          
                                             <div class="stepwizard-step col-xs-3"> 
-                                                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                                                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
                                                 <p><small>Banking Details</small></p>
                                             </div>
                                             <div class="stepwizard-step col-xs-3"> 
-                                                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                                                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
                                                 <p><small>Farm Details</small></p>
                                             </div>
 
@@ -312,7 +312,7 @@
                                                 </div>
                                         </div>
                                         </div>
-                                            
+                                        </div>    
                                         <div class="panel panel-primary setup-content" id="step-2">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Spouse Details</h3>
