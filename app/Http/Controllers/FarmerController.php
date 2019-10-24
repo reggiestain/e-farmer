@@ -336,11 +336,14 @@ class FarmerController extends Controller {
             // Make a image name based on user name and current timestamp
             $name = $request->input('firstname').''.time();
             // Define folder path
-            $folder = '/img/profile/';
+            $folder = '/img';
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder.$name.'.' .$image->getClientOriginalExtension();
             // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
+            //$this->uploadOne($image, $folder, 'public', $name);
+            $imageName = time().'.'.$request->profile_image->extension();  
+   
+              $request->profile_image->move(public_path('img'), $imageName);
             // Set user profile image path in database to filePath
             $farmer->profile_image = $filePath;
         }
