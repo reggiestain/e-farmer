@@ -132,8 +132,31 @@
                 </div>
 
             </div>
+            <div class="modal fade" id="editFarmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Edit Farm Info</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">                                              
+                            <div class="col-lg-10">
+                                <div class="p-5 edit-farm">                 
+                                    
+                                </div>                                          
+                            </div>
+                        </div>
+                        <div class="modal-footer">
 
+                        </div>
+                    </div>   
+                </div>
+
+            </div>
         </div>
+        
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ URL::asset('js/vendor/jquery/jquery.min.js') }}"></script>
@@ -163,7 +186,7 @@
                                        });
 
 
-                                       $(document).on('click', '.edit-farm', function (e) {
+                                       $(document).on('click', '.edit-f', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
                                            
                                            var form = $(this);
@@ -177,8 +200,8 @@
                                                url: url,
                                                data: form.serialize(), // serializes the form's elements.
                                                success: function (response) {                                                  
-                                                   $("#edit-farm").html(response);
-                                                    $("#addFarmModal").modal();
+                                                   $(".edit-farm").html(response);
+                                                   $("#editFarmModal").modal();
                                                },
                                                error: function (e) {
                                                    console.log(e.responseText);
