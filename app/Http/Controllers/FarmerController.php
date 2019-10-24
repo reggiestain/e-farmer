@@ -116,7 +116,7 @@ class FarmerController extends Controller {
             return back()->withError($exception->getMessage())->withInput();
         }
 
-        return redirect('/farmer')->with('success', 'Success | Record saved successfully.');
+        return redirect('/farmer/'.$farmer->id.'/edit')->with('success', 'Success | Record saved successfully.');
     }
 
      /**
@@ -130,13 +130,17 @@ class FarmerController extends Controller {
          try {
         $farm = FarmDetail::create([
                         'farmer_id' => $request->input('farmer_id'),
-                        'crop_id' => $request->input('crop_id'),
+                        'status' => $request->input('status'),
+                        'crop_id' => $request->input('crop_id') ?? 7,
                         'seedlings' => $request->input('seedlings'),
                         'size_of_land' => $request->input('size_of_land'),
                         'year_established' => $request->input('year_established'),
+                        'status' => $request->input('status'),
+                        'location' => $request->input('location'),
                         'district' => $request->input('district'),
                         'longitude' => $request->input('longitude'),
                         'latitude' => $request->input('latitude'),
+                        'region_id' => $request->input('region_id') ?? 11,
             ]);
         
         } catch (ModelNotFoundException $exception) {
@@ -152,7 +156,8 @@ class FarmerController extends Controller {
         return view('farmer.farm')->with([
                     'farmers' => $farms,
                     'regions' => $regions,
-                    'cropTypes' => $cropType
+                    'cropTypes' => $cropType,
+                    'statuses'=>['Active','In-active']
         ]);
         
     }
@@ -167,7 +172,8 @@ class FarmerController extends Controller {
          return view('farmer.farm')->with([
              'farmers'=>$farm,
              'regions'=>$regions,
-             'cropTypes'=>$cropType
+             'cropTypes'=>$cropType,
+             'statuses'=>['Active','In-active']
          ]);
      }
     
@@ -179,11 +185,44 @@ class FarmerController extends Controller {
         
        
          return view('farmer.editfarm')->with([
-             'farm'=>$farm,
+             'farms'=>$farm,
              'regions'=>$regions,
-             'cropTypes'=>$cropType
+             'cropTypes'=>$cropType,
+             'statuses'=>['Active','In-active']
          ]);
      }
+     
+     public function updatefarm(Request $request, $farms) {
+        
+         
+       $farm = FarmDetail::find($farms);
+       
+        $farm->crop_id = $request->input('crop_id') ?? 1;
+        $farm->seedlings = $request->input('seedlings');
+        $farm->district = $request->input('district');
+        $farm->size_of_land = $request->input('size_of_land');
+        $farm->location = $request->input('location');
+        $farm->status = $request->input('status') ?? 'In-active';
+        $farm->longitude = $request->input('longitude');
+        $farm->latitude = $request->input('latitude');
+        $farm->region_id = $request->input('region_id') ?? 11;
+               
+        $farm->push();
+        
+        $farmer = Farmer::find($request->input('farmer_id'));         
+        $regions = Region::all();
+        $cropType = Crop::all();
+        
+       
+         return view('farmer.farm')->with([
+             'farmers'=>$farmer,
+             'regions'=>$regions,
+             'cropTypes'=>$cropType,
+             'statuses'=>['Active','In-active']
+         ]);
+       
+    }
+
     
     /**
      * Show the form for editing the specified resource.
@@ -202,7 +241,8 @@ class FarmerController extends Controller {
                     'genders' => $genders,
                     'regions' => $regions,
                     'farmer' =>$farmer,
-                    'cropTypes' =>$cropType
+                    'cropTypes' =>$cropType,
+                    'statuses'=>['Active','In-active']
                     
         ]);
     }
@@ -220,13 +260,15 @@ class FarmerController extends Controller {
         $farmer->spousalDetail->s_surname = $request->input('s_surname');
         $farmer->spousalDetail->s_birth_date = $request->input('s_birth_date');
         $farmer->spousalDetail->s_mobile = $request->input('s_mobile');
-        
+        /*
         $farmer->farmDetail->crop_id = $request->input('crop_id');
         $farmer->farmDetail->seedlings = $request->input('seedlings');
         $farmer->farmDetail->district = $request->input('district');
         $farmer->farmDetail->longitude = $request->input('longitude');
         $farmer->farmDetail->latitude = $request->input('latitude');
         $farmer->farmDetail->region_id = $request->input('region_id') ?? 0;
+         * 
+         */
         
         $farmer->bankDetail->bank_name = $request->input('bank_name');
         $farmer->bankDetail->account_no = $request->input('account_no');

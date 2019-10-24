@@ -132,29 +132,7 @@
                 </div>
 
             </div>
-            <div class="modal fade" id="editFarmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Farm Info</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">                                              
-                            <div class="col-lg-10">
-                                <div class="p-5 edit-farm">                 
-                                    
-                                </div>                                          
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-
-                        </div>
-                    </div>   
-                </div>
-
-            </div>
+            
         </div>
         
     </div>
@@ -209,12 +187,13 @@
                                            });
                                        });
                                        
+                                       //save farm
                                        $(document).on('submit', '#formFarm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
 
                                            var form = $(this);
                                            var url = form.attr('action');
-                                           
+                                            //alert(url);
                                            $.ajax({
                                                type: "POST",                                               
                                                headers: {
@@ -224,6 +203,30 @@
                                                data: form.serialize(), // serializes the form's elements.
                                                success: function (response) {
                                                    $("#addFarmModal").modal('toggle');
+                                                   $(".farm-table").html(response);
+                                               },
+                                               error: function (e) {
+                                                   console.log(e.responseText);
+                                               }
+                                           });
+                                       });
+                                       
+                                       //update farm
+                                       $(document).on('submit', '#updateFarm', function (e) {
+                                           e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                                           var form = $(this);
+                                           var url = $("#updateFarm").attr('action');
+                                           //alert(url);
+                                           $.ajax({
+                                               type: "POST",                                               
+                                               headers: {
+                                                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                               },
+                                               url: url,
+                                               data: form.serialize(), // serializes the form's elements.
+                                               success: function (response) {
+                                                   $("#editFarmModal").modal('toggle');
                                                    $(".farm-table").html(response);
                                                },
                                                error: function (e) {
