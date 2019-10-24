@@ -333,7 +333,7 @@
                                                                 <td>{{$farm->region->name}}</td>
                                                                 <td>                                                   
                                                                     <a class="btn btn-success">View</a>                     
-                                                                    <a class="btn btn-primary edit-farm" href="{{route('farmer.editfarm',$farm->id)}}">Edit</a>                                                                      
+                                                                    <a class="btn btn-primary edit-f" href="{{route('farmer.editfarm',$farm->id)}}">Edit</a>                                                                      
                                                                 </td>
                                                             </tr> 
                                                             @endforeach
@@ -411,7 +411,7 @@
                         </div>
                         <div class="modal-body">                                              
                             <div class="col-lg-10">
-                                <div class="p-5" id="edit-farm">                 
+                                <div class="p-5">                 
                                     <form id="formFarm" action="{{route('farmer.savefarm')}}">
                                         @csrf
                                         <div class="row">
@@ -518,6 +518,8 @@
                 </div>
 
             </div>
+             <!--Add Modal-->
+            
     @endsection     
 
 
