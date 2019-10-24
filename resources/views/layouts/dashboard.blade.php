@@ -162,6 +162,30 @@
                                            $("#addFarmModal").modal();
                                        });
 
+
+                                       $(document).on('click', '.edit-farm', function (e) {
+                                           e.preventDefault(); // avoid to execute the actual submit of the form.
+                                           alert($(this).attr("href"));
+                                           var form = $(this);
+                                           var url = $(this).attr("href");
+                                           
+                                           $.ajax({
+                                               type: "GET",                                               
+                                               headers: {
+                                                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                               },
+                                               url: url,
+                                               data: form.serialize(), // serializes the form's elements.
+                                               success: function (response) {                                                  
+                                                   $("#edit-farm").html(response);
+                                                    $("#addFarmModal").modal();
+                                               },
+                                               error: function (e) {
+                                                   console.log(e.responseText);
+                                               }
+                                           });
+                                       });
+                                       
                                        $(document).on('submit', '#formFarm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
 

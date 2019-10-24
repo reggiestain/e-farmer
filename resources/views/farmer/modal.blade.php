@@ -1,4 +1,4 @@
-                                  <div class="form-group">    
+                                                <div class="form-group">    
                                                     <label class="control-label">Crop Type</label>
                                                     <select class="form-control" id="selectUser" name="crop_id" class="form-control @error('crop_id') is-invalid @enderror" >
                                                        <option value="{{$farmer->farmDetail->crop->name ?? 'Select Region'}}" disabled selected>{{$farmer->farmDetail->crop->name ?? 'crop type'}}</option>       
