@@ -12,7 +12,7 @@ class Farmer extends Model {
      * @var array
      */
     protected $fillable = ['firstname','user_id','surname', 'gender', 'age', 'birth_date', 'birth_place', 'mobile', 'mobile2', 'marital_status',
-        'age', 'number_of_children', 'number_of_dependencies', 'address', 'postal_address', 'email'];
+        'age', 'number_of_children', 'number_of_dependencies', 'address', 'postal_address', 'email','profile_image'];
 
     public function user() {
 

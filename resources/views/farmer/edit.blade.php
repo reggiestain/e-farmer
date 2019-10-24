@@ -1,52 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<style>
-    .stepwizard-step p {
-        margin-top: 0px;
-        color:#666;
-    }
-    .stepwizard-row {
-        display: table-row;
-    }
-    .stepwizard {
-        display: table;
-        width: 100%;
-        position: relative;
-    }
-    .stepwizard-step button[disabled] {
-        /*opacity: 1 !important;
-        filter: alpha(opacity=100) !important;*/
-    }
-    .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
-        opacity:1 !important;
-        color:#bbb;
-    }
-    .stepwizard-row:before {
-        top: 14px;
-        bottom: 0;
-        position: absolute;
-        content:" ";
-        width: 100%;
-        height: 1px;
-        background-color: #ccc;
-        z-index: 0;
-    }
-    .stepwizard-step {
-        display: table-cell;
-        text-align: center;
-        position: relative;
-    }
-    .btn-circle {
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        padding: 6px 0;
-        font-size: 12px;
-        line-height: 1.428571429;
-        border-radius: 15px;
-    }    
-</style>
+
 <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->
@@ -105,7 +60,7 @@
                                         </div>
                                     </div>
 
-                                    <form role="form" method="POST" action="{{ route('farmer.update',$farmer) }}">
+                                    <form role="form" method="POST" action="{{ route('farmer.update',$farmer) }}" enctype="multipart/form-data">
                                         @csrf
                                         {{ method_field('PUT') }}
                                         <div class="panel panel-primary setup-content" id="step-1">
@@ -113,6 +68,8 @@
                                                 <h3 class="panel-title">Farmer</h3>
                                             </div>
                                             <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label class="control-label">First Name</label>
                                                     <input type="text" name="firstname" class="form-control @error('firstname') is-invalid @enderror" placeholder="Enter First Name" value="{{ $farmer->firstname }}" autocomplete="firstname"/>                                                    
@@ -242,10 +199,35 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                                        
+                                                <button class="btn btn-primary nextBtn pull-right" type="submit">Submit</button>
+                                                <button class="btn btn-primary nextBtn" style="float:right" type="button">Next</button>
+                                            </div>
+                                           
+                                                 <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <br><div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12 imgUp">
+                                                                <div class="imagePreview" @if ($farmer->profile_image) 
+                                                                     style="background-image: url({{$farmer->profile_image}})"
+                                                                     @endif ></div>
+                                                                <label class="btn btn-primary">
+                                                                    Upload
+                                                              <input type="file" name="profile_image" class="uploadFile img"  style="width: 0px;height: 0px;overflow: hidden;">
+                                                                </label>
+                                                            </div><!-- col-2 -->
+                                                            <i class="fa fa-plus imgAdd"></i>
+                                                        </div><!-- row -->
+                                                    </div><!-- container -->
+                                                @if (auth()->user()->image)
+                                                    <code>{{ auth()->user()->image }}</code>
+                                                @endif
+                                                </div>
+                                                </div>
                                             </div>
                                         </div>
-
+                                        </div>  
                                         <div class="panel panel-primary setup-content" id="step-2">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Spouse Details</h3>
@@ -344,7 +326,7 @@
 
                                             </div>
                                         </div>
-
+                                        </form>
                                         <div class="panel panel-primary setup-content" id="step-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Farm</h3>
@@ -390,7 +372,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

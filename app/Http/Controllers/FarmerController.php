@@ -11,9 +11,12 @@ use App\Crop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Traits\UploadTrait;
 
 class FarmerController extends Controller {
 
+     use UploadTrait;
+     
     /**
      * Display a listing of the resource.
      *
@@ -24,6 +27,41 @@ class FarmerController extends Controller {
         $farmers = Farmer::with('user')->get();
 
         return view('farmer.index', compact('farmers'));
+    }
+    
+    public function updateProfile(Request $request)
+    {
+        // Form validation
+        $request->validate([
+            'name'              =>  'required',
+            'profile_image'     =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        // Get current user
+        $user = User::findOrFail(auth()->user()->id);
+        // Set user name
+        $user->name = $request->input('name');
+
+        // Check if a profile image has been uploaded
+        if ($request->has('profile_image')) {
+            // Get image file
+            $image = $request->file('profile_image');
+            // Make a image name based on user name and current timestamp
+            $name = str_slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+            $user->profile_image = $filePath;
+        }
+        // Persist user record to database
+        $user->save();
+
+        // Return user back and show a flash message
+        return redirect()->back()->with(['status' => 'Profile updated successfully.']);
     }
 
     /**
@@ -53,7 +91,7 @@ class FarmerController extends Controller {
     public function store(Request $request) {
 
         try {
-
+        
             $this->validate($request, [
                 'firstname' => 'required',
                 'surname' => 'required',
@@ -62,11 +100,33 @@ class FarmerController extends Controller {
                 'birth_date' => 'required',
                 'birth_place' => 'required',
                 'gender' => 'required',
-                'age' => 'required'
+                'age' => 'required',
+                'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
+            
+            // Get current user
+        $user = User::findOrFail(auth()->user()->id);
+        
+
+        // Check if a profile image has been uploaded
+        if ($request->has('profile_image')) {
+            // Get image file
+            $image = $request->file('profile_image');
+            // Make a image name based on user name and current timestamp
+            $name = str_slug($request->input('name')).'_'.time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+            $user->profile_image = $filePath;
+        }
 
             $farmer = Farmer::create([
                         'user_id' => Auth::user()->id,
+                        'profile_image' => $filePath ?? '',
                         'firstname' => $request->input('firstname'),
                         'surname' => $request->input('surname'),
                         'email' => $request->input('email'),
@@ -193,9 +253,6 @@ class FarmerController extends Controller {
      }
      
      public function updatefarm(Request $request, $farms) {
-        
-         
-       $farm = FarmDetail::find($farms);
        
         $farm->crop_id = $request->input('crop_id') ?? 1;
         $farm->seedlings = $request->input('seedlings');
@@ -255,6 +312,31 @@ class FarmerController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Farmer $farmer) {
+        
+        $farmer = Farmer::find($farmer->id);       
+
+        // Check if a profile image has been uploaded
+        $request->validate([
+            'firstname'              =>  'required',
+            'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+        
+        if ($request->has('profile_image')) {
+           
+            
+            // Get image file
+            $image = $request->file('profile_image');
+            // Make a image name based on user name and current timestamp
+            $name = $request->input('firstname').''.time();
+            // Define folder path
+            $folder = '/img/profile/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder.$name.'.' .$image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+            $farmer->profile_image = $filePath;
+        }
 
         $farmer->spousalDetail->s_firstname = $request->input('s_firstname');
         $farmer->spousalDetail->s_surname = $request->input('s_surname');

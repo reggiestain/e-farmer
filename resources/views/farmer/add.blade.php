@@ -1,101 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<style>
-    .stepwizard-step p {
-        margin-top: 0px;
-        color:#666;
-    }
-    .stepwizard-row {
-        display: table-row;
-    }
-    .stepwizard {
-        display: table;
-        width: 100%;
-        position: relative;
-    }
-    .stepwizard-step button[disabled] {
-        /*opacity: 1 !important;
-        filter: alpha(opacity=100) !important;*/
-    }
-    .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
-        opacity:1 !important;
-        color:#bbb;
-    }
-    .stepwizard-row:before {
-        top: 14px;
-        bottom: 0;
-        position: absolute;
-        content:" ";
-        width: 100%;
-        height: 1px;
-        background-color: #ccc;
-        z-index: 0;
-    }
-    .stepwizard-step {
-        display: table-cell;
-        text-align: center;
-        position: relative;
-    }
-    .btn-circle {
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        padding: 6px 0;
-        font-size: 12px;
-        line-height: 1.428571429;
-        border-radius: 15px;
-    }  
 
-    .imagePreview {
-        width: 100%;
-        height: 180px;
-        background-position: center center;
-        background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
-        background-color:#fff;
-        background-size: cover;
-        background-repeat:no-repeat;
-        display: inline-block;
-        box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
-    }
-    .btn-primary
-    {
-        display:block;
-        border-radius:0px;
-        box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
-        margin-top:-5px;
-    }
-    .imgUp
-    {
-        margin-bottom:15px;
-    }
-    .del
-    {
-        position:absolute;
-        top:0px;
-        right:15px;
-        width:30px;
-        height:30px;
-        text-align:center;
-        line-height:30px;
-        background-color:rgba(255,255,255,0.6);
-        cursor:pointer;
-    }
-    .imgAdd
-    {
-        width:30px;
-        height:30px;
-        border-radius:50%;
-        background-color:#4bd7ef;
-        color:#fff;
-        box-shadow:0px 0px 2px 1px rgba(0,0,0,0.2);
-        text-align:center;
-        line-height:30px;
-        margin-top:0px;
-        cursor:pointer;
-        font-size:15px;
-    }
-</style>
 <div id="content-wrapper" class="d-flex flex-column">
 
     <!-- Main Content -->
@@ -293,7 +199,8 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                                
+                                                <button class="btn btn-primary nextBtn" style="float:right" type="button">Next</button>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -302,12 +209,16 @@
                                                             <div class="col-md-12 imgUp">
                                                                 <div class="imagePreview"></div>
                                                                 <label class="btn btn-primary">
-                                                                    Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                                                    Upload
+                                                                    <input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
                                                                 </label>
                                                             </div><!-- col-2 -->
                                                             <i class="fa fa-plus imgAdd"></i>
                                                         </div><!-- row -->
                                                     </div><!-- container -->
+                                                    @if (auth()->user()->image)
+                                                    <code>{{ auth()->user()->image }}</code>
+                                                @endif
                                                 </div>
                                                 </div>
                                         </div>
