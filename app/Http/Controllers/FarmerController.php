@@ -78,7 +78,8 @@ class FarmerController extends Controller {
         return view('farmer.add')->with([
                     'regions' => $regions,
                     'genders' => $genders,
-                    'cropTypes' => $cropType
+                    'cropTypes' => $cropType,
+                    'statuses'=>['Active','In-active']
         ]);
     }
 
@@ -104,25 +105,24 @@ class FarmerController extends Controller {
                 'profile_image'     =>  'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
             
-            // Get current user
-        $user = User::findOrFail(auth()->user()->id);
-        
-
-        // Check if a profile image has been uploaded
-        if ($request->has('profile_image')) {
+         if ($request->has('profile_image')) {
+                      
             // Get image file
             $image = $request->file('profile_image');
             // Make a image name based on user name and current timestamp
-            $name = str_slug($request->input('name')).'_'.time();
+            $name = $request->input('firstname').''.time();
             // Define folder path
-            $folder = '/uploads/images/';
+            $folder = '/img/profile/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+            $filePath = $folder.$name.'.' .$image->getClientOriginalExtension();
             // Upload image
             $this->uploadOne($image, $folder, 'public', $name);
             // Set user profile image path in database to filePath
-            $user->profile_image = $filePath;
+            
         }
+        
+
+       
 
             $farmer = Farmer::create([
                         'user_id' => Auth::user()->id,
@@ -154,13 +154,16 @@ class FarmerController extends Controller {
 
             $farm = FarmDetail::create([
                         'farmer_id' => $farmer->id,
-                        'crop_id' => $request->input('crop_id'),
+                        'crop_id' => $request->input('crop_id') ?? 11,
                         'seedlings' => $request->input('seedlings'),
                         'size_of_land' => $request->input('size_of_land'),
                         'year_established' => $request->input('year_established'),
                         'district' => $request->input('district'),
                         'longitude' => $request->input('longitude'),
                         'latitude' => $request->input('latitude'),
+                        'region_id' => $request->input('region_id'),
+                        'location' => $request->input('location'),
+                
             ]);
 
 
@@ -322,7 +325,6 @@ class FarmerController extends Controller {
         ]);
         
         if ($request->has('profile_image')) {
-           
             
             // Get image file
             $image = $request->file('profile_image');

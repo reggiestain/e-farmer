@@ -204,25 +204,29 @@
                                                 <button class="btn btn-primary nextBtn" style="float:right" type="button">Next</button>
                                             </div>
                                            
-                                                 <div class="col-md-4">
+                                                <div class="col-md-4">
                                                 <div class="form-group">
                                                     <br><div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12 imgUp">
                                                                 <div class="imagePreview" @if ($farmer->profile_image) 
                                                                      style="background-image: url({{$farmer->profile_image}})"
+                                                                     @else
+                                                                     style="background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg)"
                                                                      @endif ></div>
                                                                 <label class="btn btn-primary">
                                                                     Upload
-                                                              <input type="file" name="profile_image" class="uploadFile img"  style="width: 0px;height: 0px;overflow: hidden;">
+                                                              <input type="file" name="profile_image" class="uploadFile img"  style="width: 0px;height: 0px;overflow: hidden;" class="form-control @error('profile_image') is-invalid @enderror" autocomplete="profile_image">
                                                                 </label>
                                                             </div><!-- col-2 -->
-                                                            <i class="fa fa-plus imgAdd"></i>
+                                                            <!--<i class="fa fa-plus imgAdd"></i>-->
                                                         </div><!-- row -->
                                                     </div><!-- container -->
-                                                @if (auth()->user()->image)
-                                                    <code>{{ auth()->user()->image }}</code>
-                                                @endif
+                                                    @error('profile_image')
+                                                        <div class="alert alert-danger" role="alert">
+                                                            <strong>{{$message}}</strong>
+                                                        </div>
+                                                        @enderror
                                                 </div>
                                                 </div>
                                             </div>
