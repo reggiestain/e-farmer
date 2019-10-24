@@ -45,7 +45,56 @@
         font-size: 12px;
         line-height: 1.428571429;
         border-radius: 15px;
-    }    
+    }  
+
+    .imagePreview {
+        width: 100%;
+        height: 180px;
+        background-position: center center;
+        background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+        background-color:#fff;
+        background-size: cover;
+        background-repeat:no-repeat;
+        display: inline-block;
+        box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
+    }
+    .btn-primary
+    {
+        display:block;
+        border-radius:0px;
+        box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
+        margin-top:-5px;
+    }
+    .imgUp
+    {
+        margin-bottom:15px;
+    }
+    .del
+    {
+        position:absolute;
+        top:0px;
+        right:15px;
+        width:30px;
+        height:30px;
+        text-align:center;
+        line-height:30px;
+        background-color:rgba(255,255,255,0.6);
+        cursor:pointer;
+    }
+    .imgAdd
+    {
+        width:30px;
+        height:30px;
+        border-radius:50%;
+        background-color:#4bd7ef;
+        color:#fff;
+        box-shadow:0px 0px 2px 1px rgba(0,0,0,0.2);
+        text-align:center;
+        line-height:30px;
+        margin-top:0px;
+        cursor:pointer;
+        font-size:15px;
+    }
 </style>
 <div id="content-wrapper" class="d-flex flex-column">
 
@@ -110,7 +159,11 @@
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Farmer</h3>
                                             </div>
-                                            <div class="panel-body">
+
+                                            <div class="panel-body">  
+                                                <div class="row">
+                                                
+                                                <div class="col-md-8">    
                                                 <div class="form-group">
                                                     <label class="control-label">First Name</label>
                                                     <input type="text" name="firstname" class="form-control @error('firstname') is-invalid @enderror" placeholder="Enter First Name" value="{{ old('firstname') }}" autocomplete="firstname"/>                                                    
@@ -123,16 +176,16 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Last Name</label>
                                                     <input type="text" name="surname" class="form-control @error('surname') is-invalid @enderror" placeholder="Enter Last Name" value="{{ old('surname') }}" autocomplete="surname"/>
-                                                     @error('surname')
+                                                    @error('surname')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
-                                                </div>
+                                                </div>   
                                                 <div class="form-group">
                                                     <label class="control-label">Contact Number 1</label>
                                                     <input type="text" name="mobile" class="form-control @error('mobile') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile') }}" autocomplete="mobile"/>
-                                                     @error('mobile')
+                                                    @error('mobile')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -141,7 +194,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Contact Number 2</label>
                                                     <input type="text" name="mobile2" class="form-control @error('mobile2') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile2') }}" autocomplete="mobile2"/>
-                                                     @error('mobile2')
+                                                    @error('mobile2')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -155,7 +208,7 @@
                                                         <option value="{{$gender}}">{{$gender}}</option>
                                                         @endforeach
                                                     </select>
-                                                     @error('gender')
+                                                    @error('gender')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -171,7 +224,7 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                     @error('birth_date')
+                                                    @error('birth_date')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -180,7 +233,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Birth Place</label>
                                                     <input type="text" name="birth_place" class="form-control @error('birth_place') is-invalid @enderror" value="{{ old('birth_place') }}" autocomplete="birth_place"/>
-                                                     @error('birth_place')
+                                                    @error('birth_place')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -189,7 +242,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Age</label>
                                                     <input type="text" name="age" class="form-control @error('age') is-invalid @enderror" placeholder="Enter Age" value="{{ old('age') }}" autocomplete="age"/>
-                                                     @error('age')
+                                                    @error('age')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -198,7 +251,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Marital Status</label>
                                                     <input type="text" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" placeholder="Marital Status" value="{{ old('marital_status') }}" autocomplete="marital_status"/>
-                                                     @error('marital-status')
+                                                    @error('marital-status')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -207,7 +260,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Number Of Children</label>
                                                     <input type="text" name="number_of_children" class="form-control @error('number_of_children') is-invalid @enderror" placeholder="Number Of Children" value="{{ old('number_of_children') }}" autocomplete="number_of_children"/>
-                                                     @error('number_of_children')
+                                                    @error('number_of_children')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -216,7 +269,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Number Of Dependencies</label>
                                                     <input type="text" name="number_of_dependencies" class="form-control @error('number_of_dependencies') is-invalid @enderror" placeholder="Number of Dependencies" value="{{ old('marital_status') }}" autocomplete="marital_status"/>
-                                                     @error('number_of_dependencies')
+                                                    @error('number_of_dependencies')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -225,7 +278,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Physical Address</label>
                                                     <textarea type="text" name="address" class="form-control @error('address') is-invalid @enderror" placeholder="Enter Address" value="{{ old('address') }}" autocomplete="address"></textarea>
-                                                     @error('address')
+                                                    @error('address')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -234,7 +287,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Post Office Address</label>
                                                     <textarea type="text" name="post_office_address" class="form-control @error('post_office_address') is-invalid @enderror" placeholder="Enter Post Office Address" value="{{ old('post_office_address') }}" autocomplete="post_office_address"></textarea>
-                                                     @error('post_office_address')
+                                                    @error('post_office_address')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -242,8 +295,24 @@
                                                 </div>
                                                 <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
                                             </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <br><div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12 imgUp">
+                                                                <div class="imagePreview"></div>
+                                                                <label class="btn btn-primary">
+                                                                    Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
+                                                                </label>
+                                                            </div><!-- col-2 -->
+                                                            <i class="fa fa-plus imgAdd"></i>
+                                                        </div><!-- row -->
+                                                    </div><!-- container -->
+                                                </div>
+                                                </div>
                                         </div>
-                                        
+                                        </div>
+                                            
                                         <div class="panel panel-primary setup-content" id="step-2">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Spouse Details</h3>
@@ -252,7 +321,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">First Name</label>
                                                     <input type="text" name="s_firstname" class="form-control @error('s_firstname') is-invalid @enderror" placeholder="Enter Firstname" value="{{ old('s_firstname') }}" autocomplete="s_firstname"/>
-                                                     @error('s_firstname')
+                                                    @error('s_firstname')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -261,7 +330,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Surname</label>
                                                     <input type="text" name="s_surname" class="form-control @error('s_surname') is-invalid @enderror" placeholder="Enter Surname" value="{{ old('s_surname') }}" autocomplete="s_surname"/>
-                                                     @error('s_surname')
+                                                    @error('s_surname')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -277,7 +346,7 @@
                                                             </span>
                                                         </div>
                                                     </div>
-                                                     @error('s_birth_date')
+                                                    @error('s_birth_date')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -286,7 +355,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Contact Number</label>
                                                     <input maxlength="200" type="text"  name="s_mobile" class="form-control @error('s_mobile') is-invalid @enderror" placeholder="Enter Contact Number" />
-                                                     @error('s_mobile')
+                                                    @error('s_mobile')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -304,7 +373,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Bank Name</label>
                                                     <input maxlength="200" type="text" name="bank_name" class="form-control @error('bank_name') is-invalid @enderror" placeholder="Enter Bank Name" />
-                                                     @error('bank_name')
+                                                    @error('bank_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -313,7 +382,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Account Number</label>
                                                     <input maxlength="200" type="text" name="account_no" class="form-control @error('account_no') is-invalid @enderror" placeholder="Enter Account Number" />
-                                                     @error('account_no')
+                                                    @error('account_no')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -322,7 +391,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Branch Name</label>
                                                     <input maxlength="200" type="text" name="branch_name" class="form-control @error('branch_name') is-invalid @enderror" placeholder="Enter Branch Name" />
-                                                     @error('branch_name')
+                                                    @error('branch_name')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -331,19 +400,19 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Mobile Money Number</label>
                                                     <input maxlength="200" type="text"  name="mobile_money" class="form-control @error('mobile_money') is-invalid @enderror" placeholder="Enter Mobile Money Number" />
-                                                     @error('mobile_money')
+                                                    @error('mobile_money')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
                                                 </div>
-                             
+
                                                 <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
-                                                
+
                                             </div>
                                         </div>
-                                        
-                                         <div class="panel panel-primary setup-content" id="step-4">
+
+                                        <div class="panel panel-primary setup-content" id="step-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title">Farm</h3>
                                             </div>
@@ -356,7 +425,7 @@
                                                         <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
                                                         @endforeach
                                                     </select>
-                                                     @error('region_id')
+                                                    @error('region_id')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -365,7 +434,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Seedlings</label>
                                                     <input maxlength="200" type="text" name="seedlings" class="form-control @error('seedlings') is-invalid @enderror" placeholder="Enter Seedlings" />
-                                                     @error('seedlings')
+                                                    @error('seedlings')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -374,7 +443,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Size Of Land</label>
                                                     <input maxlength="200" type="text" name="size_of_land" class="form-control @error('size_of_land') is-invalid @enderror" placeholder="Enter Size of Land" />
-                                                     @error('size_of_land')
+                                                    @error('size_of_land')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -383,7 +452,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Established Year</label>
                                                     <input maxlength="200" type="text" name="year_established" class="form-control @error('year_established') is-invalid @enderror" placeholder="Enter Establish Year" />
-                                                     @error('year_established')
+                                                    @error('year_established')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -392,7 +461,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">District</label>
                                                     <input maxlength="200" type="text" name="district" class="form-control @error('district') is-invalid @enderror" placeholder="Enter District" />
-                                                     @error('district')
+                                                    @error('district')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -401,7 +470,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Longitude</label>
                                                     <input maxlength="200" type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror" placeholder="Enter Longitude" />
-                                                     @error('longitude')
+                                                    @error('longitude')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -410,7 +479,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label">Latitude</label>
                                                     <input maxlength="200" type="text" name="latitude" class="form-control @error('latitude') is-invalid @enderror" placeholder="Enter Longitude" />
-                                                     @error('latitude')
+                                                    @error('latitude')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
@@ -424,14 +493,14 @@
                                                         <option value="{{$region->id}}">{{ $region->name }}</option>
                                                         @endforeach
                                                     </select>
-                                                     @error('region_id')
+                                                    @error('region_id')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
                                                 </div>
                                                 <button class="btn btn-primary nextBtn pull-right" type="submit">Submit</button>
-                                               
+
                                             </div>
                                         </div>
                                     </form>
