@@ -79,7 +79,8 @@ class FarmerController extends Controller {
                     'regions' => $regions,
                     'genders' => $genders,
                     'cropTypes' => $cropType,
-                    'statuses'=>['Active','In-active']
+                    'statuses'=>['Active','In-active'],
+                    'maritals'=>['Single','Married','Divorced','Seperated']
         ]);
     }
 
@@ -154,14 +155,14 @@ class FarmerController extends Controller {
 
             $farm = FarmDetail::create([
                         'farmer_id' => $farmer->id,
-                        'crop_id' => $request->input('crop_id') ?? 11,
+                        'crop_id' => $request->input('crop_id') ?? 7,
                         'seedlings' => $request->input('seedlings'),
                         'size_of_land' => $request->input('size_of_land'),
                         'year_established' => $request->input('year_established'),
                         'district' => $request->input('district'),
                         'longitude' => $request->input('longitude'),
                         'latitude' => $request->input('latitude'),
-                        'region_id' => $request->input('region_id'),
+                        'region_id' => $request->input('region_id') ?? 11,
                         'location' => $request->input('location'),
                 
             ]);
@@ -236,7 +237,8 @@ class FarmerController extends Controller {
              'farmers'=>$farm,
              'regions'=>$regions,
              'cropTypes'=>$cropType,
-             'statuses'=>['Active','In-active']
+             'statuses'=>['Active','In-active'],
+             'maritals'=>['Single','Married','Divorced','Seperated']
          ]);
      }
     
@@ -251,13 +253,14 @@ class FarmerController extends Controller {
              'farms'=>$farm,
              'regions'=>$regions,
              'cropTypes'=>$cropType,
-             'statuses'=>['Active','In-active']
+             'statuses'=>['Active','In-active'],
+             'maritals'=>['Single','Married','Divorced','Seperated']
          ]);
      }
      
      public function updatefarm(Request $request, $farms) {
        
-        $farm->crop_id = $request->input('crop_id') ?? 1;
+        $farm->crop_id = $request->input('crop_id') ?? 7;
         $farm->seedlings = $request->input('seedlings');
         $farm->district = $request->input('district');
         $farm->size_of_land = $request->input('size_of_land');
@@ -278,7 +281,8 @@ class FarmerController extends Controller {
              'farmers'=>$farmer,
              'regions'=>$regions,
              'cropTypes'=>$cropType,
-             'statuses'=>['Active','In-active']
+             'statuses'=>['Active','In-active'],
+              'maritals'=>['Single','Married','Divorced','Seperated']
          ]);
        
     }
@@ -302,7 +306,8 @@ class FarmerController extends Controller {
                     'regions' => $regions,
                     'farmer' =>$farmer,
                     'cropTypes' =>$cropType,
-                    'statuses'=>['Active','In-active']
+                    'statuses'=>['Active','In-active'],
+                     'maritals'=>['Single','Married','Divorced','Seperated']
                     
         ]);
     }

@@ -154,15 +154,21 @@
                                                             </span>
                                                             @enderror
                                                         </div>
-                                                        <div class="form-group">
+                                                        
+                                                         <div class="form-group">    
                                                             <label class="control-label">Marital Status</label>
-                                                            <input type="text" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" placeholder="Marital Status" value="{{ old('marital_status') }}" autocomplete="marital_status"/>
-                                                            @error('marital-status')
+                                                            <select class="form-control" id="selectGender" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" value="{{ old('marital_status') }}" autocomplete="marital-status">
+                                                                <option value="" disabled selected>Please select marital status</option>        
+                                                                @foreach($maritals as $marital)
+                                                                <option value="{{$marital}}">{{$marital}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('marital_status')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
                                                             @enderror
-                                                        </div>
+                                                        </div>      
                                                         <div class="form-group">
                                                             <label class="control-label">Number Of Children</label>
                                                             <input type="text" name="number_of_children" class="form-control @error('number_of_children') is-invalid @enderror" placeholder="Number Of Children" value="{{ old('number_of_children') }}" autocomplete="number_of_children"/>
@@ -174,7 +180,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Number Of Dependencies</label>
-                                                            <input type="text" name="number_of_dependencies" class="form-control @error('number_of_dependencies') is-invalid @enderror" placeholder="Number of Dependencies" value="{{ old('marital_status') }}" autocomplete="marital_status"/>
+                                                            <input type="text" name="number_of_dependencies" class="form-control @error('number_of_dependencies') is-invalid @enderror" placeholder="Number of Dependencies" value="{{ old('number_of_dependencies') }}" autocomplete="number_of_dependencies"/>
                                                             @error('number_of_dependencies')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
