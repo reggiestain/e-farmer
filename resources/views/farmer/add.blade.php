@@ -91,14 +91,14 @@
                                             <div class="stepwizard-step col-xs-3"> 
                                                 <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
                                                 <p><small>Spousal Details</small></p>
-                                            </div>
+                                            </div>                                          
                                             <div class="stepwizard-step col-xs-3"> 
-                                                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
-                                                <p><small>Farm Details</small></p>
-                                            </div>
-                                            <div class="stepwizard-step col-xs-3"> 
-                                                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+                                                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
                                                 <p><small>Banking Details</small></p>
+                                            </div>
+                                            <div class="stepwizard-step col-xs-3"> 
+                                                <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                                                <p><small>Farm Details</small></p>
                                             </div>
 
                                         </div>
@@ -298,6 +298,53 @@
 
                                         <div class="panel panel-primary setup-content" id="step-3">
                                             <div class="panel-heading">
+                                                <h3 class="panel-title">Bank</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="form-group">
+                                                    <label class="control-label">Bank Name</label>
+                                                    <input maxlength="200" type="text" name="bank_name" class="form-control @error('bank_name') is-invalid @enderror" placeholder="Enter Bank Name" />
+                                                     @error('bank_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Account Number</label>
+                                                    <input maxlength="200" type="text" name="account_no" class="form-control @error('account_no') is-invalid @enderror" placeholder="Enter Account Number" />
+                                                     @error('account_no')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Branch Name</label>
+                                                    <input maxlength="200" type="text" name="branch_name" class="form-control @error('branch_name') is-invalid @enderror" placeholder="Enter Branch Name" />
+                                                     @error('branch_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label">Mobile Money Number</label>
+                                                    <input maxlength="200" type="text"  name="mobile_money" class="form-control @error('mobile_money') is-invalid @enderror" placeholder="Enter Mobile Money Number" />
+                                                     @error('mobile_money')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                             
+                                                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="panel panel-primary setup-content" id="step-4">
+                                            <div class="panel-heading">
                                                 <h3 class="panel-title">Farm</h3>
                                             </div>
                                             <div class="panel-body">
@@ -383,54 +430,8 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="panel panel-primary setup-content" id="step-4">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title">Bank</h3>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="form-group">
-                                                    <label class="control-label">Bank Name</label>
-                                                    <input maxlength="200" type="text" name="bank_name" class="form-control @error('bank_name') is-invalid @enderror" placeholder="Enter Bank Name" />
-                                                     @error('bank_name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Account Number</label>
-                                                    <input maxlength="200" type="text" name="account_no" class="form-control @error('account_no') is-invalid @enderror" placeholder="Enter Account Number" />
-                                                     @error('account_no')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Branch Name</label>
-                                                    <input maxlength="200" type="text" name="branch_name" class="form-control @error('branch_name') is-invalid @enderror" placeholder="Enter Branch Name" />
-                                                     @error('branch_name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Mobile Money Number</label>
-                                                    <input maxlength="200" type="text"  name="mobile_money" class="form-control @error('mobile_money') is-invalid @enderror" placeholder="Enter Mobile Money Number" />
-                                                     @error('mobile_money')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                             
-                                               <button class="btn btn-primary nextBtn pull-right" type="submit">Submit</button>
-                                                
+                                                <button class="btn btn-primary nextBtn pull-right" type="submit">Submit</button>
+                                               
                                             </div>
                                         </div>
                                     </form>

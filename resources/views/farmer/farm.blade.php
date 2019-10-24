@@ -3,13 +3,13 @@
     <table class="table table-bordered" id="" width="100%" cellspacing="0">
         <thead>
             <tr>
+                <th>Farm Status</th>
                 <th>Crop Type</th>
                 <th>Seedlings</th>
                 <th>Size Of Land</th>
                 <th>Year Established</th>
                 <th>Community</th>
-                <th>Longitude</th>
-                <th>Latitude</th>
+                <th>Location</th>                                                               
                 <th>Region</th>
                 <th>Action</th>
             </tr>
@@ -18,21 +18,17 @@
 
             @foreach($farmers->farmDetail as $farm )
             <tr>
+                <td>{{$farm->status}}</td>
                 <td>{{$farm->crop->name}}</td>
                 <td>{{$farm->seedlings}}</td>
                 <td>{{$farm->size_of_land}}</td>
                 <td>{{$farm->year_exstablished}}</td>
                 <td>{{$farm->district}}</td>
-                <td>{{$farm->longitude}}</td>
-                <td>{{$farm->latitude}}</td>
+                <td>{{$farm->location}}</td>                                                           
                 <td>{{$farm->region->name}}</td>
                 <td>                                                   
                     <a class="btn btn-success">View</a> 
-                    @if(Auth::user()->roles()->get()->pluck('name')->first() !=='official')
-                    <a class="btn btn-primary" href="{{route('admin.users.edit',$farm->id)}}">Edit</a>   
-                    @else
-
-                    @endif
+                    <a class="btn btn-primary edit-f" href="{{route('farmer.editfarm',$farm->id)}}">Edit</a> 
                 </td>
             </tr> 
             @endforeach
