@@ -130,117 +130,9 @@
                         </div>
                     </div>   
                 </div>
-                
-            </div>
-            <!--Add Modal-->
-            <div class="modal fade" id="addFarmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Add Farm Info</h5>
-                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">                                              
-                            <div class="col-lg-10">
-                                <div class="p-5">                 
-                                    <form>
-                                     <div class="form-group">    
-                                                    <label class="control-label">Crop Type</label>
-                                                    <select class="form-control" id="selectUser" name="crop_id" class="form-control @error('crop_type_id') is-invalid @enderror" >
-                                                        <option value="" disabled selected>Please select crop type</option>        
-                                                        @foreach($cropTypes as $cropType)
-                                                        <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                     @error('region_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Seedlings</label>
-                                                    <input maxlength="200" type="text" name="seedlings" class="form-control @error('seedlings') is-invalid @enderror" placeholder="Enter Seedlings" />
-                                                     @error('seedlings')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Size Of Land</label>
-                                                    <input maxlength="200" type="text" name="size_of_land" class="form-control @error('size_of_land') is-invalid @enderror" placeholder="Enter Size of Land" />
-                                                     @error('size_of_land')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Established Year</label>
-                                                    <input maxlength="200" type="text" name="year_established" class="form-control @error('year_established') is-invalid @enderror" placeholder="Enter Establish Year" />
-                                                     @error('year_established')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">District</label>
-                                                    <input maxlength="200" type="text" name="district" class="form-control @error('district') is-invalid @enderror" placeholder="Enter District" />
-                                                     @error('district')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Longitude</label>
-                                                    <input maxlength="200" type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror" placeholder="Enter Longitude" />
-                                                     @error('longitude')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label">Latitude</label>
-                                                    <input maxlength="200" type="text" name="latitude" class="form-control @error('latitude') is-invalid @enderror" placeholder="Enter Longitude" />
-                                                     @error('latitude')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <div class="form-group">    
-                                                    <label class="control-label">Region</label>
-                                                    <select class="form-control" id="selectUser" name="region_id" class="form-control @error('region_id') is-invalid @enderror" >
-                                                        <option value="" disabled selected>Please select region</option>        
-                                                        @foreach($regions as $region)
-                                                        <option value="{{$region->id}}">{{ $region->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                     @error('region_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                                <button class="btn btn-primary nextBtn pull-right" type="button">Submit</button>  
-
-                                    </form>
-                                </div>                                          
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-
-                        </div>
-                    </div>   
-                </div>
 
             </div>
+
         </div>
     </div>
     <!-- Bootstrap core JavaScript-->
@@ -268,6 +160,29 @@
 
                                        $(document).on('click', '.add-farm', function () {
                                            $("#addFarmModal").modal();
+                                       });
+
+                                       $(document).on('submit', '#formFarm', function (e) {
+                                           e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                                           var form = $(this);
+                                           var url = form.attr('action');
+                                           
+                                           $.ajax({
+                                               type: "POST",                                               
+                                               headers: {
+                                                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                               },
+                                               url: url,
+                                               data: form.serialize(), // serializes the form's elements.
+                                               success: function (response) {
+                                                   $("#addFarmModal").modal('toggle');
+                                                   $(".farm-table").html(response);
+                                               },
+                                               error: function (e) {
+                                                   console.log(e.responseText);
+                                               }
+                                           });
                                        });
 
                                        $('#datetimepicker1').datepicker({
