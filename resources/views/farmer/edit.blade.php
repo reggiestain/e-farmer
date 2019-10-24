@@ -302,7 +302,7 @@
                                                 <h3 class="panel-title">Farm</h3>
                                             </div>                                           
 
-                                            <div class="panel-body">
+                                            <div class="panel-body farm-table">
                                                 <div class="table-responsive">
                                                     <div><a class="btn btn-default add-farm" style="float:right"><i class="fas fa-fw fa-plus"></i></a></div>
                                                     <table class="table table-bordered" id="" width="100%" cellspacing="0">
@@ -403,6 +403,125 @@
         </div>
         <!-- /.container-fluid -->
     </div>
+      <!--Add Modal-->
+            <div class="modal fade" id="addFarmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Add Farm Info</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">                                              
+                            <div class="col-lg-10">
+                                <div class="p-5">                 
+                                    <form id="formFarm" action="{{route('farmer.savefarm')}}">
+                                        @csrf
+                                        <div class="row">
+                                        <div class="form-group col-md-6">    
+                                            <label class="control-label">Crop Type</label>
+                                            <input type="hidden" name="farmer_id" value="{{$farmer->id}}">
+                                            <select class="form-control" id="selectUser" name="crop_id" class="form-control @error('crop_type_id') is-invalid @enderror" >
+                                                <option value="" disabled selected>Please select crop type</option>        
+                                                @foreach($cropTypes as $cropType)
+                                                <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('region_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Seedlings</label>
+                                            <input maxlength="200" type="text" name="seedlings" class="form-control @error('seedlings') is-invalid @enderror" placeholder="Enter Seedlings" />
+                                            @error('seedlings')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Size Of Land</label>
+                                            <input maxlength="200" type="text" name="size_of_land" class="form-control @error('size_of_land') is-invalid @enderror" placeholder="Enter Size of Land" />
+                                            @error('size_of_land')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Established Year</label>
+                                            <input maxlength="200" type="text" name="year_established" class="form-control @error('year_established') is-invalid @enderror" placeholder="Enter Establish Year" />
+                                            @error('year_established')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">District</label>
+                                            <input maxlength="200" type="text" name="district" class="form-control @error('district') is-invalid @enderror" placeholder="Enter District" />
+                                            @error('district')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Longitude</label>
+                                            <input maxlength="200" type="text" name="longitude" class="form-control @error('longitude') is-invalid @enderror" placeholder="Enter Longitude" />
+                                            @error('longitude')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label class="control-label">Latitude</label>
+                                            <input maxlength="200" type="text" name="latitude" class="form-control @error('latitude') is-invalid @enderror" placeholder="Enter Longitude" />
+                                            @error('latitude')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group col-md-6">    
+                                            <label class="control-label">Region</label>
+                                            <select class="form-control" id="selectUser" name="region_id" class="form-control @error('region_id') is-invalid @enderror" >
+                                                <option value="" disabled selected>Please select region</option>        
+                                                @foreach($regions as $region)
+                                                <option value="{{$region->id}}">{{ $region->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('region_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        </div>    
+                                        <button class="btn btn-primary nextBtn pull-right" type="submit">Submit</button>  
+
+                                    </form>
+                                </div>                                          
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                        </div>
+                    </div>   
+                </div>
+
+            </div>
     @endsection     
 
 

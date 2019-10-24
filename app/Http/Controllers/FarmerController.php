@@ -119,6 +119,59 @@ class FarmerController extends Controller {
         return redirect('/farmer')->with('success', 'Success | Record saved successfully.');
     }
 
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function savefarm(Request $request) {
+        
+         try {
+        $farm = FarmDetail::create([
+                        'farmer_id' => $request->input('farmer_id'),
+                        'crop_id' => $request->input('crop_id'),
+                        'seedlings' => $request->input('seedlings'),
+                        'size_of_land' => $request->input('size_of_land'),
+                        'year_established' => $request->input('year_established'),
+                        'district' => $request->input('district'),
+                        'longitude' => $request->input('longitude'),
+                        'latitude' => $request->input('latitude'),
+            ]);
+        
+        } catch (ModelNotFoundException $exception) {
+            return response()->json([
+                "message" => "Error"
+            ]);
+        }
+
+        $farms = Farmer::find($request->input('farmer_id'));
+        $regions = Region::all();
+        $cropType = Crop::all();
+
+        return view('farmer.farm')->with([
+                    'farmers' => $farms,
+                    'regions' => $regions,
+                    'cropTypes' => $cropType
+        ]);
+        
+    }
+    
+     public function getfarm($id) {
+         
+        $farm = Farmer::find($id);         
+        $regions = Region::all();
+        $cropType = Crop::all();
+        
+       
+         return view('farmer.farm')->with([
+             'farmers'=>$farm,
+             'regions'=>$regions,
+             'cropTypes'=>$cropType
+         ]);
+     }
+    
+    
     /**
      * Show the form for editing the specified resource.
      *
