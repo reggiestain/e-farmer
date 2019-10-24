@@ -165,7 +165,7 @@
 
                                        $(document).on('click', '.edit-farm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
-                                           alert($(this).attr("href"));
+                                           
                                            var form = $(this);
                                            var url = $(this).attr("href");
                                            
