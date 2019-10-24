@@ -171,6 +171,19 @@ class FarmerController extends Controller {
          ]);
      }
     
+     public function editfarm($id) {
+         
+        $farm = FarmDetail::find($id);         
+        $regions = Region::all();
+        $cropType = Crop::all();
+        
+       
+         return view('farmer.editfarm')->with([
+             'farm'=>$farm,
+             'regions'=>$regions,
+             'cropTypes'=>$cropType
+         ]);
+     }
     
     /**
      * Show the form for editing the specified resource.
