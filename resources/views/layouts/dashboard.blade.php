@@ -18,6 +18,101 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.css') }}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">      
         <link href="{{ asset('js/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+        <style>
+            .stepwizard-step p {
+                margin-top: 0px;
+                color:#666;
+            }
+            .stepwizard-row {
+                display: table-row;
+            }
+            .stepwizard {
+                display: table;
+                width: 100%;
+                position: relative;
+            }
+            .stepwizard-step button[disabled] {
+                /*opacity: 1 !important;
+                filter: alpha(opacity=100) !important;*/
+            }
+            .stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+                opacity:1 !important;
+                color:#bbb;
+            }
+            .stepwizard-row:before {
+                top: 14px;
+                bottom: 0;
+                position: absolute;
+                content:" ";
+                width: 100%;
+                height: 1px;
+                background-color: #ccc;
+                z-index: 0;
+            }
+            .stepwizard-step {
+                display: table-cell;
+                text-align: center;
+                position: relative;
+            }
+            .btn-circle {
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                padding: 6px 0;
+                font-size: 12px;
+                line-height: 1.428571429;
+                border-radius: 15px;
+            }  
+
+            .imagePreview {
+                width: 100%;
+                height: 180px;
+                background-position: center center;
+                background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+                background-color:#fff;
+                background-size: cover;
+                background-repeat:no-repeat;
+                display: inline-block;
+                box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
+            }
+            .btn-primary
+            {
+                display:block;
+                border-radius:0px;
+                box-shadow:0px 4px 6px 2px rgba(0,0,0,0.2);
+                margin-top:-5px;
+            }
+            .imgUp
+            {
+                margin-bottom:15px;
+            }
+            .del
+            {
+                position:absolute;
+                top:0px;
+                right:15px;
+                width:30px;
+                height:30px;
+                text-align:center;
+                line-height:30px;
+                background-color:rgba(255,255,255,0.6);
+                cursor:pointer;
+            }
+            .imgAdd
+            {
+                width:30px;
+                height:30px;
+                border-radius:50%;
+                background-color:#4bd7ef;
+                color:#fff;
+                box-shadow:0px 0px 2px 1px rgba(0,0,0,0.2);
+                text-align:center;
+                line-height:30px;
+                margin-top:0px;
+                cursor:pointer;
+                font-size:15px;
+            }
+        </style>
     </head>        
     <body id="page-top">
         <div id="wrapper">
@@ -132,9 +227,9 @@
                 </div>
 
             </div>
-            
+
         </div>
-        
+
     </div>
     <!-- Bootstrap core JavaScript-->
     <script src="{{ URL::asset('js/vendor/jquery/jquery.min.js') }}"></script>
@@ -166,18 +261,18 @@
 
                                        $(document).on('click', '.edit-f', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
-                                           
+
                                            var form = $(this);
                                            var url = $(this).attr("href");
-                                           
+
                                            $.ajax({
-                                               type: "GET",                                               
+                                               type: "GET",
                                                headers: {
                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                },
                                                url: url,
                                                data: form.serialize(), // serializes the form's elements.
-                                               success: function (response) {                                                  
+                                               success: function (response) {
                                                    $(".edit-farm").html(response);
                                                    $("#editFarmModal").modal();
                                                },
@@ -186,16 +281,16 @@
                                                }
                                            });
                                        });
-                                       
+
                                        //save farm
                                        $(document).on('submit', '#formFarm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
 
                                            var form = $(this);
                                            var url = form.attr('action');
-                                            //alert(url);
+                                           //alert(url);
                                            $.ajax({
-                                               type: "POST",                                               
+                                               type: "POST",
                                                headers: {
                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                },
@@ -210,7 +305,7 @@
                                                }
                                            });
                                        });
-                                       
+
                                        //update farm
                                        $(document).on('submit', '#updateFarm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
@@ -219,7 +314,7 @@
                                            var url = $("#updateFarm").attr('action');
                                            //alert(url);
                                            $.ajax({
-                                               type: "POST",                                               
+                                               type: "POST",
                                                headers: {
                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                },
@@ -247,6 +342,33 @@
                                            language: "es",
                                            autoclose: true,
                                            todayHighlight: true
+                                       });
+
+                                       $(".imgAdd").click(function () {
+                                           $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
+                                       });
+                                       $(document).on("click", "i.del", function () {
+                                           $(this).parent().remove();
+                                       });
+                                       $(function () {
+                                           $(document).on("change", ".uploadFile", function ()
+                                           {
+                                               var uploadFile = $(this);
+                                               var files = !!this.files ? this.files : [];
+                                               if (!files.length || !window.FileReader)
+                                                   return; // no file selected, or no FileReader support
+
+                                               if (/^image/.test(files[0].type)) { // only image file
+                                                   var reader = new FileReader(); // instance of the FileReader
+                                                   reader.readAsDataURL(files[0]); // read the local file
+
+                                                   reader.onloadend = function () { // set image data as background of div
+                                                       //alert(uploadFile.closest(".upimage").find('.imagePreview').length);
+                                                       uploadFile.closest(".imgUp").find('.imagePreview').css("background-image", "url(" + this.result + ")");
+                                                   }
+                                               }
+
+                                           });
                                        });
 
                                        var navListItems = $('div.setup-panel div a'),
