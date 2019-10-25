@@ -215,7 +215,7 @@
                                                                 <div class="row">
                                                                     <div class="col-md-12 imgUp">
                                                                         <div class="imagePreview" @if ($farmer->profile_image) 
-                                                                             style="background-image: url({{$farmer->profile_image}})"
+                                                                             style="background-image: url({{asset(config('app.file_path').'/'.$farmer->profile_image)}})"
                                                                              @else
                                                                              style="background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg)"
                                                                              @endif ></div>
