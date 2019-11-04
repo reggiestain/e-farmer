@@ -139,7 +139,7 @@ class FarmerController extends Controller {
                         'region_id' => $request->input('region_id'),
                         'marital_status' => $request->input('marital_status'),
                         'number_of_children' => $request->input('number_of_children'),
-                        'number_of_dependancies' => $request->input('number_of_dependencies'),
+                        'number_of_dependencies' => $request->input('number_of_dependencies'),
                         'address' => $request->input('address'),
                         'postal_address' => $request->input('postal_address'),
             ]);
@@ -259,7 +259,7 @@ class FarmerController extends Controller {
      }
      
      public function updatefarm(Request $request, $farms) {
-       
+                
         $farm->crop_id = $request->input('crop_id') ?? 7;
         $farm->seedlings = $request->input('seedlings');
         $farm->district = $request->input('district');
@@ -307,7 +307,7 @@ class FarmerController extends Controller {
                     'farmer' =>$farmer,
                     'cropTypes' =>$cropType,
                     'statuses'=>['Active','In-active'],
-                     'maritals'=>['Single','Married','Divorced','Seperated']
+                    'maritals'=>['Single','Married','Divorced','Seperated']
                     
         ]);
     }
@@ -344,20 +344,33 @@ class FarmerController extends Controller {
             // Set user profile image path in database to filePath
             $farmer->profile_image = $filePath;
         }
-
+        
+        $farmer->firstname = $request->input('firstname');
+        $farmer->surname = $request->input('surname');
+        $farmer->email = $request->input('email');
+        $farmer->mobile = $request->input('mobile');
+        $farmer->gender = $request->input('gender') ?? 'Male';
+        $farmer->age = $request->input('age');
+        $farmer->birth_date = $request->input('birth_date');
+        $farmer->birth_place = $request->input('birth_place');
+        //$farmer->region_id = $request->input('region_id');
+        $farmer->marital_status = $request->input('marital_status');
+        $farmer->number_of_children = $request->input('number_of_children');        
+        $farmer->number_of_dependencies = $request->input('number_of_dependencies');
+        $farmer->address = $request->input('address');
+        $farmer->postal_address = $request->input('postal_address');
+        
         $farmer->spousalDetail->s_firstname = $request->input('s_firstname');
         $farmer->spousalDetail->s_surname = $request->input('s_surname');
         $farmer->spousalDetail->s_birth_date = $request->input('s_birth_date');
         $farmer->spousalDetail->s_mobile = $request->input('s_mobile');
-        /*
+        
         $farmer->farmDetail->crop_id = $request->input('crop_id');
         $farmer->farmDetail->seedlings = $request->input('seedlings');
         $farmer->farmDetail->district = $request->input('district');
         $farmer->farmDetail->longitude = $request->input('longitude');
         $farmer->farmDetail->latitude = $request->input('latitude');
         $farmer->farmDetail->region_id = $request->input('region_id') ?? 0;
-         * 
-         */
         
         $farmer->bankDetail->bank_name = $request->input('bank_name');
         $farmer->bankDetail->account_no = $request->input('account_no');
