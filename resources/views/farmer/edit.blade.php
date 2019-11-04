@@ -109,7 +109,7 @@
                                                         <div class="form-group">    
                                                             <label class="control-label">Gender</label>
                                                             <select class="form-control" id="selectGender" name="gender" class="form-control @error('gender') is-invalid @enderror" autocomplete="gender">
-                                                                <option value="{{$farmer->gender}}" disabled selected>{{ $farmer->gender }}</option>        
+                                                                <option value="{{$farmer->gender}}" disabled selected>{{ $farmer->gender ?? 'Select Gender'}}</option>        
                                                                 @foreach($genders as $gender)
                                                                 <option value="{{$gender}}">{{$gender}}</option>
                                                                 @endforeach
@@ -156,8 +156,8 @@
                                                         </div>
                                                         <div class="form-group">    
                                                             <label class="control-label">Marital Status</label>
-                                                            <select class="form-control" id="selectGender" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" value="{{ old('marital_status') }}" autocomplete="marital-status">
-                                                                <option value="" disabled selected>Please select marital status</option>        
+                                                            <select class="form-control" id="selectGender" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" value="{{ old('marital_status') }}" autocomplete="marital_status">
+                                                                <option value="{{$farmer->marital_status}}" disabled selected>{{$farmer->marital_status ?? 'Select marital status'}} </option>        
                                                                 @foreach($maritals as $marital)
                                                                 <option value="{{$marital}}">{{$marital}}</option>
                                                                 @endforeach
