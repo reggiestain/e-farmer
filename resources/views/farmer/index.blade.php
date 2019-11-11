@@ -57,7 +57,6 @@
                                             <th>Surname</th>
                                             <th>Gender</th>
                                             <th>Birth Date</th>
-                                            <th>Age</th>
                                             <th>Birth Place</th>
                                             <th>Marital Status</th>
                                             <th>Official</th>
@@ -73,7 +72,6 @@
                                             <td>{{$farmer->surname}}</td>
                                             <td>{{$farmer->gender}}</td>
                                             <td>{{$farmer->birth_date}}</td>
-                                            <td>{{$farmer->age}}</td>
                                             <td>{{$farmer->birth_place}}</td>
                                             <td>{{$farmer->marital_status}}</td>
                                             <td>{{$farmer->user->name}}</td>
