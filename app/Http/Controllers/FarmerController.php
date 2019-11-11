@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Traits\UploadTrait;
+use PDF;
 
 class FarmerController extends Controller {
 
@@ -310,6 +311,39 @@ class FarmerController extends Controller {
                     'maritals'=>['Single','Married','Divorced','Seperated']
                     
         ]);
+    }
+    
+    public function view($id) {
+        
+        $farmer = Farmer::find($id);
+        
+        $name = $farmer->firstname.'-'.$farmer->surname;
+        
+        $genders = ['Male', 'Female'];
+        $regions = Region::all();
+        $cropType = Crop::all(); 
+        
+        return view('farmer.view')->with([
+                    'genders' => $genders,
+                    'regions' => $regions,
+                    'farmer' =>$farmer,
+                    'cropTypes' =>$cropType,
+                    'statuses'=>['Active','In-active'],
+                    'maritals'=>['Single','Married','Divorced','Seperated']
+                    
+        ]);
+        /*
+        $pdf = PDF::loadView('farmer.view', [
+             'farms'=>$farmer,
+             'regions'=>$regions,
+             'cropTypes'=>$cropType,
+             'statuses'=>['Active','In-active'],
+             'maritals'=>['Single','Married','Divorced','Seperated']
+                 ]);
+        
+        return $pdf->download($name.'pdf');
+         * 
+         */
     }
 
     /**
