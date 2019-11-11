@@ -225,7 +225,37 @@
                         </div>
                     </div>   
                 </div>
+            </div>
 
+            <!--load Modal-->
+            <div class="modal fade" id="loaderModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <!--<div class="modal-header">
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>-->
+                        <div class="modal-body">                                              
+                            <div class="col-lg-10">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <div class="fa-3x">
+                                           <!-- <i class="fas fa-spinner fa-spin"></i>
+                                            <i class="fas fa-circle-notch fa-spin"></i>
+                                            <i class="fas fa-sync fa-spin"></i>-->
+                                            <i class="fas fa-cog fa-spin"></i>
+                                           <!-- <i class="fas fa-spinner fa-pulse"></i>
+                                            <i class="fas fa-stroopwafel fa-spin"></i>-->
+                                        </div>
+                                        downloading..... PDF
+                                    </div>
+                                </div>                                          
+                            </div>
+                        </div>
+                       <!-- <div class="modal-footer"></div>-->
+                    </div>   
+                </div>
             </div>
 
         </div>
@@ -258,10 +288,19 @@
                                            $("#addFarmModal").modal();
                                        });
 
+                                       $(document).on('click', '#pd-view', function (e) {
+                                           e.preventDefault();
+                                           $("#loaderModal").modal();
+                                           var url = $(this).attr("href");
+                                           window.location.href = url;
+                                           $(window).load(url,function(){
+                                             $("#loaderModal").modal('toggle');
+                                               alert();
+                                           });
+                                       });
 
                                        $(document).on('click', '.edit-f', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
-
                                            var form = $(this);
                                            var url = $(this).attr("href");
 

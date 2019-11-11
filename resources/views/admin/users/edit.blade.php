@@ -67,6 +67,20 @@
                                 </div>
                                 
                                 <div class="form-group row">
+                                    <label for="mobile" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="email" type="text" class="form-control @error('mobile') is-invalid @enderror" name="mobile" value="{{ $user->mobile}}" required autocomplete="mobile">
+
+                                        @error('mobile')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row">
                                     <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
                                     <div class="col-md-6 checkbox">
                                         @foreach($roles as $role)
