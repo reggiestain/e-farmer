@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class UserController extends Controller
 {
@@ -39,6 +40,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if(Gate::denies('edit-users')){
+            
+           return redirect(route('admin.users.index'));  
+        }
+        
         $roles = Role::all();
         
         return view('admin.users.edit')->with([
@@ -56,7 +62,11 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $user->mobile = $request->input('mobile');
+        
         $user->roles()->sync($request->roles);
+        
+        $user->push();
         
         return redirect()->route('admin.users.index')->with('success', 'Success | Record updated successfully.');
     }

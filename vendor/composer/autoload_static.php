@@ -467,7 +467,14 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'App\\Region' => __DIR__ . '/../..' . '/app/Region.php',
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\SpousalDetail' => __DIR__ . '/../..' . '/app/SpousalDetail.php',
+<<<<<<< HEAD
         'App\\Traits\\UploadTrait' => __DIR__ . '/../..' . '/app/Traits/UploadTrait.php',
+=======
+<<<<<<< HEAD
+=======
+        'App\\Traits\\UploadTrait' => __DIR__ . '/../..' . '/app/Traits/UploadTrait.php',
+>>>>>>> a5ca9e2174888c7446ca647cd9d56b5b790debcf
+>>>>>>> 35cd7da62a6ce2acfe0f524b893e889c93afc10f
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',

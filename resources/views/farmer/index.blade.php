@@ -79,7 +79,7 @@
                                             <td>{{$farmer->user->name}}</td>
                                             <td>{{$farmer->created_at}}</td>
                                             <td>
-                                                <button class="btn btn-success btn-xs">View</button> 
+                                                <a href="{{route('farmer.view',$farmer->id)}}" id="pdf-view" class="btn btn-success btn-xs">View</a> 
                                                 <a href="{{route('farmer.edit',$farmer->id)}}" class="btn btn-primary btn-xs">Edit</a>   
                                             </td>
                                         </tr>
