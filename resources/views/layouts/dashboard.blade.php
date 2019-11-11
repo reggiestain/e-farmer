@@ -288,15 +288,15 @@
                                            $("#addFarmModal").modal();
                                        });
 
-                                       $(document).on('click', '#pd-view', function (e) {
+                                       $(document).on('click', '.pdf-view', function (e) {
                                            e.preventDefault();
                                            $("#loaderModal").modal();
                                            var url = $(this).attr("href");
-                                           window.location.href = url;
-                                           $(window).load(url,function(){
-                                             $("#loaderModal").modal('toggle');
-                                               alert();
-                                           });
+                                           //window.location.href = url;
+                                           //$(window).load(url,function(){
+                                            // $("#loaderModal").modal('toggle');
+                                              // alert();
+                                           //});
                                        });
 
                                        $(document).on('click', '.edit-f', function (e) {
