@@ -106,7 +106,7 @@
                                             <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                                         </tr>
                                         <tr> 
-                                            <td colspan="2"> 
+                                            <td colspan="3"> 
                                                 <strong>NAME:</strong> {{$farmer->spousalDetail->s_firstname}}
                                                 <br><br>
                                                 <strong>BIRTH DATE:</strong> {{$farmer->spousalDetail->s_birth_date}}
@@ -122,7 +122,7 @@
                                             <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                                         </tr>
                                         <tr> 
-                                            <td colspan="2"> 
+                                            <td colspan="3"> 
                                                 <strong>BANK NAME:</strong> {{$farmer->bankDetail->bank_name}}
                                                 <br><br>
                                                 <strong>BRANCH NAME:</strong> {{$farmer->bankDetail->branch_name}}
