@@ -297,7 +297,6 @@ class FarmerController extends Controller {
      */
     public function edit(Farmer $farmer) {
 
-        //$farmer = Farmer::with(['farmDetail'])->get();       
         $genders = ['Male', 'Female'];
         $regions = Region::all();
         $cropType = Crop::all();     
@@ -316,7 +315,7 @@ class FarmerController extends Controller {
     public function view($id) {
         
         $farmer = Farmer::find($id);
-        
+                
         $name = $farmer->firstname.'-'.$farmer->surname;
         
         $genders = ['Male', 'Female'];
@@ -383,6 +382,7 @@ class FarmerController extends Controller {
         $farmer->surname = $request->input('surname');
         $farmer->email = $request->input('email');
         $farmer->mobile = $request->input('mobile');
+        $farmer->mobile2 = $request->input('mobile2');
         $farmer->gender = $request->input('gender') ?? 'Male';
         $farmer->age = $request->input('age');
         $farmer->birth_date = $request->input('birth_date');
@@ -392,7 +392,7 @@ class FarmerController extends Controller {
         $farmer->number_of_children = $request->input('number_of_children');        
         $farmer->number_of_dependencies = $request->input('number_of_dependencies');
         $farmer->address = $request->input('address');
-        $farmer->postal_address = $request->input('postal_address');
+        $farmer->postal_address	 = $request->input('postal_address');
         
         $farmer->spousalDetail->s_firstname = $request->input('s_firstname');
         $farmer->spousalDetail->s_surname = $request->input('s_surname');

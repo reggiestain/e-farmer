@@ -188,7 +188,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Physical Address</label>
-                                                            <textarea type="text" name="address" class="form-control @error('address') is-invalid @enderror" value="{{ $farmer->address }}" autocomplete="address"></textarea>
+                                                            <textarea type="text" name="address" class="form-control @error('address') is-invalid @enderror" autocomplete="address">{{ $farmer->address }}</textarea>
                                                             @error('address')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -197,8 +197,8 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Post Office Address</label>
-                                                            <textarea type="text" name="post_office_address" class="form-control @error('post_office_address') is-invalid @enderror" value="{{ $farmer->post_office_address }}" autocomplete="post_office_address"></textarea>
-                                                            @error('post_office_address')
+                                                            <textarea type="text" name="postal_address" class="form-control @error('postal_address') is-invalid @enderror" autocomplete="postal_address">{{ $farmer->postal_address}}</textarea>
+                                                            @error('postal_address')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>
