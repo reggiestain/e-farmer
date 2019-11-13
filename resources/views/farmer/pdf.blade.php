@@ -1,8 +1,6 @@
 @extends('layouts.pdf')
 @section('content')
-<div class="card-body">
                             <div class="table-responsive">
-                                <div class="container">
                                     <table class="table table-striped"> 
                                         
                                         <thead> 
@@ -135,9 +133,8 @@
                                         </tr> 
                                     </tfoot> 
                                 </table>
+                            </div>
                                 <div>Farmer Signature:.............................................</div>
-                                </div>
-                            </div></div>
-                                @endsection     
+                    @endsection     
 
 
