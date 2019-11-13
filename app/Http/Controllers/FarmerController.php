@@ -347,7 +347,7 @@ class FarmerController extends Controller {
                     'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
         ]);
         
-        $html2pdf = new Html2Pdf('P', 'A4', 'fr');
+        $html2pdf = new Html2Pdf();
         $html2pdf->writeHTML($view);
         
        return $html2pdf->output($name.'.pdf');
