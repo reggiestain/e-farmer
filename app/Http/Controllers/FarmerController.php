@@ -348,7 +348,7 @@ class FarmerController extends Controller {
         ]);
         
 
-        return $pdf->download($name . 'pdf');
+        return $pdf->download($name .'.pdf');
     }
 
     /**
