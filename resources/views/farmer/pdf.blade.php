@@ -54,14 +54,12 @@
                                 <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->mumber_of_dependents}}
                             </td> 
                             <td colspan="2">
-                                <div class="col-md-12 imgUp">
-                                    <div class="imagePreview" @if ($farmer->profile_image) 
-                                         style="background-image: url({{asset(config('app.file_path').'/'.$farmer->profile_image)}})"
+                           @if ($farmer->profile_image) 
+                           <img src="{{asset(config('app.file_path').'/'.$farmer->profile_image)}}" height="120" width="120"/>
                                          @else
-                                         style="background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg)"
-                                         @endif >
-                                </div>
-                            </div><!-- col-2 -->
+                                         
+                                         @endif 
+                             
                         </td>
                     </tr>
                     <tr> 
@@ -111,18 +109,18 @@
                         <th>Year Established</th> 
                         <th>Community</th> 
                         <th>Location</th>
-                    </tr>                                       
-                    <tr> 
+                    </tr> 
                     @foreach($farmer->farmDetail as $farm)
+                    <tr>                     
                     <td>{{$farm->status}}</td> 
                     <td>{{$farm->crop->name}}</td> 
                     <td>{{$farm->seedlings}}</td> 
                     <td>{{$farm->size_of_land}}</td>   
                     <td>{{$farm->year_stablished}}</td>  
                     <td>{{$farm->district}}</td>  
-                    <td>{{$farm->location}}</td>
-                    @endforeach
+                    <td>{{$farm->location}}</td>                   
                     </tr> 
+                    @endforeach
                     </tbody> 
                     <tfoot> 
                         <tr>
