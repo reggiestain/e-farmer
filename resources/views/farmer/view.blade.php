@@ -101,11 +101,12 @@
                                                 </div><!-- col-2 -->
                                             </td>
                                         </tr>
+                                        @if($farmer->spousalDetail)
                                         <tr> 
-                                            <th colspan="3"><h4>SPOUSE DETAILS</h4></th> 
-                                            <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                         <th colspan="3"><h4>SPOUSE DETAILS</h4></th> 
+                                          <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                                         </tr>
-                                        <tr> 
+                                        <tr>                                             
                                             <td colspan="3"> 
                                                 <strong>NAME:</strong> {{$farmer->spousalDetail->s_firstname}}
                                                 <br><br>
@@ -116,7 +117,8 @@
                                                 <br><br>
                                                 <strong>PHONE NUMBER:</strong> {{$farmer->spousalDetail->s_mobile}}
                                             </td> 
-                                        </tr>  
+                                        </tr> 
+                                        @endif
                                         <tr> 
                                             <th colspan="3"><h4>BANK DETAILS</h4></th> 
                                             <th></th><th></th><th></th><th></th><th></th><th></th><th></th>

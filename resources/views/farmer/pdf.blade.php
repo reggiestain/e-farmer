@@ -49,7 +49,7 @@
                                 <br><br>
                                 <strong>PHONE NUMBER :</strong> {{$farmer->mobile}}
                                 <br><br>
-                                <strong>MARITAL STATUS :</strong> married{{$farmer->marital_status}}
+                                <strong>MARITAL STATUS :</strong> {{$farmer->marital_status}}
                                 <br><br>
                                 <strong>NUMBER OF CHILDREN:</strong> {{$farmer->number_of_children}}
                                 <br><br>
