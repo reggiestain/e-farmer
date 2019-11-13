@@ -337,8 +337,8 @@ class FarmerController extends Controller {
         $regions = Region::all();
         $cropType = Crop::all();
 
-        //$pdf = PDF::loadView('farmer.pdf', [
-        $view = view('farmer.pdf')->with([
+        $pdf = PDF::loadView('farmer.pdf', [
+       
                     'farmer' => $farmer,
                     'genders' => $genders,
                     'regions' => $regions,
@@ -347,12 +347,8 @@ class FarmerController extends Controller {
                     'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
         ]);
         
-        $html2pdf = new Html2Pdf();
-        $html2pdf->writeHTML($view);
-        
-       return $html2pdf->output($name.'.pdf');
 
-        //return $pdf->download($name . 'pdf');
+        return $pdf->download($name . 'pdf');
     }
 
     /**
