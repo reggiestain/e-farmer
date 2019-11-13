@@ -24,6 +24,7 @@ Route::post('/farmer/savefarm', 'FarmerController@savefarm')->name('farmer.savef
 Route::get('/farmer/getfarm/{id}', 'FarmerController@getfarm')->name('farmer.getfarm');
 Route::get('/farmer/editfarm/{id}', 'FarmerController@editfarm')->name('farmer.editfarm');
 Route::get('/farmer/view/{id}', 'FarmerController@view')->name('farmer.view');
+Route::get('/farmer/pdf/{id}', 'FarmerController@pdf')->name('farmer.pdf');
 Route::post('/farmer/updatefarm/{id}', 'FarmerController@updatefarm')->name('farmer.updatefarm');
 //farmer
 Route::post('/farmer/store', 'FarmerController@store')->name('farmer.store');

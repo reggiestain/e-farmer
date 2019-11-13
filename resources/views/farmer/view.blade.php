@@ -30,7 +30,7 @@
                                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#adduserModal">Add user</a>                                    
                                 </div>
                             </div>
-                            <button class="pdf-view"><span class="fa fa-file-pdf-o"></span>Download PDF</button>
+                            <a href="{{route('farmer.pdf',$farmer->id)}}"class="btn btn-dark pdf-view"><span class="fa fa-file-pdf-o"></span>Download PDF</a>
                         </div>
                         <!-- Card Body -->
 

@@ -253,7 +253,7 @@
                                 </div>                                          
                             </div>
                         </div>
-                       <!-- <div class="modal-footer"></div>-->
+                        <!-- <div class="modal-footer"></div>-->
                     </div>   
                 </div>
             </div>
@@ -292,11 +292,17 @@
                                            e.preventDefault();
                                            $("#loaderModal").modal();
                                            var url = $(this).attr("href");
-                                           //window.location.href = url;
-                                           //$(window).load(url,function(){
-                                            // $("#loaderModal").modal('toggle');
-                                              // alert();
-                                           //});
+
+                                           var win = window.open(url, '_blank');
+                                           if (win) {
+                                               //Browser has allowed it to be opened
+                                                $("#loaderModal").modal('toggle');
+                                               win.focus();
+                                           } else {
+                                               //Browser has blocked it
+                                               alert('Please allow popups for this website');
+                                           }
+                                         
                                        });
 
                                        $(document).on('click', '.edit-f', function (e) {
