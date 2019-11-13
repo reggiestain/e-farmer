@@ -1,12 +1,10 @@
 @extends('layouts.pdf')
 @section('content')
-<div class="col-md-12">
-        <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-striped"> 
                     <thead> 
                         <tr> 
-                            <th colspan="4"><h4>PERD FARMER DATA COLLECTION SHEET</h4></th> 
+                            <th colspan="6"><h4>PERD FARMER DATA COLLECTION SHEET</h4></th> 
                             <th></th><th></th><th></th><th></th><th></th>
                         </tr> 
                         <tr> 
@@ -134,9 +132,6 @@
                 </table>
                 <div>Farmer Signature:..................................................................</div>
         </div>
-    </div>
-</div>
-</div>
 @endsection     
 
 

@@ -58,6 +58,10 @@
                 cursor:pointer;
                 font-size:15px;
             }
+            @page {
+            margin: 0px 0px 0px 0px !important;
+            padding: 0px 0px 0px 0px !important;
+        }
         </style>
 </head>
 <body>
