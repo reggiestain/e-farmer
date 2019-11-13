@@ -24,7 +24,9 @@
                                 <br><br>
                                 <strong>DATA COLLECTION DATE:</strong> {{$farmer->created_at}}
                             </td> 
+                            <td colspan="2">
 
+                            </td>
                         </tr> 
                         <tr> 
                             <th colspan="3"><h4>FARMER DETAILS</h4></th> 
@@ -53,7 +55,7 @@
                                 <br><br>
                                 <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->mumber_of_dependents}}
                             </td> 
-                            <td colspan="2">
+                            <td colspan="3">
                            @if ($farmer->profile_image) 
                            <img src="{{asset(config('app.file_path').'/'.$farmer->profile_image)}}" height="120" width="120"/>
                                          @else
@@ -77,7 +79,7 @@
                             <br><br>
                             <strong>PHONE NUMBER:</strong> {{$farmer->spousalDetail->s_mobile}}
                         </td> 
-                        <td colspan="2">
+                        <td colspan="3">
                             
                         </td>
                     </tr>  
@@ -97,7 +99,7 @@
                             <strong>MOBILE MONEY NUMBER:</strong> {{$farmer->bankDetail->mobile_money}}
                         </td>
                         </td> 
-                        <td colspan="2">
+                        <td colspan="3">
                             
                         </td>
                     </tr>  
