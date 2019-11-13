@@ -1,11 +1,31 @@
 @extends('layouts.pdf')
 @section('content')
-                            <div class="table-responsive">
+<div class="table-responsive"><div class='row'>
+                <div class="col-md-12">
+                    <div class="card shadow mb-4">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Farmer Information</h6> 
+                            <div class="dropdown no-arrow">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                                    <div class="dropdown-header">Dropdown Header:</div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#adduserModal">Add user</a>                                    
+                                </div>
+                            </div>
+                            <a href="{{route('farmer.pdf',$farmer->id)}}"class="btn btn-dark pdf-view"><span class="fa fa-file-pdf-o"></span>Download PDF</a>
+                        </div>
+                        <!-- Card Body -->
+
+                        <p class="mb-4"></p>
+                        <div class="card-body">
                                     <table class="table table-striped"> 
                                         
                                         <thead> 
                                             <tr> 
-                                                <th colspan="6"><h4>PERD FARMER DATA COLLECTION SHEET</h4></th> 
+                                                <th colspan="4"><h4>PERD FARMER DATA COLLECTION SHEET</h4></th> 
                                                 <th></th><th></th><th></th><th></th><th></th>
                                             </tr> 
                                             <tr> 
@@ -114,6 +134,7 @@
                                             <th>Location</th>
                                         </tr>                                       
                                         <tr> 
+                                    <table>
                                              @foreach($farmer->farmDetail as $farm)
                                             <td>{{$farm->status}}</td> 
                                             <td>{{$farm->crop->name}}</td> 
@@ -134,7 +155,11 @@
                                     </tfoot> 
                                 </table>
                             </div>
-                                <div>Farmer Signature:.............................................</div>
+                                <div>Farmer Signature:..................................................................</div>
+                                </div>
+                        </div>
+                    </div>
+ </div>
                     @endsection     
 
 
