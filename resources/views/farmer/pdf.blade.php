@@ -1,7 +1,6 @@
 @extends('layouts.pdf')
 @section('content')
 
-                                <div class="container">
                                     <table class="table table-striped"> 
                                         
                                         <thead> 
@@ -44,7 +43,7 @@
                                                     <br><br>
                                                     <strong>AGE:</strong> {{$farmer->age}}
                                                 </td> 
-                                                <td colspan="3" > 
+                                                <td colspan="2" > 
                                                     <strong>EMAIL :</strong> {{$farmer->email}}
                                                     <br><br>
                                                     <strong>PHONE NUMBER :</strong> {{$farmer->mobile}}
@@ -56,11 +55,14 @@
                                                     <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->mumber_of_dependents}}
                                                 </td> 
                                                 <td colspan="2">
-                                                    @if($farmer->profile_image))
-                                                    <img src="{{asset(config('app.file_path').'/'.$farmer->profile_image)}}" style="width:100px;height: 100px"/>                            
-                                                    @else
-                                                    
-                                                    @endif
+                                                     <div class="col-md-12 imgUp">
+                                                        <div class="imagePreview" @if ($farmer->profile_image) 
+                                                             style="background-image: url({{asset(config('app.file_path').'/'.$farmer->profile_image)}})"
+                                                             @else
+                                                             style="background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg)"
+                                                             @endif >
+                                                    </div>
+                                                </div><!-- col-2 -->
                                                 </td>
                                         </tr>
                                         <tr> 
@@ -80,6 +82,7 @@
                                             </td> 
                                         </tr>  
                                         <tr> 
+                                        <br>
                                             <th colspan="3"><h4>BANK DETAILS</h4></th> 
                                             <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                                         </tr>
@@ -130,13 +133,11 @@
                                     </tbody> 
                                     <tfoot> 
                                         <tr>
-                                        <th colspan="10">Farmer Signature:.............................................</th>                                          
+                                        <th colspan="10"></th>                                          
                                         </tr> 
                                     </tfoot> 
                                 </table>
-                            </div>
-                       
-
+                                <div>Farmer Signature:.............................................</div>
                     @endsection     
 
 
