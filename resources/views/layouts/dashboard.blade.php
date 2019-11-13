@@ -290,13 +290,13 @@
 
                                        $(document).on('click', '.pdf-view', function (e) {
                                            e.preventDefault();
-                                           $("#loaderModal").modal();
+                                           //$("#loaderModal").modal();
                                            var url = $(this).attr("href");
 
                                            var win = window.open(url, '_blank');
                                            if (win) {
                                                //Browser has allowed it to be opened
-                                                $("#loaderModal").modal('toggle');
+                                               // $("#loaderModal").modal('toggle');
                                                win.focus();
                                            } else {
                                                //Browser has blocked it
