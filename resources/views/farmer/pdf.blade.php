@@ -115,7 +115,6 @@
                         <th>Location</th>
                     </tr>                                       
                     <tr> 
-                <table>
                     @foreach($farmer->farmDetail as $farm)
                     <td>{{$farm->status}}</td> 
                     <td>{{$farm->crop->name}}</td> 
@@ -126,8 +125,6 @@
                     <td>{{$farm->location}}</td>
                     @endforeach
                     </tr> 
-
-                    </tr>
                     </tbody> 
                     <tfoot> 
                         <tr>
