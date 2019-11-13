@@ -77,6 +77,9 @@
                             <br><br>
                             <strong>PHONE NUMBER:</strong> {{$farmer->spousalDetail->s_mobile}}
                         </td> 
+                        <td colspan="2">
+                            
+                        </td>
                     </tr>  
                     <tr> 
                         <th colspan="3"><h4>BANK DETAILS</h4></th> 
@@ -92,7 +95,11 @@
                             <strong>ACCOUNT NO:</strong> {{$farmer->bankDetail->account_no}}       
                             <br><br>
                             <strong>MOBILE MONEY NUMBER:</strong> {{$farmer->bankDetail->mobile_money}}
+                        </td>
                         </td> 
+                        <td colspan="2">
+                            
+                        </td>
                     </tr>  
                     <tr> 
                         <th colspan="3"><h4>FARM DETAILS</h4></th> 
