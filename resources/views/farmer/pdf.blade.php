@@ -5,7 +5,7 @@
                     <thead> 
                         <tr> 
                             <th colspan="6"><h4>PERD FARMER DATA COLLECTION SHEET</h4></th> 
-                            <th></th><th></th><th></th><th></th><th></th>
+                            <th></th><th></th><th></th><th></th><th></th><th></th>
                         </tr> 
                         <tr> 
                             <td colspan="3"> 
