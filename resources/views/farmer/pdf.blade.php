@@ -82,7 +82,6 @@
                                             </td> 
                                         </tr>  
                                         <tr> 
-                                        <br>
                                             <th colspan="3"><h4>BANK DETAILS</h4></th> 
                                             <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                                         </tr>
@@ -104,8 +103,7 @@
                                         </tr>
 
                                     </thead> 
-                                    <tbody> 
-                                        <tr> 
+                                    <tbody>  
                                         <tr>
                                             <th>Farm Status</th>   
                                             <th>Crop Type</th> 
@@ -114,21 +112,19 @@
                                             <th>Year Established</th> 
                                             <th>Community</th> 
                                             <th>Location</th>
-                                        </tr> 
-                                        </tr>
+                                        </tr>                                       
                                         <tr> 
-                                        @foreach($farmer->farmDetail as $farm)
-                                        <tr> 
+                                             @foreach($farmer->farmDetail as $farm)
                                             <td>{{$farm->status}}</td> 
                                             <td>{{$farm->crop->name}}</td> 
                                             <td>{{$farm->seedlings}}</td> 
                                             <td>{{$farm->size_of_land}}</td>   
                                             <td>{{$farm->year_stablished}}</td>  
                                             <td>{{$farm->district}}</td>  
-                                            <td>{{$farm->location}}</td>   
-                                           
+                                            <td>{{$farm->location}}</td>
+                                            @endforeach
                                         </tr> 
-                                        @endforeach
+                                        
                                         </tr>
                                     </tbody> 
                                     <tfoot> 
