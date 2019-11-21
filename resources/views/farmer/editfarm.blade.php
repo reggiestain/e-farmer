@@ -64,7 +64,7 @@
         </div>
         <div class="form-group col-md-6">
             <label class="control-label">Established Year</label>
-            <input maxlength="200" type="text" name="year_exstablished" value="{{dd($farms->year_exstablished)}}" class="form-control @error('year_established') is-invalid @enderror"/>
+            <input maxlength="200" type="text" name="year_exstablished" value="{{$farms->year_exstablished}}" class="form-control @error('year_established') is-invalid @enderror"/>
             @error('year_exstablished')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
