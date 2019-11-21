@@ -355,7 +355,7 @@
                                        $(document).on('submit', '#updateFarm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
 
-                                           var form = $(this);
+                                           var formdata = $(this).serialize(); 
                                            var url = $("#updateFarm").attr('action');
                                            //alert(url);
                                            $.ajax({
@@ -364,7 +364,7 @@
                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                                },
                                                url: url,
-                                               data: form.serialize(), // serializes the form's elements.
+                                               data: formdata, // serializes the form's elements.
                                                success: function (response) {
                                                    $("#editFarmModal").modal('toggle');
                                                    $(".farm-table").html(response);

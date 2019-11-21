@@ -4,7 +4,7 @@
         <div class="form-group col-md-6">    
             <label class="control-label">Crop Type</label>
             <input type="hidden" name="farmer_id" value="{{$farms->farmer_id}}">
-            <select class="form-control" id="selectUser" name="crop_id" class="form-control @error('crop_type_id') is-invalid @enderror" >
+            <select name="crop_id" class="form-control" id="selectUser" class="form-control @error('crop_id') is-invalid @enderror" >
                 <option value="{{$farms->crop->id}}" disabled selected>{{ $farms->crop->name ??'Please select crop type'}}</option>        
                 @foreach($cropTypes as $cropType)
                 <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
@@ -64,7 +64,7 @@
         </div>
         <div class="form-group col-md-6">
             <label class="control-label">Established Year</label>
-            <input maxlength="200" type="text" name="year_established" value="{{$farms->year_established}}" class="form-control @error('year_established') is-invalid @enderror"/>
+            <input maxlength="200" type="text" name="year_exstablished" value="{{$farms->year_established}}" class="form-control @error('year_established') is-invalid @enderror"/>
             @error('year_established')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

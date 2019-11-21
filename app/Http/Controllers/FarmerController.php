@@ -257,8 +257,10 @@ class FarmerController extends Controller {
         ]);
     }
 
-    public function updatefarm(Request $request, $farms) {
-
+    public function updatefarm(Request $request, $id) {
+           
+        $farm = FarmDetail::find($id);
+        
         $farm->crop_id = $request->input('crop_id') ?? 7;
         $farm->seedlings = $request->input('seedlings');
         $farm->district = $request->input('district');
@@ -268,6 +270,7 @@ class FarmerController extends Controller {
         $farm->longitude = $request->input('longitude');
         $farm->latitude = $request->input('latitude');
         $farm->region_id = $request->input('region_id') ?? 11;
+        $farm->year_exstablished = $request->input('year_exstablished');
 
         $farm->push();
 
