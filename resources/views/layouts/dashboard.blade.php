@@ -18,7 +18,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.css') }}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">      
         <link href="{{ asset('js/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
-        
+
         <style>
             .stepwizard-step p {
                 margin-top: 0px;
@@ -280,8 +280,8 @@
     <!-- Page level custom scripts -->
     <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script>
                                    $(document).ready(function () {
 
@@ -458,47 +458,41 @@
 
                                        $('div.setup-panel div a.btn-success').trigger('click');
 
-                                       // Set new default font family and font color to mimic Bootstrap's default styling
-                                       Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-                                       Chart.defaults.global.defaultFontColor = '#858796';
-
-                                       var crop;
-
                                        $.getJSON("{{route('report.cropsum')}}", cropSum);
 
                                        function cropSum(data) {
-                                       
-                                       
-                                       Highcharts.chart('container', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false,
-        type: 'pie'
-    },
-    title: {
-        text: ''
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-            }
-        }
-    },
-    series: [{
-        name: 'Brands',
-        colorByPoint: true,
-        data: data
-    }]
-});
-}
+
+
+                                           Highcharts.chart('container', {
+                                               chart: {
+                                                   plotBackgroundColor: null,
+                                                   plotBorderWidth: null,
+                                                   plotShadow: false,
+                                                   type: 'pie'
+                                               },
+                                               title: {
+                                                   text: ''
+                                               },
+                                               tooltip: {
+                                                   pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                               },
+                                               plotOptions: {
+                                                   pie: {
+                                                       allowPointSelect: true,
+                                                       cursor: 'pointer',
+                                                       dataLabels: {
+                                                           enabled: true,
+                                                           format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                                       }
+                                                   }
+                                               },
+                                               series: [{
+                                                       name: 'Value',
+                                                       colorByPoint: true,
+                                                       data: data
+                                                   }]
+                                           });
+                                       }
 
                                    });
     </script>
