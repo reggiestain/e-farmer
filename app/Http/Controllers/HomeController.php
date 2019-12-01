@@ -37,13 +37,17 @@ class HomeController extends Controller
         
         $femaleCount = Farmer::where('gender','Female')->count();
         $farmersCount = Farmer::count();
+        $avgFarmerAge = Farmer::avg('age');
+        $avgDependant = Farmer::avg('number_of_dependencies');
         $cropType = Crop::all();
         return view('home')->with([
             'users'=>$users,
             'farmers'=>$farmers,
             'femaleCount'=>$femaleCount,
             'farmersCount'=>$farmersCount,   
-            'sumCrop'=>$sumCrop
+            'sumCrop'=>$sumCrop,
+            'avgFarmerAge' => round($avgFarmerAge),
+            'avgDependant' => round($avgDependant)
         ]);
     }
 }
