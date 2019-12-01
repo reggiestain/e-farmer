@@ -477,7 +477,7 @@
         type: 'pie'
     },
     title: {
-        text: 'Total seedlings per crop type'
+        text: ''
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
