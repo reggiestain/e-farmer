@@ -29,10 +29,11 @@ class HomeController extends Controller
         $users = User::all();
         $farmers = Farmer::all();
         
-        $sumCrop = DB::table('farm_details')->select('crops.name', DB::raw('SUM(seedlings) as seedlings'))
+        $sumCrop = DB::table('farm_details')->select('crops.name', DB::raw('SUM(seedlings) as y'))
+                        
                         ->join('crops', function ($join) {
                             $join->on('farm_details.crop_id', '=', 'crops.id');
-                        })->groupBy('crops.name')->get();
+                        })->whereNotIn('crops.id', [7])->groupBy('crops.name')->get();
         
         $femaleCount = Farmer::where('gender','Female')->count();
         $farmersCount = Farmer::count();

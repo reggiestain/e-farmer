@@ -48,12 +48,13 @@ class Reports extends Controller {
 
     public function seedlingsPerCrop() {
 
-        $avgCrop = DB::table('farm_details')->select('crops.name', DB::raw('SUM(seedlings) as y'))
+        $sumCrop = DB::table('farm_details')->select('crops.name', DB::raw('SUM(seedlings) as y'))
+                        
                         ->join('crops', function ($join) {
                             $join->on('farm_details.crop_id', '=', 'crops.id');
-                        })->groupBy('crops.name')->get();
+                        })->whereNotIn('crops.id', [7])->groupBy('crops.name')->get();
 
-        return $avgCrop;
+        return $sumCrop;
     }
 
 }
