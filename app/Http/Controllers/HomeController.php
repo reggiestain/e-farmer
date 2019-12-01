@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Farmer;
 use App\User;
 use App\Crop;
+use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     /**
@@ -28,6 +29,11 @@ class HomeController extends Controller
         $users = User::all();
         $farmers = Farmer::all();
         
+        $sumCrop = DB::table('farm_details')->select('crops.name', DB::raw('SUM(seedlings) as seedlings'))
+                        ->join('crops', function ($join) {
+                            $join->on('farm_details.crop_id', '=', 'crops.id');
+                        })->groupBy('crops.name')->get();
+        
         $femaleCount = Farmer::where('gender','Female')->count();
         $farmersCount = Farmer::count();
         $cropType = Crop::all();
@@ -35,7 +41,8 @@ class HomeController extends Controller
             'users'=>$users,
             'farmers'=>$farmers,
             'femaleCount'=>$femaleCount,
-            'farmersCount'=>$farmersCount,            
+            'farmersCount'=>$farmersCount,   
+            'sumCrop'=>$sumCrop
         ]);
     }
 }

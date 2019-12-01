@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.css') }}">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">      
         <link href="{{ asset('js/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+        
         <style>
             .stepwizard-step p {
                 margin-top: 0px;
@@ -264,15 +265,12 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ URL::asset('js/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ URL::asset('js/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="{{ URL::asset('js/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="{{ URL::asset('js/sb-admin-2.min.js') }}"></script>
     <!-- Page level plugins -->
     <script src="{{ URL::asset('js/vendor/chart.js/Chart.min.js') }}"></script>
-
     <!-- Page level custom scripts -->
     <script src="{{ URL::asset('js/demo/chart-area-demo.js') }}"></script>
     <script src="{{ URL::asset('js/demo/chart-pie-demo.js') }}"></script>
@@ -281,6 +279,9 @@
     <script src="{{ URL::asset('js/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
     <!-- Page level custom scripts -->
     <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script>
                                    $(document).ready(function () {
 
@@ -302,7 +303,7 @@
                                                //Browser has blocked it
                                                alert('Please allow popups for this website');
                                            }
-                                         
+
                                        });
 
                                        $(document).on('click', '.edit-f', function (e) {
@@ -355,7 +356,7 @@
                                        $(document).on('submit', '#updateFarm', function (e) {
                                            e.preventDefault(); // avoid to execute the actual submit of the form.
 
-                                           var formdata = $(this).serialize(); 
+                                           var formdata = $(this).serialize();
                                            var url = $("#updateFarm").attr('action');
                                            //alert(url);
                                            $.ajax({
@@ -456,6 +457,49 @@
                                        });
 
                                        $('div.setup-panel div a.btn-success').trigger('click');
+
+                                       // Set new default font family and font color to mimic Bootstrap's default styling
+                                       Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                                       Chart.defaults.global.defaultFontColor = '#858796';
+
+                                       var crop;
+
+                                       $.getJSON("{{route('report.cropsum')}}", cropSum);
+
+                                       function cropSum(data) {
+                                       
+                                       
+                                       Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Total seedlings per crop type'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: data
+    }]
+});
+}
+
                                    });
     </script>
 </body>

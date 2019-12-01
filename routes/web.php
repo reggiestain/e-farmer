@@ -16,7 +16,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//report
+Route::get('','Reports@agePerFarmer');
+Route::get('/avgCrop','Reports@seedlingsPerCrop');
+Route::get('/avgDependant','Reports@avgDependant');
+Route::get('/seedlingsPerCrop','Reports@seedlingsPerCrop')->name('report.cropsum');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/farmer/add', 'FarmerController@create')->name('farmer.add');
 //farm
