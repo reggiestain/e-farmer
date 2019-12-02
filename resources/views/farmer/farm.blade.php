@@ -8,7 +8,7 @@
                 <th>Seedlings</th>
                 <th>Size Of Land</th>
                 <th>Year Established</th>
-                <th>Community</th>
+                <th>District</th>
                 <th>Location</th>                                                               
                 <th>Region</th>
                 <th>Action</th>

@@ -272,8 +272,6 @@
     <!-- Page level plugins -->
     <script src="{{ URL::asset('js/vendor/chart.js/Chart.min.js') }}"></script>
     <!-- Page level custom scripts -->
-    <script src="{{ URL::asset('js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ URL::asset('js/demo/chart-pie-demo.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ URL::asset('js/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('js/vendor/datatables/dataTables.bootstrap4.js') }}"></script>
@@ -462,7 +460,7 @@
                                        $.getJSON("{{route('report.cropsum')}}", cropSum);
 
                                        function cropSum(data) {
-                                            
+
                                            Highcharts.chart('container', {
                                                chart: {
                                                    plotBackgroundColor: null,
@@ -493,7 +491,14 @@
                                                    }]
                                            });
 
-                                           //Bar
+                                           //Bar Chart
+                                           data.forEach(myFunction);
+                                           
+                                           function myFunction(item, index, arr) {
+                                               arr[index] = item.name;
+                                           }
+
+                                           console.log(data);
                                            Highcharts.chart('container-bar', {
                                                chart: {
                                                    type: 'bar'
@@ -502,7 +507,7 @@
                                                    text: ''
                                                },
                                                xAxis: {
-                                                   categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                                                   categories: ['Kwahu south','Twifo Ati Mokwa','Offinso North','Adansi South','East Mamprusi']
                                                },
                                                yAxis: {
                                                    min: 0,
@@ -519,13 +524,19 @@
                                                    }
                                                },
                                                series: [{
-                                                       name: 'John',
+                                                       name: 'Shea',
                                                        data: [5, 3, 4, 7, 2]
                                                    }, {
-                                                       name: 'Jane',
+                                                       name: 'Rubber',
                                                        data: [2, 2, 3, 2, 1]
                                                    }, {
-                                                       name: 'Joe',
+                                                       name: 'Cashew',
+                                                       data: [3, 4, 4, 2, 5]
+                                                   }, {
+                                                       name: 'Coconut',
+                                                       data: [3, 4, 4, 2, 5]
+                                                   }, {
+                                                       name: 'Coffee',
                                                        data: [3, 4, 4, 2, 5]
                                                    }]
                                            });
