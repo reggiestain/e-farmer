@@ -16,6 +16,7 @@ use PDF;
 use Spipu\Html2Pdf\Html2Pdf;
 use Spipu\Html2Pdf\Exception\Html2PdfException;
 use Spipu\Html2Pdf\Exception\ExceptionFormatter;
+use App\District;
 
 class FarmerController extends Controller {
 
@@ -76,12 +77,14 @@ class FarmerController extends Controller {
 
         $regions = Region::all();
         $cropType = Crop::all();
+        $districts = District::all();
         $genders = ['Male', 'Female'];
 
         return view('farmer.add')->with([
                     'regions' => $regions,
                     'genders' => $genders,
                     'cropTypes' => $cropType,
+                    'districts' => $districts,
                     'statuses' => ['Active', 'In-active'],
                     'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
         ]);
@@ -102,6 +105,7 @@ class FarmerController extends Controller {
                 'surname' => 'required',
                 'mobile' => 'required',
                 'gender' => 'required',
+                'district_id' => 'required',
                 'birth_date' => 'required',
                 'birth_place' => 'required',
                 'gender' => 'required',
@@ -161,7 +165,7 @@ class FarmerController extends Controller {
                         'seedlings' => $request->input('seedlings'),
                         'size_of_land' => $request->input('size_of_land'),
                         'year_established' => $request->input('year_established'),
-                        'district' => $request->input('district'),
+                        'district_id' => $request->input('district_id'),
                         'longitude' => $request->input('longitude'),
                         'latitude' => $request->input('latitude'),
                         'region_id' => $request->input('region_id') ?? 11,
@@ -202,7 +206,7 @@ class FarmerController extends Controller {
                         'year_established' => $request->input('year_established'),
                         'status' => $request->input('status'),
                         'location' => $request->input('location'),
-                        'district' => $request->input('district'),
+                        'district_id' => $request->input('district_id'),
                         'longitude' => $request->input('longitude'),
                         'latitude' => $request->input('latitude'),
                         'region_id' => $request->input('region_id') ?? 11,
@@ -246,12 +250,14 @@ class FarmerController extends Controller {
         $farm = FarmDetail::find($id);
         $regions = Region::all();
         $cropType = Crop::all();
+        $districts = District::all();
 
 
         return view('farmer.editfarm')->with([
                     'farms' => $farm,
                     'regions' => $regions,
                     'cropTypes' => $cropType,
+                    'districts' => $districts,
                     'statuses' => ['Active', 'In-active'],
                     'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
         ]);
@@ -294,8 +300,9 @@ class FarmerController extends Controller {
      * @param  \App\Farmer  $farmer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Farmer $farmer) {
-
+    public function edit($id) {
+        
+        $farmer = Farmer::with(['farmDetail'])->find($id);
         $genders = ['Male', 'Female'];
         $regions = Region::all();
         $cropType = Crop::all();

@@ -154,8 +154,8 @@
                                                             </span>
                                                             @enderror
                                                         </div>
-                                                        
-                                                         <div class="form-group">    
+
+                                                        <div class="form-group">    
                                                             <label class="control-label">Marital Status</label>
                                                             <select class="form-control" id="selectGender" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" value="{{ old('marital_status') }}" autocomplete="marital-status">
                                                                 <option value="" disabled selected>Please select marital status</option>        
@@ -395,14 +395,21 @@
                                                     </span>
                                                     @enderror
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group">    
                                                     <label class="control-label">District</label>
-                                                    <input maxlength="200" type="text" name="district" class="form-control @error('district') is-invalid @enderror" placeholder="Enter Community" />
-                                                    @error('district')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+                                                   
+                                                        <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
+                                                            <option value="" disabled selected>Please district</option>        
+                                                            @foreach($districts as $district)
+                                                            <option value="{{$district->id}}">{{ $district->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        @error('district_id')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                        @enderror
+                                                  
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label">Location</label>

@@ -27,7 +27,7 @@
         </div>
     </div>
     <div class="row">
-    <div class="form-group col-md-6">    
+        <div class="form-group col-md-6">    
             <label class="control-label">Farm Status</label>           
             <select class="form-control" id="selectUser" name="status" class="form-control @error('status') is-invalid @enderror" >
                 <option value="{{$farms->status}}" disabled selected>{{ $farms->status ??'Please select status'}}</option>        
@@ -73,14 +73,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-md-6">
-            <label class="control-label">Community Name</label>
-            <input maxlength="200" type="text" name="district" value="{{$farms->district}}" class="form-control @error('district') is-invalid @enderror" placeholder="Enter Community" />
-            @error('district')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
+        <div class="form-group col-6">    
+            <label class="control-label">District</label>
+            <div class="col-md-6 checkbox">
+                <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
+                    <option value="{{$user->district_id}}" selected>{{ $user->district->name??'Please district'}}</option>        
+                    @foreach($districts as $district)
+                    <option value="{{$district->id}}">{{ $district->name }}</option>
+                    @endforeach
+                </select>
+                @error('district_id')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label class="control-label">Longitude</label>

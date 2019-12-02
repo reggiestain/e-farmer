@@ -352,7 +352,7 @@
                                                             <th>Seedlings</th>
                                                             <th>Size Of Land</th>
                                                             <th>Year Established</th>
-                                                            <th>Community</th>
+                                                            <th>District</th>
                                                             <th>Location</th>                                                               
                                                             <th>Region</th>
                                                             <th>Action</th>
@@ -367,9 +367,9 @@
                                                             <td>{{$farm->seedlings}}</td>
                                                             <td>{{$farm->size_of_land}}</td>
                                                             <td>{{$farm->year_exstablished}}</td>
-                                                            <td>{{$farm->district}}</td>
+                                                            <td>{{$farm->district->name ?? ''}}</td>
                                                             <td>{{$farm->location}}</td>                                                           
-                                                            <td>{{$farm->region->name}}</td>
+                                                            <td>{{ $farm->region->name }}</td>
                                                             <td>                                                   
                                                                 <a class="btn btn-success">View</a>                     
                                                                 <a class="btn btn-primary edit-f" href="{{route('farmer.editfarm',$farm->id)}}">Edit</a>                                                                      
