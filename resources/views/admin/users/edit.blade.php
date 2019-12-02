@@ -89,6 +89,23 @@
                                         @endforeach                                       
                                     </div>
                                 </div>
+                                
+                                <div class="form-group row">    
+                                    <label class="col-md-4 col-form-label text-md-right">District</label>
+                                    <div class="col-md-6 checkbox">
+                                    <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
+                                        <option value="{{$user->district_id}}" selected>{{ $user->district->name??'Please district'}}</option>        
+                                        @foreach($districts as $district)
+                                        <option value="{{$district->id}}">{{ $district->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('district_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                    </div>
+                                </div>
 
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

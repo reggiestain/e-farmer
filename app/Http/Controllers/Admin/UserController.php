@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
+use App\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -28,7 +29,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with(['district','roles'])->get();
         return view('admin.users.index')->with('users',$users);
     }
 
@@ -46,10 +47,12 @@ class UserController extends Controller
         }
         
         $roles = Role::all();
+        $districts = District::all();
         
         return view('admin.users.edit')->with([
             'user'=>$user,
-            'roles'=>$roles
+            'roles'=>$roles,
+            'districts'=>$districts
         ]);
     }
 
@@ -63,6 +66,8 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $user->mobile = $request->input('mobile');
+        
+        $user->district_id = $request->input('district_id');
         
         $user->roles()->sync($request->roles);
         

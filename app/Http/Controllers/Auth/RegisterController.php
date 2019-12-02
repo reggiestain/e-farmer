@@ -49,6 +49,7 @@ use RegistersUsers;
         return Validator::make($data, [
                     'name' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                    'district_id' => ['required'],
                     'password' => ['required', 'string', 'min:8', 'confirmed'],
                   //  "roles.*"  => "required|string|distinct|min:3",
         ]);
@@ -64,6 +65,7 @@ use RegistersUsers;
         $user = User::create([
                     'name' => $data['name'],
                     'email' => $data['email'],
+                    'district_id' => $data['district_id'],
                     'password' => Hash::make($data['password']),
         ]);
 

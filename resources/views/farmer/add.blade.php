@@ -348,7 +348,7 @@
                                                         <option value="{{$cropType->id}}">{{ $cropType->name }}</option>
                                                         @endforeach
                                                     </select>
-                                                    @error('region_id')
+                                                    @error('crop_id')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>

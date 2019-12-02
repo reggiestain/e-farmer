@@ -127,10 +127,8 @@
                                 </div>
                             </div>
                             <!-- Card Body -->
-                            <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
-                                </div>
+                            <div class="card-body">                                                                  
+                             <div id="container-bar"></div>                                 
                             </div>
                         </div>
                     </div>
@@ -157,15 +155,15 @@
                             <!-- Card Body -->
                             <div class="card-body">
                                 <div class="chart-pie pt-4 pb-2"id="container" style="height: 320px !important"></div>
-                               
+
                             </div>
                         </div>
                     </div>
                 </div>
-             
+
             </div>
             <!-- /.container-fluid -->
 
         </div>
         <!-- End of Main Content -->        
-    @endsection
+        @endsection
