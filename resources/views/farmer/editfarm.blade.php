@@ -110,7 +110,7 @@
         <div class="form-group col-md-6">    
             <label class="control-label">Region</label>
             <select class="form-control" id="selectUser" name="region_id" class="form-control @error('region_id') is-invalid @enderror" >
-                <option value="{{$farms->region->name}}" disabled selected>{{ $farms->region->name ?? 'Please select region'}}</option>        
+                <option value="{{$farms->region->name ?? '0'}}" disabled selected>{{ $farms->region->name ?? 'Please select region'}}</option>        
                 @foreach($regions as $region)
                 <option value="{{$region->id}}">{{ $region->name }}</option>
                 @endforeach
