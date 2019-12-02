@@ -234,12 +234,13 @@ class FarmerController extends Controller {
         $farm = Farmer::find($id);
         $regions = Region::all();
         $cropType = Crop::all();
+        $districts = District::all();
 
-
-        return view('farmer.farm')->with([
+       return view('farmer.farm')->with([
                     'farmers' => $farm,
                     'regions' => $regions,
                     'cropTypes' => $cropType,
+                    'districts' =>  $districts,
                     'statuses' => ['Active', 'In-active'],
                     'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
         ]);

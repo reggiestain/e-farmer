@@ -23,7 +23,7 @@
                 <td>{{$farm->seedlings}}</td>
                 <td>{{$farm->size_of_land}}</td>
                 <td>{{$farm->year_exstablished}}</td>
-                <td>{{$farm->district}}</td>
+                <td>{{$farm->district->name}}</td>
                 <td>{{$farm->location}}</td>                                                           
                 <td>{{$farm->region->name}}</td>
                 <td>                                                   
