@@ -270,7 +270,7 @@ class FarmerController extends Controller {
         
         $farm->crop_id = $request->input('crop_id') ?? 7;
         $farm->seedlings = $request->input('seedlings');
-        $farm->district = $request->input('district');
+        $farm->district_id = $request->input('district_id');
         $farm->size_of_land = $request->input('size_of_land');
         $farm->location = $request->input('location');
         $farm->status = $request->input('status') ?? 'In-active';
