@@ -74,8 +74,7 @@
     </div>
     <div class="row">
         <div class="form-group col-6">    
-            <label class="control-label">District</label>
-            <div class="col-md-6 checkbox">
+            <label class="control-label">District</label>          
                 <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
                     <option value="{{$farms->district_id}}" selected>{{ $farms->district->name??'Please district'}}</option>        
                     @foreach($districts as $district)
@@ -87,7 +86,6 @@
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-            </div>
         </div>
         <div class="form-group col-md-6">
             <label class="control-label">Longitude</label>
