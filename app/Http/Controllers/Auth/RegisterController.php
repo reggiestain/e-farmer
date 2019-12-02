@@ -49,6 +49,7 @@ use RegistersUsers;
         return Validator::make($data, [
                     'name' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                    'mobile' => ['required', 'string','max:10', 'unique:users'],
                     'district_id' => ['required'],
                     'password' => ['required', 'string', 'min:8', 'confirmed'],
                   //  "roles.*"  => "required|string|distinct|min:3",
