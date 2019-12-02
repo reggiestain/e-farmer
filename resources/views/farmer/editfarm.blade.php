@@ -77,7 +77,7 @@
             <label class="control-label">District</label>
             <div class="col-md-6 checkbox">
                 <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
-                    <option value="{{$user->district_id}}" selected>{{ $user->district->name??'Please district'}}</option>        
+                    <option value="{{$farms->district_id}}" selected>{{ $farms->district->name??'Please district'}}</option>        
                     @foreach($districts as $district)
                     <option value="{{$district->id}}">{{ $district->name }}</option>
                     @endforeach
