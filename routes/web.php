@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 //report
-Route::get('','Reports@agePerFarmer');
+//Route::get('/','Reports@agePerFarmer');
 Route::get('/avgCrop','Reports@seedlingsPerCrop');
 Route::get('/avgDependant','Reports@avgDependant');
 Route::get('/seedlingsPerCrop','Reports@seedlingsPerCrop')->name('report.cropsum');
