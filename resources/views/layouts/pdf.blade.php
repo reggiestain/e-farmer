@@ -78,8 +78,9 @@
                                     <img src="{{ public_path('img/logo/local-gov.png')}}" class="rounded-circle"style="width:5%">
                                 </span>
                                  <span>
+                                    <img src="{{ public_path('img/logo/trojan.png')}}" style="width:10%">
                                     Powered by
-                                    <img src="/img/logo/trojan.png" style="width:10%">
+                                    <img src="{{ public_path('img/logo/trojan.png')}}" style="width:10%">
                                 </span>
                             </div>
                         </div>
