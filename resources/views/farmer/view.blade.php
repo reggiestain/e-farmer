@@ -52,7 +52,7 @@
                                                     <br><br>
                                                     <strong>DISTRICT:</strong> {{$farmer->farmDetail[0]->district->name ?? ''}}
                                                     <br><br>
-                                                    <strong>COMMUNITY NAME:</strong> {{$farmer->farmDetail[0]->community ?? ''}}
+                                                    <strong>COMMUNITY NAME:</strong> {{$farmer->farmDetail[0]->locationy ?? ''}}
                                                 </td> 
                                                 <td colspan="3"> 
                                                     <strong>NAME OF EXTENSION OFFICER:</strong> {{$farmer->user->name}}
