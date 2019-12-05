@@ -15,7 +15,7 @@
                     <br><br>
                     <strong>DISTRICT:</strong> {{$farmer->farmDetail[0]->district->name ?? ''}}
                     <br><br>
-                    <strong>COMMUNITY NAME:</strong> {{$farmer->farmDetail[0]->community}}
+                    <strong>COMMUNITY NAME:</strong> {{$farmer->farmDetail[0]->location}}
                 </td> 
                 <td colspan="3"> 
                     <strong>NAME OF EXTENSION OFFICER:</strong> {{$farmer->user->name}}
@@ -117,7 +117,7 @@
                 <th>Size Of Land</th> 
                 <th>Year Established</th> 
                 <th>District</th> 
-                <th>Region</th>
+                <th>Location</th>
             </tr> 
             @foreach($farmer->farmDetail as $farm)
             <tr>                     
@@ -127,7 +127,7 @@
                 <td>{{$farm->size_of_land}}</td>   
                 <td>{{$farm->year_stablished}}</td>  
                 <td>{{$farm->district->name ?? ''}}</td>  
-                <td>{{$farm->region->name ?? ''}}</td>                   
+                <td>{{$farm->location ?? ''}}</td>                   
             </tr> 
             @endforeach
         </tbody> 
