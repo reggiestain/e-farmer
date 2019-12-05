@@ -16,7 +16,7 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">User Sign In</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Sign In</h1>
                                 </div>
                                 <form class="user" method="POST" action="{{ route('login') }}">
                                     @csrf
@@ -54,14 +54,14 @@
                                      </a>-->
                                
                                 <!--<hr>-->
-                                <div class="text-center">
+                                <!--<div class="text-center">
                                      @if (Route::has('password.request'))                                               
                                      <a class="bold" href="{{ route('password.request') }}">Forgot Password?</a>
                                      @endif
                                 </div>
                                 <div class="text-center">
                                     <a class="bold" href="register.html">Create an Account!</a>
-                                </div>
+                                </div>-->
                                  </form>
                             </div>
                         </div>
