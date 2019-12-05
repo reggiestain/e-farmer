@@ -141,6 +141,22 @@
 </div>
 <div class="container">
 <div>Farmer Signature:..................................................................</div>
+ <footer class="sticky-footer bg-white" style="padding:0px 0px">
+                        <div class="container my-auto">
+                            <div class="copyright my-auto">
+                                <span style="margin-right:400px">
+                                    Sponsored by
+                                    <img src="/img/logo/perd.png" style="width:6%">
+                                    <img src="/img/logo/fng.png" style="width:13%;margin-top:20px">
+                                    <img src="/img/logo/local-gov.png" class="rounded-circle"style="width:5%">
+                                </span>
+                                 <span>
+                                    Powered by
+                                    <img src="/img/logo/trojan.png" style="width:10%">
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
 </div>
 @endsection     
 
