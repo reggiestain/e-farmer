@@ -68,6 +68,22 @@
   <div class="container">
     @yield('content')
   </div>
+  <footer class="sticky-footer bg-white" style="padding:0px 0px">
+                        <div class="container my-auto">
+                            <div class="copyright my-auto">
+                                <span style="margin-right:400px">
+                                    Sponsored by
+                                    <img src="{{ public_path('img/logo/perd.png')}}" style="width:10%">
+                                    <img src="{{ public_path('img/logo/fng.png')}}" style="width:13%;margin-top:20px">
+                                    <img src="{{ public_path('img/logo/local-gov.png')}}" class="rounded-circle"style="width:5%">
+                                </span>
+                                 <span>
+                                    Powered by
+                                    <img src="/img/logo/trojan.png" style="width:10%">
+                                </span>
+                            </div>
+                        </div>
+                    </footer>
 </body>
 </html>
 
