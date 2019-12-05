@@ -84,7 +84,7 @@
                                                     <br><br>
                                                     <strong>PHONE NUMBER :</strong> {{$farmer->mobile}}
                                                     <br><br>
-                                                    <strong>MARITAL STATUS :</strong> married{{$farmer->marital_status}}
+                                                    <strong>MARITAL STATUS :</strong> {{$farmer->marital_status}}
                                                     <br><br>
                                                     <strong>NUMBER OF CHILDREN:</strong> {{$farmer->number_of_children}}
                                                     <br><br>
@@ -95,7 +95,7 @@
                                                         <div class="imagePreview" @if ($farmer->profile_image) 
                                                              style="background-image: url({{asset(config('app.file_path').'/'.$farmer->profile_image)}})"
                                                              @else
-                                                             style="background: url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg)"
+                                                             
                                                              @endif >
                                                     </div>
                                                 </div><!-- col-2 -->
