@@ -48,11 +48,11 @@
                                                 <td colspan="3"> 
                                                     <strong>APPLICATION No:</strong> #{{$farmer->id}}
                                                     <br><br>
-                                                    <strong>REGION:</strong> {{$farmer->farmDetail[0]->region->name}}
+                                                    <strong>REGION:</strong> {{$farmer->farmDetail[0]->region->name ?? ''}}
                                                     <br><br>
-                                                    <strong>DISTRICT:</strong> Accra
+                                                    <strong>DISTRICT:</strong> {{$farmer->farmDetail[0]->district->name ?? ''}}
                                                     <br><br>
-                                                    <strong>COMMUNITY NAME:</strong> Accra
+                                                    <strong>COMMUNITY NAME:</strong> {{$farmer->farmDetail[0]->community ?? ''}}
                                                 </td> 
                                                 <td colspan="3"> 
                                                     <strong>NAME OF EXTENSION OFFICER:</strong> {{$farmer->user->name}}
