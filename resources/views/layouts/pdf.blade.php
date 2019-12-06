@@ -74,11 +74,11 @@
                                 <span style="margin-right:400px">
                                     Sponsored by
                                     <img src="{{ public_path('img/logo/perd.png')}}" style="width:10%">
-                                    <img src="{{ public_path('img/logo/fng.png')}}" style="width:15%;margin-top:20px">
-                                    <img src="{{ public_path('img/logo/local-gov.png')}}" class="rounded-circle"style="width:10%">
+                                    <img src="{{ public_path('img/logo/fng.png')}}" style="width:20%;margin-top:20px">
+                                    <img src="{{ public_path('img/logo/local-gov.png')}}" class="rounded-circle" style="width:8%">
+                                    <img src="{{ public_path('img/logo/adb.png')}}" class="rounded-circle" style="width:10%">
                                 </span>
-                                 <span>
-                                    <img src="{{ public_path('img/logo/trojan.png')}}" style="width:10%">
+                                 <span>            
                                     Powered by
                                     <img src="{{ public_path('img/logo/trojan.png')}}" style="width:10%">
                                 </span>
