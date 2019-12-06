@@ -68,8 +68,8 @@
   <div class="container">
     @yield('content')
   </div>
-  <div class="container">
-  <footer>
+  
+  <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright my-auto">
             <span>
@@ -86,7 +86,6 @@
         </div>
     </div>
 </footer>
-  </div>
 </body>
 </html>
 
