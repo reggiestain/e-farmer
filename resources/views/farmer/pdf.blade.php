@@ -153,8 +153,7 @@
         I confirm that all the details in this registration form are correct and that I will provide copies of the appropriate photographs and documents where required. I understand and agree that PERD Programme will use these and other data to create and maintain records on me, both during my active and non-active status as a beneficiary. I understand that the personal information provided by myself may be checked by the 
         PERD Programme and any of the external agencies as listed in the Data Protection Act.
     </p>
-</div>
-<div class="container">
+
     <br/>
     <div>Farmer Signature:.......................................................................</div>
     <br/>
@@ -162,25 +161,7 @@
     <br/>
     <div>PERD Programme Manager Signature:.........................................................</div>
 </div>
-<div class="container" style="margin-top: 200px">
-<footer class="sticky-footer bg-white" style="padding:0px 0px">
-    <div class="container my-auto">
-        <div class="copyright my-auto">
-            <span>
-                Sponsored by
-                <img src="{{ public_path('img/logo/perd.png')}}" style="width:10%">
-                <img src="{{ public_path('img/logo/fng.png')}}" style="width:20%;margin-top:20px">
-                <img src="{{ public_path('img/logo/local-gov.png')}}" class="rounded-circle" style="width:8%">
-                <img src="{{ public_path('img/logo/adb.png')}}" class="rounded-circle" style="width:10%">
-            </span>
-            <span style="margin-left:350px">            
-                Powered by
-                <img src="{{ public_path('img/logo/trojan.png')}}" style="width:10%">
-            </span>
-        </div>
-    </div>
-</footer>
-</div>    
+   
 @endsection     
 
 
