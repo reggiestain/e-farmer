@@ -154,6 +154,16 @@
                                                             </span>
                                                             @enderror
                                                         </div>
+                                                        
+                                                         <div class="form-group">
+                                                            <label class="control-label">Association</label>
+                                                            <input type="text" name="assoc" class="form-control @error('assoc') is-invalid @enderror" placeholder="Enter Association" value="{{ old('assoc') }}" autocomplete="assoc"/>
+                                                            @error('assoc')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
 
                                                         <div class="form-group">    
                                                             <label class="control-label">Marital Status</label>

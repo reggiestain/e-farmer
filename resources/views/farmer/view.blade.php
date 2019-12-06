@@ -81,6 +81,8 @@
                                                     <br><br>
                                                     <strong>AGE:</strong> {{$farmer->age}}
                                                     <br><br>
+                                                    <strong>Association:</strong> {{$farmer->assoc}}
+                                                    <br><br>
                                                     <strong>PHYSICAL ADDRESS:</strong> {{$farmer->address}}
                                                 </td> 
                                                 <td colspan="2" > 

@@ -154,6 +154,15 @@
                                                             </span>
                                                             @enderror
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label">Association</label>
+                                                            <input type="text" name="assoc" class="form-control @error('assoc') is-invalid @enderror" placeholder="Enter Association" value="{{  $farmer->assoc }}" autocomplete="assoc"/>
+                                                            @error('assoc')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                            @enderror
+                                                        </div>
                                                         <div class="form-group">    
                                                             <label class="control-label">Marital Status</label>
                                                             <select class="form-control" id="selectGender" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" value="{{ old('marital_status') }}" autocomplete="marital_status">

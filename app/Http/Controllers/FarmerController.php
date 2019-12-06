@@ -140,6 +140,7 @@ class FarmerController extends Controller {
                         'mobile' => $request->input('mobile'),
                         'gender' => $request->input('gender'),
                         'age' => $request->input('age'),
+                        'assoc' => $request->input('assoc'),
                         'birth_date' => $request->input('birth_date'),
                         'birth_place' => $request->input('birth_place'),
                         'region_id' => $request->input('region_id'),

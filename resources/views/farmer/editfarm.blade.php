@@ -30,7 +30,7 @@
         <div class="form-group col-md-6">    
             <label class="control-label">Farm Status</label>           
             <select class="form-control" id="selectUser" name="status" class="form-control @error('status') is-invalid @enderror" >
-                <option value="{{$farms->status}}" disabled selected>{{ $farms->status ??'Please select status'}}</option>        
+                <option value="{{$farms->status ?? 'In-active'}}" disabled selected>{{ $farms->status ??'Please select status'}}</option>        
                 @foreach($statuses as $status)
                 <option value="{{$status}}">{{ $status }}</option>
                 @endforeach
@@ -76,7 +76,7 @@
         <div class="form-group col-6">    
             <label class="control-label">District</label>          
                 <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
-                    <option value="{{$farms->district_id}}" selected>{{ $farms->district->name??'Please district'}}</option>        
+                    <option value="{{$farms->district_id ?? '0'}}" selected>{{ $farms->district->name??'Please district'}}</option>        
                     @foreach($districts as $district)
                     <option value="{{$district->id}}">{{ $district->name }}</option>
                     @endforeach
