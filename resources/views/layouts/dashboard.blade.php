@@ -132,16 +132,16 @@
                     <footer class="sticky-footer bg-white" style="padding:0px 0px">
                         <div class="container my-auto">
                             <div class="copyright my-auto">
-                                <span style="margin-right:400px">
+                                <span>
                                     Sponsored by
                                     <img src="/img/logo/perd.png" style="width:6%">
                                     <img src="/img/logo/fng.png" style="width:13%;margin-top:20px">
                                     <img src="/img/logo/local-gov.png" class="rounded-circle"style="width:5%">
-                                    <img src="/img/logo/adb.png" class="rounded-circle" style="width:10%;margin-right: 350px"
+                                    <img src="/img/logo/adb.png" class="rounded-circle" style="width:10%"
                                 </span>
-                                 <span>
+                                 <span style="margin-left:350px !important">
                                     Powered by
-                                    <img src="/img/logo/trojan.png" style="width:6%">
+                                    <img src="/img/logo/trojan.png" style="width:8%">
                                 </span>
                             </div>
                         </div>
