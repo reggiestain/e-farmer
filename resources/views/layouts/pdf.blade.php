@@ -69,11 +69,11 @@
     @yield('content')
   </div>
   <div class="container">
-    <p>Farmer Signature:.............................................................    Date:......................</p>
-    <p>Certify</p>
-    <p>District Agric Officer Signature:.............................................    Date:......................</p> 
-    <p>Approve</p>
-    <p>PERD Programme Manager Signature:.............................................    Date:.......................</p>
+    <p>Farmer Signature:..................................................................................      Date:.........................................</p>
+    <h4>Certify</h4>
+    <p>District Agric Officer Signature:..................................................................      Date:.........................................</p> 
+    <h4>Approve</h4>
+    <p>PERD Programme Manager Signature:..................................................................      Date:.........................................</p>
 </div>
   <footer class="sticky-footer bg-white">
     <div class="container my-auto">

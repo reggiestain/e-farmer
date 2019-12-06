@@ -153,11 +153,7 @@
         I confirm that all the details in this registration form are correct and that I will provide copies of the appropriate photographs and documents where required. I understand and agree that PERD Programme will use these and other data to create and maintain records on me, both during my active and non-active status as a beneficiary. I understand that the personal information provided by myself may be checked by the 
         PERD Programme and any of the external agencies as listed in the Data Protection Act.
     </p>
-    <p><b>Farmer Signature:.................................................................  Date:......................</p>
-    <p>Certify</p>
-    <p>District Agric Officer Signature:.................................................  Date:......................</p> 
-    <p>Approve</p>
-    <p>PERD Programme Manager Signature:.................................................  Date:.......................</p>
+    
 </div>
    
 @endsection     
