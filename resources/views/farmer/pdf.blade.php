@@ -59,7 +59,7 @@
                     <br><br>
                     <strong>NUMBER OF CHILDREN:</strong> {{$farmer->number_of_children}}
                     <br><br>
-                    <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->mumber_of_dependents}}
+                    <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->number_of_dependencies}}
                     <br><br>
                     <strong>POSTAL ADDRESS:</strong> {{$farmer->postal_address}}
                 </td> 
