@@ -137,7 +137,7 @@
                                     <img src="/img/logo/perd.png" style="width:6%">
                                     <img src="/img/logo/fng.png" style="width:13%;margin-top:20px">
                                     <img src="/img/logo/local-gov.png" class="rounded-circle"style="width:5%">
-                                    <img src="{{ public_path('img/logo/adb.png')}}" class="rounded-circle" style="width:10%"
+                                    <img src="/img/logo/adb.png" class="rounded-circle" style="width:10%;margin-right: 350px"
                                 </span>
                                  <span>
                                     Powered by
