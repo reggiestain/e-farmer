@@ -42,18 +42,26 @@
                     <br><br>
                     <strong>BIRTH DATE:</strong> {{$farmer->birth_date}}
                     <br><br>
+                    <strong>BIRTH PLACE:</strong> {{$farmer->birth_place}}
+                    <br><br>
                     <strong>AGE:</strong> {{$farmer->age}}
+                    <br><br>
+                    <strong>PHYSICAL ADDRESS:</strong> {{$farmer->address}}
                 </td> 
                 <td colspan="2" > 
                     <strong>EMAIL :</strong> {{$farmer->email}}
                     <br><br>
-                    <strong>PHONE NUMBER :</strong> {{$farmer->mobile}}
+                    <strong>PHONE NUMBER 1:</strong> {{$farmer->mobile}}
+                    <br><br>
+                    <strong>PHONE NUMBER 2:</strong> {{$farmer->mobile2}}
                     <br><br>
                     <strong>MARITAL STATUS :</strong> {{$farmer->marital_status}}
                     <br><br>
                     <strong>NUMBER OF CHILDREN:</strong> {{$farmer->number_of_children}}
                     <br><br>
                     <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->mumber_of_dependents}}
+                    <br><br>
+                    <strong>POSTAL ADDRESS:</strong> {{$farmer->postal_address}}
                 </td> 
                 <td colspan="3">
                     @if ($farmer->profile_image) 
@@ -141,13 +149,13 @@
 </div>
 <div class="container">
     <h4>Declaration:</h4>
-    <div>
+    <p>
         I confirm that all the details in this registration form are correct and that I will provide copies of the appropriate photographs and documents where required. I understand and agree that PERD Programme will use these and other data to create and maintain records on me, both during my active and non-active status as a beneficiary. I understand that the personal information provided by myself may be checked by the 
         PERD Programme and any of the external agencies as listed in the Data Protection Act.
-    </div>
+    </p>
     <div>Farmer Signature:.......................................................................</div>
 </div>
-<br/>
+<div class="container">
 <footer class="sticky-footer bg-white" style="padding:0px 0px">
     <div class="container my-auto">
         <div class="copyright my-auto">
@@ -165,6 +173,7 @@
         </div>
     </div>
 </footer>
+</div>    
 @endsection     
 
 

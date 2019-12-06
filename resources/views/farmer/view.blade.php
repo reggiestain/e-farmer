@@ -77,25 +77,33 @@
                                                     <br><br>
                                                     <strong>BIRTH DATE:</strong> {{$farmer->birth_date}}
                                                     <br><br>
+                                                    <strong>BIRTH PLACE:</strong> {{$farmer->birth_place}}
+                                                    <br><br>
                                                     <strong>AGE:</strong> {{$farmer->age}}
+                                                    <br><br>
+                                                    <strong>PHYSICAL ADDRESS:</strong> {{$farmer->address}}
                                                 </td> 
                                                 <td colspan="2" > 
                                                     <strong>EMAIL :</strong> {{$farmer->email}}
                                                     <br><br>
-                                                    <strong>PHONE NUMBER :</strong> {{$farmer->mobile}}
+                                                    <strong>PHONE NUMBER 1:</strong> {{$farmer->mobile}}
+                                                    <br><br>
+                                                    <strong>PHONE NUMBER 2:</strong> {{$farmer->mobile2}}
                                                     <br><br>
                                                     <strong>MARITAL STATUS :</strong> {{$farmer->marital_status}}
                                                     <br><br>
                                                     <strong>NUMBER OF CHILDREN:</strong> {{$farmer->number_of_children}}
                                                     <br><br>
                                                     <strong>NUMBER OF DEPENDENTS:</strong> {{$farmer->mumber_of_dependents}}
+                                                    <br><br>
+                                                    <strong>POSTAL ADDRESS:</strong> {{$farmer->postal_address}}
                                                 </td> 
                                                 <td colspan="2"> 
                                                     <div class="col-md-12 imgUp">
                                                         <div class="imagePreview" @if ($farmer->profile_image) 
                                                              style="background-image: url({{asset(config('app.file_path').'/'.$farmer->profile_image)}})"
                                                              @else
-                                                             
+
                                                              @endif >
                                                     </div>
                                                 </div><!-- col-2 -->
@@ -103,8 +111,8 @@
                                         </tr>
                                         @if($farmer->spousalDetail)
                                         <tr> 
-                                         <th colspan="3"><h4>SPOUSE DETAILS</h4></th> 
-                                          <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                                            <th colspan="3"><h4>SPOUSE DETAILS</h4></th> 
+                                            <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                                         </tr>
                                         <tr>                                             
                                             <td colspan="3"> 
@@ -154,7 +162,7 @@
                                         </tr> 
                                         </tr>
                                         <tr> 
-                                        @foreach($farmer->farmDetail as $farm)
+                                            @foreach($farmer->farmDetail as $farm)
                                         <tr> 
                                             <td>{{$farm->status}}</td> 
                                             <td>{{$farm->crop->name}}</td> 
@@ -163,23 +171,23 @@
                                             <td>{{$farm->year_stablished}}</td>  
                                             <td>{{$farm->district->name ?? ''}}</td>  
                                             <td>{{$farm->location}}</td>   
-                                           
+
                                         </tr> 
                                         @endforeach
                                         </tr>
                                     </tbody> 
                                     <tfoot> 
                                         <tr>
-                                        <th colspan="10"></th>                                          
+                                            <th colspan="10"></th>                                          
                                         </tr> 
                                     </tfoot> 
                                 </table>
                             </div>
                         </div>
                     </div>
- </div>
-             
+                </div>
 
-                    @endsection     
+
+                @endsection     
 
 
