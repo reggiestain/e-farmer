@@ -141,13 +141,13 @@
 </div>
 <div class="container">
     <h4>Declaration:</h4>
-    <p>
+    <div>
         I confirm that all the details in this registration form are correct and that I will provide copies of the appropriate photographs and documents where required. I understand and agree that PERD Programme will use these and other data to create and maintain records on me, both during my active and non-active status as a beneficiary. I understand that the personal information provided by myself may be checked by the 
         PERD Programme and any of the external agencies as listed in the Data Protection Act.
-    </p>
+    </div>
     <div>Farmer Signature:.......................................................................</div>
 </div>
-<br/><br/><br/>
+<br/>
 <footer class="sticky-footer bg-white" style="padding:0px 0px">
     <div class="container my-auto">
         <div class="copyright my-auto">
