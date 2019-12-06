@@ -403,6 +403,7 @@ class FarmerController extends Controller {
         $farmer->mobile2 = $request->input('mobile2');
         $farmer->gender = $request->input('gender') ?? 'Male';
         $farmer->age = $request->input('age');
+        $farmer->assoc = $request->input('assoc');
         $farmer->birth_date = $request->input('birth_date');
         $farmer->birth_place = $request->input('birth_place');
         //$farmer->region_id = $request->input('region_id');
