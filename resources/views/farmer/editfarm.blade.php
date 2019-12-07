@@ -62,6 +62,22 @@
             </span>
             @enderror
         </div>
+        <div class="form-group col-md-6">    
+            <label class="control-label">Land Measurement Unit</label>
+            <select name="unit" class="form-control" id="selectUser" class="form-control @error('unit') is-invalid @enderror" >
+                <option value="{{$farms->unit}}" disabled selected>{{ $farms->unit ??'Please measurement unit'}}</option>        
+                @foreach($units as $unit)
+                <option value="{{$unit}}">{{ $unit }}</option>
+                @endforeach
+            </select>
+            @error('crop_id')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div> 
+    </div>    
+    <div class="row">    
         <div class="form-group col-md-6">
             <label class="control-label">Established Year</label>
             <input maxlength="200" type="text" name="year_exstablished" value="{{$farms->year_exstablished}}" class="form-control @error('year_established') is-invalid @enderror"/>

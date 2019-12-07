@@ -79,6 +79,7 @@ class FarmerController extends Controller {
         $cropType = Crop::all();
         $districts = District::all();
         $genders = ['Male', 'Female'];
+        $units = ['acres', 'plots', 'hectares'];
 
         return view('farmer.add')->with([
                     'regions' => $regions,
@@ -86,7 +87,8 @@ class FarmerController extends Controller {
                     'cropTypes' => $cropType,
                     'districts' => $districts,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
+                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated'],
+                    'units'    =>$units
         ]);
     }
 
@@ -165,6 +167,7 @@ class FarmerController extends Controller {
                         'crop_id' => $request->input('crop_id') ?? 7,
                         'seedlings' => $request->input('seedlings'),
                         'size_of_land' => $request->input('size_of_land'),
+                        'unit' => $request->input('unit'),
                         'year_established' => $request->input('year_established'),
                         'district_id' => $request->input('district_id'),
                         'longitude' => $request->input('longitude'),
@@ -261,7 +264,8 @@ class FarmerController extends Controller {
                     'cropTypes' => $cropType,
                     'districts' => $districts,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
+                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated'],
+                    'units' => ['acres', 'plots', 'hectares']
         ]);
     }
 
@@ -273,6 +277,7 @@ class FarmerController extends Controller {
         $farm->seedlings = $request->input('seedlings');
         $farm->district_id = $request->input('district_id');
         $farm->size_of_land = $request->input('size_of_land');
+        $farm->unit = $request->input('unit');
         $farm->location = $request->input('location');
         $farm->status = $request->input('status') ?? 'In-active';
         $farm->longitude = $request->input('longitude');

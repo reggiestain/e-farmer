@@ -11,7 +11,8 @@ class FarmDetail extends Model
      *
      * @var array
      */
-    protected $fillable = ['farmer_id','crop_id','seedlings','location','status','size_of_land','year_extablished','district_id','longitude','latitude'];
+    protected $fillable = ['farmer_id','crop_id','seedlings','location','status','unit',
+                           'size_of_land','year_extablished','district_id','longitude','latitude'];
     
     public function region() {
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterDistrictToFarmDetails extends Migration
+class AlterUnitToFarmDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterDistrictToFarmDetails extends Migration
     public function up()
     {
         Schema::table('farm_details', function (Blueprint $table) {
-            $table->integer('district_id')->after('location');
+            $table->string('unit',20)->after('size_of_land')->nullable();
                         
         });
     }

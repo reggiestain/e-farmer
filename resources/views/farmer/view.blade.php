@@ -169,7 +169,7 @@
                                             <td>{{$farm->status}}</td> 
                                             <td>{{$farm->crop->name}}</td> 
                                             <td>{{$farm->seedlings}}</td> 
-                                            <td>{{$farm->size_of_land}}</td>   
+                                            <td>{{$farm->size_of_land." ".$farm->unit}}</td>   
                                             <td>{{$farm->year_exstablished}}</td>  
                                             <td>{{$farm->district->name ?? ''}}</td>  
                                             <td>{{$farm->location}}</td>   
