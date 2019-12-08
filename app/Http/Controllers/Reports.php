@@ -207,7 +207,7 @@ class Reports extends Controller {
         
         
        return ['cat'=>$cat,
-               'mango'=>$mango,
+               'mango'=>$coffee,
                'coffee'=>$mango,
                'coconut'=>$coconut,
                'cashew'=>$cashew,
