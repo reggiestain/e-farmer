@@ -501,14 +501,13 @@
                                                    }]
                                            });
 
+                                       }
+                                       
+                                       $.getJSON("{{route('report.distsum')}}", distSum);
+                                       
+                                       function distSum(data) {                                          
                                            //Bar Chart
-                                           data.forEach(myFunction);
-                                           
-                                           function myFunction(item, index, arr) {
-                                               arr[index] = item.name;
-                                           }
-
-                                           console.log(data);
+                                           //console.log(data.cat);
                                            Highcharts.chart('container-bar', {
                                                chart: {
                                                    type: 'bar'
@@ -517,7 +516,7 @@
                                                    text: ''
                                                },
                                                xAxis: {
-                                                   categories: ['Kwahu south','Twifo Ati Mokwa','Offinso North','Adansi South','East Mamprusi']
+                                                   categories: data.cat
                                                },
                                                yAxis: {
                                                    min: 0,
@@ -534,23 +533,31 @@
                                                    }
                                                },
                                                series: [{
+                                                       name: 'Oil Palm',
+                                                       data: data.palm
+                                                   },
+                                                   {
                                                        name: 'Shea',
-                                                       data: [5, 3, 4, 7, 2]
+                                                       data: data.shea
                                                    }, {
                                                        name: 'Rubber',
-                                                       data: [2, 2, 3, 2, 1]
+                                                       data: data.rubber
                                                    }, {
                                                        name: 'Cashew',
-                                                       data: [3, 4, 4, 2, 5]
+                                                       data: data.cashew
                                                    }, {
                                                        name: 'Coconut',
-                                                       data: [3, 4, 4, 2, 5]
+                                                       data: data.coconut
                                                    }, {
                                                        name: 'Coffee',
-                                                       data: [3, 4, 4, 2, 5]
-                                                   }]
+                                                       data: data.coffee
+                                                   },{
+                                                       name: 'Mango',
+                                                       data: data.mango
+                                                   }
+                                               ]
                                            });
-                                       }
+                                       }    
 
                                    });
     </script>

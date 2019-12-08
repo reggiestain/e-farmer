@@ -21,6 +21,7 @@ Auth::routes();
 Route::get('/avgCrop','Reports@seedlingsPerCrop');
 Route::get('/avgDependant','Reports@avgDependant');
 Route::get('/seedlingsPerCrop','Reports@seedlingsPerCrop')->name('report.cropsum');
+Route::get('/seedlingsPerDistrict','Reports@seedlingsPerDistrict')->name('report.distsum');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/farmer/add', 'FarmerController@create')->name('farmer.add');
 //farm
