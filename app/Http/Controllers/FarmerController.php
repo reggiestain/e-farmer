@@ -320,7 +320,7 @@ class FarmerController extends Controller {
                     'farmer' => $farmer,
                     'cropTypes' => $cropType,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated',,'widow','widower']
+                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated','widow','widower']
         ]);
     }
 
