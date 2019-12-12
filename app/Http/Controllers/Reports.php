@@ -204,8 +204,6 @@ class Reports extends Controller {
         $palm = [round($pam1[0]->sum ?? 0),round($pam2[0]->sum ?? 0),round($pam3[0]->sum ?? 0),
                    round($pam4[0]->sum ?? 0),round($pam5[0]->sum ?? 0)];
         
-        
-        
        return ['cat'=>$cat,
                'mango'=>$mango,
                'coffee'=>$coffee,

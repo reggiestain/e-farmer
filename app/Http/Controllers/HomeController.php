@@ -39,6 +39,7 @@ class HomeController extends Controller
         $farmersCount = Farmer::count();
         $avgFarmerAge = Farmer::avg('age');
         $avgDependant = Farmer::avg('number_of_dependencies');
+       
         $cropType = Crop::all();
         return view('home')->with([
             'users'=>$users,

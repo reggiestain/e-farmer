@@ -246,7 +246,7 @@ class FarmerController extends Controller {
                     'cropTypes' => $cropType,
                     'districts' =>  $districts,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
+                    'maritals' => ['Single', 'Married', 'Divorced','Seperated','widow','widower']
         ]);
     }
 
@@ -264,7 +264,7 @@ class FarmerController extends Controller {
                     'cropTypes' => $cropType,
                     'districts' => $districts,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated'],
+                    'maritals' => ['Single', 'Married', 'Divorced','Seperated','widow','widower'],
                     'units' => ['acres', 'plots', 'hectares']
         ]);
     }
@@ -297,7 +297,7 @@ class FarmerController extends Controller {
                     'regions' => $regions,
                     'cropTypes' => $cropType,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
+                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated',,'widow','widower']
         ]);
     }
 
@@ -320,7 +320,7 @@ class FarmerController extends Controller {
                     'farmer' => $farmer,
                     'cropTypes' => $cropType,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
+                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated',,'widow','widower']
         ]);
     }
 
@@ -361,7 +361,7 @@ class FarmerController extends Controller {
                     'regions' => $regions,
                     'cropTypes' => $cropType,
                     'statuses' => ['Active', 'In-active'],
-                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated']
+                    'maritals' => ['Single', 'Married', 'Divorced', 'Seperated','widow','widower']
         ]);
         
 
