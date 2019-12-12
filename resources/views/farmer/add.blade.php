@@ -410,15 +410,22 @@
                                                     </span>
                                                     @enderror
                                                 </div>      
-                                                <div class="form-group">
+                                                <div class='form-group'>
                                                     <label class="control-label">Established Year</label>
-                                                    <input maxlength="200" type="text" name="year_established" class="form-control @error('year_established') is-invalid @enderror" placeholder="Enter Establish Year" />
-                                                    @error('year_established')
+                                                    <div class="form-group">
+                                                        <div class='input-group date' id='date-year'>
+                                                            <input type='text' name="year_exstablished" class="form-control @error('year_exstablished') is-invalid @enderror">
+                                                            <span class="input-group-addon">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    @error('year_exstablished')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
-                                                </div>
+                                                </div>   
                                                 <div class="form-group">    
                                                     <label class="control-label">District</label>
 

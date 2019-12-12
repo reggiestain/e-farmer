@@ -139,7 +139,7 @@
                                     <img src="/img/logo/local-gov.png" class="rounded-circle"style="width:5%">
                                     <img src="/img/logo/adb.png" class="rounded-circle" style="width:10%"
                                 </span>
-                                 <span style="margin-left:350px !important">
+                                <span style="margin-left:350px !important">
                                     Powered by
                                     <img src="/img/logo/trojan.png" style="width:8%">
                                 </span>
@@ -399,6 +399,16 @@
                                            todayHighlight: true
                                        });
 
+                                       $('#date-year').datepicker({
+                                           format: "yyyy",
+                                           weekStart: 1,
+                                           orientation: "bottom",
+                                           language: "es",
+                                           keyboardNavigation: false,
+                                           viewMode: "years",
+                                           minViewMode: "years"
+                                       });
+
                                        $(".imgAdd").click(function () {
                                            $(this).closest(".row").find('.imgAdd').before('<div class="col-sm-2 imgUp"><div class="imagePreview"></div><label class="btn btn-primary">Upload<input type="file" class="uploadFile img" value="Upload Photo" style="width:0px;height:0px;overflow:hidden;"></label><i class="fa fa-times del"></i></div>');
                                        });
@@ -502,10 +512,10 @@
                                            });
 
                                        }
-                                       
+
                                        $.getJSON("{{route('report.distsum')}}", distSum);
-                                       
-                                       function distSum(data) {                                          
+
+                                       function distSum(data) {
                                            //Bar Chart
                                            //console.log(data.cat);
                                            Highcharts.chart('container-bar', {
@@ -551,13 +561,13 @@
                                                    }, {
                                                        name: 'Coffee',
                                                        data: data.coffee
-                                                   },{
+                                                   }, {
                                                        name: 'Mango',
                                                        data: data.mango
                                                    }
                                                ]
                                            });
-                                       }    
+                                       }
 
                                    });
     </script>

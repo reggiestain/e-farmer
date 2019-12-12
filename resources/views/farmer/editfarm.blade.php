@@ -77,31 +77,38 @@
             @enderror
         </div> 
     </div>    
-    <div class="row">    
-        <div class="form-group col-md-6">
+    <div class="row"> 
+        <div class='form-group'>
             <label class="control-label">Established Year</label>
-            <input maxlength="200" type="text" name="year_exstablished" value="{{$farms->year_exstablished}}" class="form-control @error('year_established') is-invalid @enderror"/>
+            <div class="form-group">
+                <div class='input-group date' id='date-year'>
+                    <input type='text' name="year_exstablished" class="form-control @error('year_exstablished') is-invalid @enderror" value="{{ $farms->year_exstablished }}" autocomplete="year_exstablished"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
             @error('year_exstablished')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror
-        </div>
+        </div>   
     </div>
     <div class="row">
         <div class="form-group col-6">    
             <label class="control-label">District</label>          
-                <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
-                    <option value="{{$farms->district_id ?? '0'}}" selected>{{ $farms->district->name??'Please district'}}</option>        
-                    @foreach($districts as $district)
-                    <option value="{{$district->id}}">{{ $district->name }}</option>
-                    @endforeach
-                </select>
-                @error('district_id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+            <select class="form-control" id="selectUser" name="district_id" class="form-control @error('district_id') is-invalid @enderror" >
+                <option value="{{$farms->district_id ?? '0'}}" selected>{{ $farms->district->name??'Please district'}}</option>        
+                @foreach($districts as $district)
+                <option value="{{$district->id}}">{{ $district->name }}</option>
+                @endforeach
+            </select>
+            @error('district_id')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
         </div>
         <div class="form-group col-md-6">
             <label class="control-label">Longitude</label>
@@ -139,6 +146,17 @@
         </div>
     </div>    
     <button class="btn btn-primary nextBtn pull-right" type="submit">Submit</button>  
-
 </form>
+
+<script>
+    $('#date-year').datepicker({
+        format: "yyyy",
+        weekStart: 1,
+        orientation: "bottom",
+        language: "es",
+        keyboardNavigation: false,
+        viewMode: "years",
+        minViewMode: "years"
+    });
+</script>
 
