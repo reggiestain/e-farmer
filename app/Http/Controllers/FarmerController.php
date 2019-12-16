@@ -166,6 +166,7 @@ class FarmerController extends Controller {
                         'farmer_id' => $farmer->id,
                         'crop_id' => $request->input('crop_id') ?? 7,
                         'seedlings' => $request->input('seedlings'),
+                        'income' => $request->input('income'),
                         'size_of_land' => $request->input('size_of_land'),
                         'unit' => $request->input('unit'),
                         'year_established' => $request->input('year_established'),
@@ -275,6 +276,7 @@ class FarmerController extends Controller {
         
         $farm->crop_id = $request->input('crop_id') ?? 7;
         $farm->seedlings = $request->input('seedlings');
+        $farm->income = $request->input('income');
         $farm->district_id = $request->input('district_id');
         $farm->size_of_land = $request->input('size_of_land');
         $farm->unit = $request->input('unit');
@@ -425,6 +427,7 @@ class FarmerController extends Controller {
 
         $farmer->farmDetail->crop_id = $request->input('crop_id');
         $farmer->farmDetail->seedlings = $request->input('seedlings');
+        $farmer->farmDetail->income = $request->input('income');
         $farmer->farmDetail->district = $request->input('district');
         $farmer->farmDetail->longitude = $request->input('longitude');
         $farmer->farmDetail->latitude = $request->input('latitude');

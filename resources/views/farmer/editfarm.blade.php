@@ -78,7 +78,16 @@
         </div> 
     </div>    
     <div class="row"> 
-        <div class='form-group'>
+    <div class="form-group col-md-6">
+            <label class="control-label">Annual Income</label>
+            <input maxlength="200" type="text" name="income"  value="{{$farms->income}}" class="form-control @error('income') is-invalid @enderror" />
+            @error('income')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class='form-group col-md-6'>
             <label class="control-label">Established Year</label>
             <div class="form-group">
                 <div class='input-group date' id='date-year'>

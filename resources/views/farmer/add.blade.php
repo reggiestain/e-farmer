@@ -388,6 +388,15 @@
                                                     @enderror
                                                 </div>
                                                 <div class="form-group">
+                                                    <label class="control-label">Annual Income</label>
+                                                    <input maxlength="200" type="number" name="income" class="form-control @error('income') is-invalid @enderror" placeholder="Enter  annual income" />
+                                                    @error('income')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <div class="form-group">
                                                     <label class="control-label">Size Of Land</label>
                                                     <input maxlength="200" type="text" name="size_of_land" class="form-control @error('size_of_land') is-invalid @enderror" placeholder="Enter Size of Land" />
                                                     @error('size_of_land')

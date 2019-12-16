@@ -6,6 +6,7 @@
                 <th>Farm Status</th>
                 <th>Crop Type</th>
                 <th>Seedlings</th>
+                <th>Annual Income</th>
                 <th>Size Of Land</th>
                 <th>Year Established</th>
                 <th>District</th>
@@ -21,10 +22,10 @@
                 <td>{{$farm->status}}</td>
                 <td>{{$farm->crop->name}}</td>
                 <td>{{$farm->seedlings}}</td>
+                <td>{{$farm->income}}</td>
                 <td>{{$farm->size_of_land}}</td>
                 <td>{{$farm->year_exstablished}}</td>
-                <td>{{$farm->district->name ?? ''}}</td>
-                <td>{{$farm->location}}</td>                                                           
+                <td>{{$farm->district->name ?? ''}}</td>                                                        
                 <td>{{$farm->region->name ?? ''}}</td>
                 <td>                                                   
                     <a class="btn btn-success">View</a> 
