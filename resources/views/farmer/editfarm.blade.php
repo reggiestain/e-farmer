@@ -80,7 +80,7 @@
     <div class="row"> 
     <div class="form-group col-md-6">
             <label class="control-label">Annual Income</label>
-            <input maxlength="200" type="text" name="income"  value="{{$farms->income}}" class="form-control @error('income') is-invalid @enderror" />
+            <input maxlength="200" type="number" name="income"  value="{{$farms->income}}" class="form-control @error('income') is-invalid @enderror" />
             @error('income')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
