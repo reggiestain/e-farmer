@@ -107,7 +107,7 @@
                                                              @else
 
                                                              @endif >
-                                                    </div>
+                                                        </div>
                                                 </div><!-- col-2 -->
                                             </td>
                                         </tr>
