@@ -359,10 +359,10 @@
                                                             <th>Farm Status</th>
                                                             <th>Crop Type</th>
                                                             <th>Seedlings</th>
+                                                            <th>Annual Income</th> 
                                                             <th>Size Of Land</th>
                                                             <th>Year Established</th>
-                                                            <th>District</th>
-                                                            <th>Location</th>                                                               
+                                                            <th>District</th>                                                              
                                                             <th>Region</th>
                                                             <th>Action</th>
                                                         </tr>
@@ -374,10 +374,10 @@
                                                             <td>{{$farm->status}}</td>
                                                             <td>{{$farm->crop->name}}</td>
                                                             <td>{{$farm->seedlings}}</td>
+                                                            <td>{{$farm->income}} Cedi</td>
                                                             <td>{{$farm->size_of_land." ".$farm->unit}}</td>  
                                                             <td>{{$farm->year_exstablished}}</td>
-                                                            <td>{{$farm->district->name ?? ''}}</td>
-                                                            <td>{{$farm->location}}</td>                                                           
+                                                            <td>{{$farm->district->name ?? ''}}</td>                                                                                                                      
                                                             <td>{{ $farm->region->name ?? '' }}</td>
                                                             <td>                                                   
                                                                 <a class="btn btn-success">View</a>                     
@@ -476,16 +476,49 @@
                                         </span>
                                         @enderror
                                     </div>
+                                    <div class="form-group col-md-6">    
+                                        <label class="control-label">Land Measurement Unit</label>
+                                        <select name="unit" class="form-control" id="selectUser" class="form-control @error('unit') is-invalid @enderror" >
+                                            <option disabled selected>Please measurement unit</option>        
+                                            @foreach($units as $unit)
+                                            <option value="{{$unit}}">{{ $unit }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('crop_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div> 
+                                </div>
+                                <div class="row"> 
                                     <div class="form-group col-md-6">
-                                        <label class="control-label">Established Year</label>
-                                        <input maxlength="200" type="text" name="year_established" class="form-control @error('year_established') is-invalid @enderror" placeholder="Enter Establish Year" />
-                                        @error('year_established')
+                                        <label class="control-label">Annual Income</label>
+                                        <input maxlength="200" type="text" name="income" class="form-control @error('income') is-invalid @enderror" />
+                                        @error('income')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
+                                    <div class='form-group col-md-6'>
+                                        <label class="control-label">Established Year</label>
+                                        <div class="form-group">
+                                            <div class='input-group date' id='date-year-2'>
+                                                <input type='text' name="year_exstablished" class="form-control @error('year_exstablished') is-invalid @enderror"  autocomplete="year_exstablished"/>
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @error('year_exstablished')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>  
+                                </div>  
+
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label class="control-label">Community</label>
