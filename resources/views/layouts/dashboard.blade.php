@@ -280,7 +280,6 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ URL::asset('js/sb-admin-2.min.js') }}"></script>
     <!-- Page level plugins -->
-    <script src="{{ URL::asset('js/vendor/chart.js/Chart.min.js') }}"></script>
     <!-- Page level custom scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
     <script src="{{ URL::asset('js/vendor/datatables/jquery.dataTables.min.js') }}"></script>

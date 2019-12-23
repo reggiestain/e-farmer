@@ -36,11 +36,12 @@ class HomeController extends Controller
                             $join->on('farm_details.crop_id', '=', 'crops.id');
                         })->whereNotIn('crops.id', [7])->groupBy('crops.name')->get();
         
-        $femaleCount = Farmer::where('gender','Female')->count();
+        $femaleCount  = Farmer::where('gender','Female')->count();
         $farmersCount = Farmer::count();
         $avgFarmerAge = Farmer::avg('age');
         $avgDependant = Farmer::avg('number_of_dependencies');
-        $avgIncome = FarmDetail::avg('income');
+        $avgIncome    =    FarmDetail::avg('income');
+        $avgLandSize  = FarmDetail::avg('size_of_land');
        
         $cropType = Crop::all();
         return view('home')->with([
@@ -51,7 +52,8 @@ class HomeController extends Controller
             'sumCrop'=>$sumCrop,
             'avgFarmerAge' => round($avgFarmerAge),
             'avgDependant' => round($avgDependant),
-            'avgIncome' => round($avgIncome)
+            'avgIncome' => round($avgIncome),
+            'avgLandSize' => round($avgLandSize)
         ]);
     }
 }
