@@ -408,7 +408,7 @@
                                            viewMode: "years",
                                            minViewMode: "years"
                                        });
-                                       
+
                                        $('#date-year-2').datepicker({
                                            format: "yyyy",
                                            weekStart: 1,
@@ -578,7 +578,7 @@
                                                ]
                                            });
                                        }
-
+                                       
                                    });
     </script>
 </body>

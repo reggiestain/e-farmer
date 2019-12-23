@@ -90,7 +90,7 @@
                                                         </div>   
                                                         <div class="form-group">
                                                             <label class="control-label">Contact Number 1</label>
-                                                            <input type="text" name="mobile" class="form-control @error('mobile') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile') }}" autocomplete="mobile"/>
+                                                            <input type="text" name="mobile" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="form-control @error('mobile') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile') }}" autocomplete="mobile"/>
                                                             @error('mobile')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -99,7 +99,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Contact Number 2</label>
-                                                            <input type="text" name="mobile2" class="form-control @error('mobile2') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile2') }}" autocomplete="mobile2"/>
+                                                            <input type="text" name="mobile2" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="form-control @error('mobile2') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile2') }}" autocomplete="mobile2"/>
                                                             @error('mobile2')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -181,7 +181,7 @@
                                                         </div>      
                                                         <div class="form-group">
                                                             <label class="control-label">Number Of Children</label>
-                                                            <input type="text" name="number_of_children" class="form-control @error('number_of_children') is-invalid @enderror" placeholder="Number Of Children" value="{{ old('number_of_children') }}" autocomplete="number_of_children"/>
+                                                            <input type="number" name="number_of_children" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;" class="form-control @error('number_of_children') is-invalid @enderror" placeholder="Number Of Children" value="{{ old('number_of_children') }}" autocomplete="number_of_children"/>
                                                             @error('number_of_children')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -190,7 +190,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Number Of Dependencies</label>
-                                                            <input type="text" name="number_of_dependencies" class="form-control @error('number_of_dependencies') is-invalid @enderror" placeholder="Number of Dependencies" value="{{ old('number_of_dependencies') }}" autocomplete="number_of_dependencies"/>
+                                                            <input type="number" name="number_of_dependencies" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;" class="form-control @error('number_of_dependencies') is-invalid @enderror" placeholder="Number of Dependencies" value="{{ old('number_of_dependencies') }}" autocomplete="number_of_dependencies"/>
                                                             @error('number_of_dependencies')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -287,7 +287,7 @@
                                                 </div>     
                                                 <div class="form-group">
                                                     <label class="control-label">Contact Number</label>
-                                                    <input maxlength="200" type="text"  name="s_mobile" class="form-control @error('s_mobile') is-invalid @enderror" placeholder="Enter Contact Number" />
+                                                    <input  type="number" name="s_mobile" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="form-control @error('s_mobile') is-invalid @enderror" placeholder="Enter Contact Number" />
                                                     @error('s_mobile')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
