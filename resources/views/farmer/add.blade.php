@@ -147,7 +147,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Age</label>
-                                                            <input type="text" name="age" class="form-control @error('age') is-invalid @enderror" placeholder="Enter Age" value="{{ old('age') }}" autocomplete="age"/>
+                                                            <input type="number" name="age" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;" class="form-control @error('age') is-invalid @enderror" placeholder="Enter Age" value="{{ old('age') }}" autocomplete="age"/>
                                                             @error('age')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
