@@ -90,7 +90,7 @@
                                                         </div>   
                                                         <div class="form-group">
                                                             <label class="control-label">Contact Number 1</label>
-                                                            <input type="text" name="mobile" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="form-control @error('mobile') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile') }}" autocomplete="mobile"/>
+                                                            <input type="text" name="mobile" class="form-control @error('mobile') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile') }}" autocomplete="mobile"/>
                                                             @error('mobile')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -99,7 +99,7 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="control-label">Contact Number 2</label>
-                                                            <input type="text" name="mobile2" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="form-control @error('mobile2') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile2') }}" autocomplete="mobile2"/>
+                                                            <input type="text" name="mobile2" class="form-control @error('mobile2') is-invalid @enderror" placeholder="Enter Contact Number" value="{{ old('mobile2') }}" autocomplete="mobile2"/>
                                                             @error('mobile2')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
@@ -287,7 +287,7 @@
                                                 </div>     
                                                 <div class="form-group">
                                                     <label class="control-label">Contact Number</label>
-                                                    <input  type="number" name="s_mobile" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" class="form-control @error('s_mobile') is-invalid @enderror" placeholder="Enter Contact Number" />
+                                                    <input  type="text" name="s_mobile" class="form-control @error('s_mobile') is-invalid @enderror" placeholder="Enter Contact Number" />
                                                     @error('s_mobile')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
