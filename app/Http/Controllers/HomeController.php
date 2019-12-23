@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Farmer;
 use App\User;
 use App\Crop;
+Use App\FarmDetail;
 use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
@@ -39,6 +40,7 @@ class HomeController extends Controller
         $farmersCount = Farmer::count();
         $avgFarmerAge = Farmer::avg('age');
         $avgDependant = Farmer::avg('number_of_dependencies');
+        $avgIncome = FarmDetail::avg('income');
        
         $cropType = Crop::all();
         return view('home')->with([
@@ -48,7 +50,8 @@ class HomeController extends Controller
             'farmersCount'=>$farmersCount,   
             'sumCrop'=>$sumCrop,
             'avgFarmerAge' => round($avgFarmerAge),
-            'avgDependant' => round($avgDependant)
+            'avgDependant' => round($avgDependant),
+            'avgIncome' => round($avgIncome)
         ]);
     }
 }
