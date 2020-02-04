@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>"
+          ;
+    //return view('auth.login');
 });
 
 Auth::routes();
@@ -39,3 +41,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
    Route::resource('users', 'UserController',['except'=>['show','create','store']]); 
    
 });
+
+//OCR
+Route::get('/annotate', 'AnnotationController@displayForm');
+Route::post('/annotate', 'AnnotationController@annotateImage');

@@ -15,6 +15,10 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
@@ -26,6 +30,10 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
     );
 
     public static $prefixLengthsPsr4 = array (
+        't' => 
+        array (
+            'thiagoalessio\\TesseractOCR\\' => 27,
+        ),
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
@@ -79,6 +87,7 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
@@ -109,6 +118,13 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'I' => 
         array (
             'Illuminate\\' => 11,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+            'GoogleCloudVision\\' => 18,
         ),
         'F' => 
         array (
@@ -144,10 +160,15 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'A' => 
         array (
             'App\\' => 4,
+            'Alimranahmed\\LaraOCR\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'thiagoalessio\\TesseractOCR\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src',
+        ),
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
@@ -282,6 +303,10 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
@@ -329,6 +354,22 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'Illuminate\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'GoogleCloudVision\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision',
         ),
         'FontLib\\' => 
         array (
@@ -398,6 +439,10 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+        'Alimranahmed\\LaraOCR\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alimranahmed/laraocr/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -440,6 +485,13 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
     );
 
     public static $classMap = array (
+        'Alimranahmed\\LaraOCR\\Commands\\ImageParsing' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/Commands/ImageParsing.php',
+        'Alimranahmed\\LaraOCR\\Controllers\\OcrController' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/Controllers/OcrController.php',
+        'Alimranahmed\\LaraOCR\\Facades\\OCR' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/Facades/OCR.php',
+        'Alimranahmed\\LaraOCR\\LaraOCRServiceProvider' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/LaraOCRServiceProvider.php',
+        'Alimranahmed\\LaraOCR\\Services\\OcrAbstract' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/Services/OcrAbstract.php',
+        'Alimranahmed\\LaraOCR\\Services\\Shell' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/Services/Shell.php',
+        'Alimranahmed\\LaraOCR\\Services\\Tesseract' => __DIR__ . '/..' . '/alimranahmed/laraocr/src/Services/Tesseract.php',
         'App\\BankDetail' => __DIR__ . '/../..' . '/app/BankDetail.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Crop' => __DIR__ . '/../..' . '/app/Crop.php',
@@ -549,7 +601,6 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
         'DistrictTableSeeder' => __DIR__ . '/../..' . '/database/seeds/DistrictTableSeeder.php',
-        'DistrictsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/DistrictsTableSeeder.php',
         'Doctrine\\Common\\Inflector\\Inflector' => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector/Inflector.php',
         'Doctrine\\Common\\Lexer\\AbstractLexer' => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer/AbstractLexer.php',
         'Doctrine\\Instantiator\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator/Exception/ExceptionInterface.php',
@@ -1318,6 +1369,119 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'FontLib\\WOFF\\File' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/WOFF/File.php',
         'FontLib\\WOFF\\Header' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/WOFF/Header.php',
         'FontLib\\WOFF\\TableDirectoryEntry' => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib/WOFF/TableDirectoryEntry.php',
+        'GoogleCloudVision\\GoogleCloudVision' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/GoogleCloudVision.php',
+        'GoogleCloudVision\\Request\\AnnotateImageRequest' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/AnnotateImageRequest.php',
+        'GoogleCloudVision\\Request\\CropHintsParams' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/CropHintsParams.php',
+        'GoogleCloudVision\\Request\\Feature' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/Feature.php',
+        'GoogleCloudVision\\Request\\Image' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/Image.php',
+        'GoogleCloudVision\\Request\\ImageContext' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/ImageContext.php',
+        'GoogleCloudVision\\Request\\ImageSource' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/ImageSource.php',
+        'GoogleCloudVision\\Request\\LatLng' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/LatLng.php',
+        'GoogleCloudVision\\Request\\LatLongRect' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/LatLongRect.php',
+        'GoogleCloudVision\\Request\\Request' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/Request.php',
+        'GoogleCloudVision\\Request\\WebDetectionParams' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Request/WebDetectionParams.php',
+        'GoogleCloudVision\\Response\\AnnotateImageResponse' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/AnnotateImageResponse.php',
+        'GoogleCloudVision\\Response\\Block' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Block.php',
+        'GoogleCloudVision\\Response\\BoundingPoly' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/BoundingPoly.php',
+        'GoogleCloudVision\\Response\\Color' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Color.php',
+        'GoogleCloudVision\\Response\\ColorInfo' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/ColorInfo.php',
+        'GoogleCloudVision\\Response\\CropHints' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/CropHints.php',
+        'GoogleCloudVision\\Response\\CropHintsAnnotation' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/CropHintsAnnotation.php',
+        'GoogleCloudVision\\Response\\DetectedBreak' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/DetectedBreak.php',
+        'GoogleCloudVision\\Response\\DetectedLanguage' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/DetectedLanguage.php',
+        'GoogleCloudVision\\Response\\DominantColorsAnnotation' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/DominantColorsAnnotation.php',
+        'GoogleCloudVision\\Response\\EntityAnnotation' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/EntityAnnotation.php',
+        'GoogleCloudVision\\Response\\FaceAnnotation' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/FaceAnnotation.php',
+        'GoogleCloudVision\\Response\\ImageProperties' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/ImageProperties.php',
+        'GoogleCloudVision\\Response\\Landmark' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Landmark.php',
+        'GoogleCloudVision\\Response\\LatLng' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/LatLng.php',
+        'GoogleCloudVision\\Response\\LocationInfo' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/LocationInfo.php',
+        'GoogleCloudVision\\Response\\Page' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Page.php',
+        'GoogleCloudVision\\Response\\Paragraph' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Paragraph.php',
+        'GoogleCloudVision\\Response\\Position' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Position.php',
+        'GoogleCloudVision\\Response\\Property' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Property.php',
+        'GoogleCloudVision\\Response\\Response' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Response.php',
+        'GoogleCloudVision\\Response\\SafeSearchAnnotation' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/SafeSearchAnnotation.php',
+        'GoogleCloudVision\\Response\\Symbol' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Symbol.php',
+        'GoogleCloudVision\\Response\\TextAnnotation' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/TextAnnotation.php',
+        'GoogleCloudVision\\Response\\TextProperty' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/TextProperty.php',
+        'GoogleCloudVision\\Response\\Vertex' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Vertex.php',
+        'GoogleCloudVision\\Response\\WebDetection' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/WebDetection.php',
+        'GoogleCloudVision\\Response\\WebEntity' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/WebEntity.php',
+        'GoogleCloudVision\\Response\\WebImage' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/WebImage.php',
+        'GoogleCloudVision\\Response\\WebLabel' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/WebLabel.php',
+        'GoogleCloudVision\\Response\\WebPage' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/WebPage.php',
+        'GoogleCloudVision\\Response\\Word' => __DIR__ . '/..' . '/wapnen/google-cloud-vision-php/GoogleCloudVision/Response/Word.php',
+        'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
+        'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
+        'GuzzleHttp\\Cookie\\CookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php',
+        'GuzzleHttp\\Cookie\\CookieJarInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJarInterface.php',
+        'GuzzleHttp\\Cookie\\FileCookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php',
+        'GuzzleHttp\\Cookie\\SessionCookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php',
+        'GuzzleHttp\\Cookie\\SetCookie' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/SetCookie.php',
+        'GuzzleHttp\\Exception\\BadResponseException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/BadResponseException.php',
+        'GuzzleHttp\\Exception\\ClientException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ClientException.php',
+        'GuzzleHttp\\Exception\\ConnectException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ConnectException.php',
+        'GuzzleHttp\\Exception\\GuzzleException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/GuzzleException.php',
+        'GuzzleHttp\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/InvalidArgumentException.php',
+        'GuzzleHttp\\Exception\\RequestException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/RequestException.php',
+        'GuzzleHttp\\Exception\\SeekException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/SeekException.php',
+        'GuzzleHttp\\Exception\\ServerException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/ServerException.php',
+        'GuzzleHttp\\Exception\\TooManyRedirectsException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/TooManyRedirectsException.php',
+        'GuzzleHttp\\Exception\\TransferException' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Exception/TransferException.php',
+        'GuzzleHttp\\HandlerStack' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/HandlerStack.php',
+        'GuzzleHttp\\Handler\\CurlFactory' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlFactory.php',
+        'GuzzleHttp\\Handler\\CurlFactoryInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlFactoryInterface.php',
+        'GuzzleHttp\\Handler\\CurlHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlHandler.php',
+        'GuzzleHttp\\Handler\\CurlMultiHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/CurlMultiHandler.php',
+        'GuzzleHttp\\Handler\\EasyHandle' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/EasyHandle.php',
+        'GuzzleHttp\\Handler\\MockHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/MockHandler.php',
+        'GuzzleHttp\\Handler\\Proxy' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/Proxy.php',
+        'GuzzleHttp\\Handler\\StreamHandler' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Handler/StreamHandler.php',
+        'GuzzleHttp\\MessageFormatter' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/MessageFormatter.php',
+        'GuzzleHttp\\Middleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Middleware.php',
+        'GuzzleHttp\\Pool' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Pool.php',
+        'GuzzleHttp\\PrepareBodyMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/PrepareBodyMiddleware.php',
+        'GuzzleHttp\\Promise\\AggregateException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/AggregateException.php',
+        'GuzzleHttp\\Promise\\CancellationException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/CancellationException.php',
+        'GuzzleHttp\\Promise\\Coroutine' => __DIR__ . '/..' . '/guzzlehttp/promises/src/Coroutine.php',
+        'GuzzleHttp\\Promise\\EachPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/EachPromise.php',
+        'GuzzleHttp\\Promise\\FulfilledPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/FulfilledPromise.php',
+        'GuzzleHttp\\Promise\\Promise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/Promise.php',
+        'GuzzleHttp\\Promise\\PromiseInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/PromiseInterface.php',
+        'GuzzleHttp\\Promise\\PromisorInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/PromisorInterface.php',
+        'GuzzleHttp\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/guzzlehttp/promises/src/RejectedPromise.php',
+        'GuzzleHttp\\Promise\\RejectionException' => __DIR__ . '/..' . '/guzzlehttp/promises/src/RejectionException.php',
+        'GuzzleHttp\\Promise\\TaskQueue' => __DIR__ . '/..' . '/guzzlehttp/promises/src/TaskQueue.php',
+        'GuzzleHttp\\Promise\\TaskQueueInterface' => __DIR__ . '/..' . '/guzzlehttp/promises/src/TaskQueueInterface.php',
+        'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
+        'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
+        'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
+        'GuzzleHttp\\Psr7\\DroppingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/DroppingStream.php',
+        'GuzzleHttp\\Psr7\\FnStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/FnStream.php',
+        'GuzzleHttp\\Psr7\\InflateStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/InflateStream.php',
+        'GuzzleHttp\\Psr7\\LazyOpenStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LazyOpenStream.php',
+        'GuzzleHttp\\Psr7\\LimitStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LimitStream.php',
+        'GuzzleHttp\\Psr7\\MessageTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MessageTrait.php',
+        'GuzzleHttp\\Psr7\\MultipartStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MultipartStream.php',
+        'GuzzleHttp\\Psr7\\NoSeekStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/NoSeekStream.php',
+        'GuzzleHttp\\Psr7\\PumpStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/PumpStream.php',
+        'GuzzleHttp\\Psr7\\Request' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Request.php',
+        'GuzzleHttp\\Psr7\\Response' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Response.php',
+        'GuzzleHttp\\Psr7\\Rfc7230' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Rfc7230.php',
+        'GuzzleHttp\\Psr7\\ServerRequest' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/ServerRequest.php',
+        'GuzzleHttp\\Psr7\\Stream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Stream.php',
+        'GuzzleHttp\\Psr7\\StreamDecoratorTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamDecoratorTrait.php',
+        'GuzzleHttp\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamWrapper.php',
+        'GuzzleHttp\\Psr7\\UploadedFile' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UploadedFile.php',
+        'GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
+        'GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
+        'GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
+        'GuzzleHttp\\RedirectMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RedirectMiddleware.php',
+        'GuzzleHttp\\RequestOptions' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RequestOptions.php',
+        'GuzzleHttp\\RetryMiddleware' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/RetryMiddleware.php',
+        'GuzzleHttp\\TransferStats' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/TransferStats.php',
+        'GuzzleHttp\\UriTemplate' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/UriTemplate.php',
         'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
         'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
         'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
@@ -3289,6 +3453,13 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
+        'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
+        'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
+        'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
+        'Psr\\Http\\Message\\ServerRequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/ServerRequestInterface.php',
+        'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
+        'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
+        'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
@@ -4558,6 +4729,17 @@ class ComposerStaticInit4fb71a4f7812cec455047bda3aa47367
         'phpDocumentor\\Reflection\\Types\\String_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/String_.php',
         'phpDocumentor\\Reflection\\Types\\This' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/This.php',
         'phpDocumentor\\Reflection\\Types\\Void_' => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src/Types/Void_.php',
+        'thiagoalessio\\TesseractOCR\\Command' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Command.php',
+        'thiagoalessio\\TesseractOCR\\FeatureNotAvailableException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\FriendlyErrors' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\ImageNotFoundException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\NoWritePermissionsForOutputFile' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\Option' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Option.php',
+        'thiagoalessio\\TesseractOCR\\Process' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/Process.php',
+        'thiagoalessio\\TesseractOCR\\TesseractNotFoundException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\TesseractOCR' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/TesseractOCR.php',
+        'thiagoalessio\\TesseractOCR\\TesseractOcrException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
+        'thiagoalessio\\TesseractOCR\\UnsuccessfulCommandException' => __DIR__ . '/..' . '/thiagoalessio/tesseract_ocr/src/FriendlyErrors.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
