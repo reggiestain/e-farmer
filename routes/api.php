@@ -19,6 +19,10 @@ Route::middleware('auth:api')->get('/user', function(Request $request) {
 });
  * 
  */
+Route::post('login', 'APIController@login');
+Route::post('register', 'APIController@register');
+
+Route::group(['middleware' => 'auth.jwt'], function () {
 
 Route::get('','Reports@agePerFarmer');
 
@@ -27,3 +31,7 @@ Route::get('/avgCrop','Reports@seedlingsPerCrop');
 Route::get('/avgDependant','Reports@avgDependant');
 
 Route::get('/seedlingsPerCrop','Reports@seedlingsPerCrop');
+
+Route::post('/annotate', 'AnnotationController@annotateImage');
+
+});

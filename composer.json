@@ -19,6 +19,7 @@
         "laravel/ui": "^1.1",
         "spipu/html2pdf": "^5.2",
         "thiagoalessio/tesseract_ocr": "^2.9",
+        "tymon/jwt-auth": "dev-develop",
         "wapnen/google-cloud-vision-php": "dev-master"
     },
     "require-dev": {

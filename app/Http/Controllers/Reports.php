@@ -17,11 +17,12 @@ use App\Farmer;
 use App\FarmDetail;
 use App\District;
 use Illuminate\Support\Facades\DB;
+use JWTAuth;
 
 class Reports extends Controller {
 
     public function __construct() {
-        //$this->middleware('auth');
+        $this->user = JWTAuth::parseToken()->authenticate();
     }
 
     public function agePerFarmer() {

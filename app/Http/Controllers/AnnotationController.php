@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use GoogleCloudVision\GoogleCloudVision;
 use GoogleCloudVision\Request\AnnotateImageRequest;
+use JWTAuth;
 
 class AnnotationController extends Controller
 {
+  public function __construct()
+    {
+        $this->user = JWTAuth::parseToken()->authenticate();
+    }
     //show the upload form
     public function displayForm(){
         return view('annotate');
@@ -25,8 +30,15 @@ class AnnotationController extends Controller
         //send annotation request
         $response = $gcvRequest->annotate();
         
-        echo json_encode(["description" => $response->responses[0]->textAnnotations[0]->description]);
-
+        return response()->json([
+                'success' => true,
+                "results" => $response->responses[0]->textAnnotations[0]->description
+            ], 200);
       }
+      
+      return response()->json([
+                'success' => false,
+                'message' => "The file you're trying to upload might be corrupt, please try again."
+            ], 500);
     }
 }
