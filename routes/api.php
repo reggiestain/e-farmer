@@ -32,6 +32,14 @@ Route::get('/avgDependant','Reports@avgDependant');
 
 Route::get('/seedlingsPerCrop','Reports@seedlingsPerCrop');
 
-Route::post('/annotate', 'AnnotationController@annotateImage');
+Route::post('', 'AnnotationController@annotateImage');
 
 });
+
+Route::get('','Reports@agePerFarmer');
+
+Route::get('/avgCrop','Reports@seedlingsPerCrop');
+
+Route::get('/avgDependant','Reports@avgDependant');
+
+Route::get('/seedlingsPerCrop','Reports@seedlingsPerCrop');
