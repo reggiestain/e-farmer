@@ -20,7 +20,7 @@ Route::get('/login', function () {
     //return view('auth.login');
 });
 
-Auth::routes();
+//Auth::routes();
 //report
 //Route::get('/','Reports@agePerFarmer');
 Route::get('/avgCrop','Reports@seedlingsPerCrop');
