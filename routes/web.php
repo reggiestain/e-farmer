@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-   echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>"
-          ;
+   echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>";
+   exit();
     //return view('auth.login');
 });
 
