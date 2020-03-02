@@ -15,8 +15,8 @@ Route::get('/', function () {
    echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>";
     //return view('auth.login');
 });
-
-//Auth::routes();
+exit();
+Auth::routes();
 //report
 //Route::get('/','Reports@agePerFarmer');
 Route::get('/avgCrop','Reports@seedlingsPerCrop');
