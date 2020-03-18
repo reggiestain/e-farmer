@@ -5,8 +5,6 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Role;
-use App\District;
 
 trait RegistersUsers
 {
@@ -19,13 +17,7 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        $roles = Role::all();
-        $districts = District::all();
-        return view('auth.register')->with([
-            'roles'=>$roles,
-            'districts'=>$districts
-        ]);
-        
+        return view('auth.register');
     }
 
     /**

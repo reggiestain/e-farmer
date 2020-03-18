@@ -2,20 +2,17 @@
 
 @section('content')
 
-<div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
-    <div id="content">
-
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-            <!-- Page Heading -->
-            <h2 class="h3 mb-4 text-gray-800">Farmers</h2>
-
-            <div class='row'>
+ <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Static Navigation</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Static Navigation</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                               <div class='row'>
                 <div class="col-md-12">
                     <div class="card shadow mb-4">
                         <!-- Card Header - Dropdown -->
@@ -504,9 +501,12 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /.container-fluid -->
-    </div>
+                            </div>
+                        </div>
+                        <div style="height: 100vh;"></div>
+                        <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>
+                    </div>
+                </main>
     @endsection     
 
 

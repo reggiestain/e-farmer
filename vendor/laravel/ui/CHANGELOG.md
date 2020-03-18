@@ -1,6 +1,21 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/ui/compare/v1.1.0...master)
+## [Unreleased](https://github.com/laravel/ui/compare/v1.1.2...1.x)
+
+
+## [v1.1.2 (2019-10-20)](https://github.com/laravel/ui/compare/v1.1.1...v1.1.2)
+
+### Changed
+- Removed Laravel 7.0 support ([0287d4ee](https://github.com/laravel/ui/commit/0287d4eee80aad718bdf7f90117cfe720c493064))
+
+
+## [v1.1.1 (2019-10-11)](https://github.com/laravel/ui/compare/v1.1.0...v1.1.1)
+
+### Changed
+- Change the specified time until re-authentication ([#37](https://github.com/laravel/ui/pull/37))
+
+### Fixed
+- Add `auth.passwords.confirm` to exported views ([#36](https://github.com/laravel/ui/pull/36))
 
 
 ## [v1.1.0 (2019-10-08)](https://github.com/laravel/ui/compare/v1.0.1...v1.1.0)
