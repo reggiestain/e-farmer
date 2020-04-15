@@ -12,12 +12,12 @@
 */
 
 Route::get('/', function () {
-   echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>";
-    //return view('auth.login');
+   //echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>";
+    return view('auth.login');
 });
 Route::get('/login', function () {
-   echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>";
-    //return view('auth.login');
+   //echo "<div style='text-align:center;margin-top:100px;'><img src='img/suspended.png'><br>";
+    return view('auth.login');
 });
 
 //Auth::routes();
