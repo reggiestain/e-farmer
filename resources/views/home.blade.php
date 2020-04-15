@@ -29,7 +29,7 @@
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Age average of all foreign nationals</div>
+                                    <div class="card-body">Average  age of all foreign nationals</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -67,32 +67,22 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
+                                                <th>First Name</th>
+                                                <th>Surname</th>
+                                                <th>Gender</th>
                                                 <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>Birthdate</th>
+                                                <th>Nationality</th>
                                             </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
-                                            </tr>
-                                        </tfoot>
+                                        </thead>                                      
                                         <tbody>
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
+                                                <td>Charles</td>
+                                                <td>Sowah</td>
+                                                <td>Male</td>
+                                                <td>37</td>
+                                                <td>04/08/1983</td>
+                                                <td>Zambia</td>
                                             </tr>
                                         </tbody>
                                     </table>
